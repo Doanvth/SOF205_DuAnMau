@@ -1,9 +1,8 @@
-﻿using System;
-using System.Data;
+﻿using System.Data;
 using Microsoft.Data.SqlClient;
 using System.Reflection;
 
-namespace GUI_SOF205
+namespace UTIL_SOF205
 {
     public class DBUtil
     {

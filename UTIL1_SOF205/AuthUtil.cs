@@ -1,5 +1,5 @@
 ﻿using DTO_SOF205;
-namespace GUI_SOF205
+namespace UTIL_SOF205
 {
     public class AuthUtil
     {
