@@ -6,5 +6,7 @@
         {
             InitializeComponent();
         }
+
+        private void LoadForm(Form form) { }
     }
 }

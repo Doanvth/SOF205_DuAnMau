@@ -1,7 +1,7 @@
 ﻿
 using System.Globalization;
 
-namespace GUI_SOF205
+namespace UTIL_SOF205
 {
     public class DateUtil
     {
