@@ -11,4 +11,8 @@
     <PackageReference Include="Microsoft.Data.SqlClient" Version="6.0.1" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\DTO_SOF205\DTO_SOF205.csproj" />
+  </ItemGroup>
+
 </Project>
