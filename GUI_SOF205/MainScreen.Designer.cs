@@ -58,7 +58,7 @@
             toolStripSeparator2 = new ToolStripSeparator();
             toolStripButton5 = new ToolStripButton();
             toolStripLabel2 = new ToolStripLabel();
-            panel1 = new Panel();
+            pnlFormContainer = new Panel();
             menuStrip1.SuspendLayout();
             statusStrip1.SuspendLayout();
             toolStrip1.SuspendLayout();
@@ -82,14 +82,14 @@
             // 
             // đổiMậtKhẩuToolStripMenuItem
             // 
-            đổiMậtKhẩuToolStripMenuItem.Image = GUI_SOF205.Properties.Resources.arrows1;
+            đổiMậtKhẩuToolStripMenuItem.Image = Properties.Resources.arrows1;
             đổiMậtKhẩuToolStripMenuItem.Name = "đổiMậtKhẩuToolStripMenuItem";
             đổiMậtKhẩuToolStripMenuItem.Size = new Size(145, 22);
             đổiMậtKhẩuToolStripMenuItem.Text = "Đổi mật khẩu";
             // 
             // đăngXuấtToolStripMenuItem
             // 
-            đăngXuấtToolStripMenuItem.Image = GUI_SOF205.Properties.Resources.exit;
+            đăngXuấtToolStripMenuItem.Image = Properties.Resources.exit;
             đăngXuấtToolStripMenuItem.Name = "đăngXuấtToolStripMenuItem";
             đăngXuấtToolStripMenuItem.Size = new Size(145, 22);
             đăngXuấtToolStripMenuItem.Text = "Đăng xuất";
@@ -103,35 +103,35 @@
             // 
             // quảnLýNhânViênToolStripMenuItem
             // 
-            quảnLýNhânViênToolStripMenuItem.Image = GUI_SOF205.Properties.Resources.Couple;
+            quảnLýNhânViênToolStripMenuItem.Image = Properties.Resources.Couple;
             quảnLýNhânViênToolStripMenuItem.Name = "quảnLýNhânViênToolStripMenuItem";
             quảnLýNhânViênToolStripMenuItem.Size = new Size(201, 22);
             quảnLýNhânViênToolStripMenuItem.Text = "Quản lý nhân viên";
             // 
             // quảnLýKháchHàngToolStripMenuItem
             // 
-            quảnLýKháchHàngToolStripMenuItem.Image = GUI_SOF205.Properties.Resources.users;
+            quảnLýKháchHàngToolStripMenuItem.Image = Properties.Resources.users;
             quảnLýKháchHàngToolStripMenuItem.Name = "quảnLýKháchHàngToolStripMenuItem";
             quảnLýKháchHàngToolStripMenuItem.Size = new Size(201, 22);
             quảnLýKháchHàngToolStripMenuItem.Text = "Quản lý khách hàng";
             // 
             // quảnLýLoạiSảnPhẩmToolStripMenuItem
             // 
-            quảnLýLoạiSảnPhẩmToolStripMenuItem.Image = GUI_SOF205.Properties.Resources.Packing1;
+            quảnLýLoạiSảnPhẩmToolStripMenuItem.Image = Properties.Resources.Packing1;
             quảnLýLoạiSảnPhẩmToolStripMenuItem.Name = "quảnLýLoạiSảnPhẩmToolStripMenuItem";
             quảnLýLoạiSảnPhẩmToolStripMenuItem.Size = new Size(201, 22);
             quảnLýLoạiSảnPhẩmToolStripMenuItem.Text = "Quản lý loại sản phẩm";
             // 
             // quảnLýSảnPhẩmToolStripMenuItem
             // 
-            quảnLýSảnPhẩmToolStripMenuItem.Image = GUI_SOF205.Properties.Resources.coffee;
+            quảnLýSảnPhẩmToolStripMenuItem.Image = Properties.Resources.coffee;
             quảnLýSảnPhẩmToolStripMenuItem.Name = "quảnLýSảnPhẩmToolStripMenuItem";
             quảnLýSảnPhẩmToolStripMenuItem.Size = new Size(201, 22);
             quảnLýSảnPhẩmToolStripMenuItem.Text = "Quản lý sản phẩm";
             // 
             // quảnLýPhiếuBánHàngToolStripMenuItem
             // 
-            quảnLýPhiếuBánHàngToolStripMenuItem.Image = GUI_SOF205.Properties.Resources.Order_history;
+            quảnLýPhiếuBánHàngToolStripMenuItem.Image = Properties.Resources.Order_history;
             quảnLýPhiếuBánHàngToolStripMenuItem.Name = "quảnLýPhiếuBánHàngToolStripMenuItem";
             quảnLýPhiếuBánHàngToolStripMenuItem.Size = new Size(201, 22);
             quảnLýPhiếuBánHàngToolStripMenuItem.Text = "Quản lý phiếu bán hàng";
@@ -145,14 +145,14 @@
             // 
             // doanhThuTheoLoạiToolStripMenuItem
             // 
-            doanhThuTheoLoạiToolStripMenuItem.Image = GUI_SOF205.Properties.Resources.Product_sale_report;
+            doanhThuTheoLoạiToolStripMenuItem.Image = Properties.Resources.Product_sale_report;
             doanhThuTheoLoạiToolStripMenuItem.Name = "doanhThuTheoLoạiToolStripMenuItem";
             doanhThuTheoLoạiToolStripMenuItem.Size = new Size(234, 22);
             doanhThuTheoLoạiToolStripMenuItem.Text = "Doanh thu theo loại sản phẩm";
             // 
             // doanhThuTheoNhânViênToolStripMenuItem
             // 
-            doanhThuTheoNhânViênToolStripMenuItem.Image = GUI_SOF205.Properties.Resources.Distributor_report;
+            doanhThuTheoNhânViênToolStripMenuItem.Image = Properties.Resources.Distributor_report;
             doanhThuTheoNhânViênToolStripMenuItem.Name = "doanhThuTheoNhânViênToolStripMenuItem";
             doanhThuTheoNhânViênToolStripMenuItem.Size = new Size(234, 22);
             doanhThuTheoNhânViênToolStripMenuItem.Text = "Doanh thu theo nhân viên";
@@ -166,14 +166,14 @@
             // 
             // trợGiúpToolStripMenuItem
             // 
-            trợGiúpToolStripMenuItem.Image = GUI_SOF205.Properties.Resources.application;
+            trợGiúpToolStripMenuItem.Image = Properties.Resources.application;
             trợGiúpToolStripMenuItem.Name = "trợGiúpToolStripMenuItem";
             trợGiúpToolStripMenuItem.Size = new Size(125, 22);
             trợGiúpToolStripMenuItem.Text = "Trợ giúp";
             // 
             // giớiThiệuToolStripMenuItem
             // 
-            giớiThiệuToolStripMenuItem.Image = GUI_SOF205.Properties.Resources.information;
+            giớiThiệuToolStripMenuItem.Image = Properties.Resources.information;
             giớiThiệuToolStripMenuItem.Name = "giớiThiệuToolStripMenuItem";
             giớiThiệuToolStripMenuItem.Size = new Size(125, 22);
             giớiThiệuToolStripMenuItem.Text = "Giới thiệu";
@@ -189,7 +189,7 @@
             // 
             // toolStripStatusLabel1
             // 
-            toolStripStatusLabel1.Image = GUI_SOF205.Properties.Resources.fpt1;
+            toolStripStatusLabel1.Image = Properties.Resources.fpt1;
             toolStripStatusLabel1.Name = "toolStripStatusLabel1";
             toolStripStatusLabel1.Size = new Size(165, 17);
             toolStripStatusLabel1.Text = "Hệ thống quản lý PolyCafe";
@@ -202,7 +202,7 @@
             // 
             // toolStripStatusLabel2
             // 
-            toolStripStatusLabel2.Image = GUI_SOF205.Properties.Resources.Alarm_clock;
+            toolStripStatusLabel2.Image = Properties.Resources.Alarm_clock;
             toolStripStatusLabel2.Name = "toolStripStatusLabel2";
             toolStripStatusLabel2.RightToLeft = RightToLeft.No;
             toolStripStatusLabel2.Size = new Size(87, 17);
@@ -221,7 +221,7 @@
             // toolStripButton3
             // 
             toolStripButton3.DisplayStyle = ToolStripItemDisplayStyle.Image;
-            toolStripButton3.Image = GUI_SOF205.Properties.Resources.exit;
+            toolStripButton3.Image = Properties.Resources.exit;
             toolStripButton3.ImageTransparentColor = Color.Magenta;
             toolStripButton3.Margin = new Padding(2, 1, 2, 2);
             toolStripButton3.Name = "toolStripButton3";
@@ -236,7 +236,7 @@
             // toolStripButton1
             // 
             toolStripButton1.DisplayStyle = ToolStripItemDisplayStyle.Image;
-            toolStripButton1.Image = GUI_SOF205.Properties.Resources.users;
+            toolStripButton1.Image = Properties.Resources.users;
             toolStripButton1.ImageTransparentColor = Color.Magenta;
             toolStripButton1.Margin = new Padding(2, 1, 2, 2);
             toolStripButton1.Name = "toolStripButton1";
@@ -246,7 +246,7 @@
             // toolStripButton2
             // 
             toolStripButton2.DisplayStyle = ToolStripItemDisplayStyle.Image;
-            toolStripButton2.Image = GUI_SOF205.Properties.Resources.Order_history;
+            toolStripButton2.Image = Properties.Resources.Order_history;
             toolStripButton2.ImageTransparentColor = Color.Magenta;
             toolStripButton2.Margin = new Padding(2, 1, 2, 2);
             toolStripButton2.Name = "toolStripButton2";
@@ -256,7 +256,7 @@
             // toolStripButton4
             // 
             toolStripButton4.DisplayStyle = ToolStripItemDisplayStyle.Image;
-            toolStripButton4.Image = GUI_SOF205.Properties.Resources.coffee;
+            toolStripButton4.Image = Properties.Resources.coffee;
             toolStripButton4.ImageTransparentColor = Color.Magenta;
             toolStripButton4.Margin = new Padding(2, 1, 2, 2);
             toolStripButton4.Name = "toolStripButton4";
@@ -271,7 +271,7 @@
             // toolStripButton5
             // 
             toolStripButton5.DisplayStyle = ToolStripItemDisplayStyle.Image;
-            toolStripButton5.Image = GUI_SOF205.Properties.Resources.information;
+            toolStripButton5.Image = Properties.Resources.information;
             toolStripButton5.ImageTransparentColor = Color.Magenta;
             toolStripButton5.Margin = new Padding(2, 1, 2, 2);
             toolStripButton5.Name = "toolStripButton5";
@@ -287,20 +287,20 @@
             toolStripLabel2.Size = new Size(53, 36);
             toolStripLabel2.Text = "Admin";
             // 
-            // panel1
+            // pnlFormContainer
             // 
-            panel1.AutoSize = true;
-            panel1.Location = new Point(0, 66);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(941, 414);
-            panel1.TabIndex = 3;
+            pnlFormContainer.AutoSize = true;
+            pnlFormContainer.Location = new Point(0, 66);
+            pnlFormContainer.Name = "pnlFormContainer";
+            pnlFormContainer.Size = new Size(941, 414);
+            pnlFormContainer.TabIndex = 3;
             // 
             // MainScreen
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(941, 505);
-            Controls.Add(panel1);
+            Controls.Add(pnlFormContainer);
             Controls.Add(toolStrip1);
             Controls.Add(statusStrip1);
             Controls.Add(menuStrip1);
@@ -349,6 +349,6 @@
         private ToolStripSeparator toolStripSeparator2;
         private ToolStripButton toolStripButton5;
         private ToolStripLabel toolStripLabel2;
-        private Panel panel1;
+        private Panel pnlFormContainer;
     }
 }

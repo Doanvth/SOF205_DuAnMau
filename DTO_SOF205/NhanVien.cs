@@ -5,6 +5,6 @@
         public String? MaNhanVien { get; set; }
         public String? HoTen { get; set; }
         public String? MaKhau { get; set; }
-        public Boolean QuanLy { get; set; }
+        public Boolean QuanLy { get; set; } = true;
     }
 }
