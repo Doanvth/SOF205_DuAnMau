@@ -1,9 +1,8 @@
-﻿using System;
-using System.Data;
+﻿using System.Data;
 using Microsoft.Data.SqlClient;
 using System.Reflection;
 
-namespace GUI_SOF205
+namespace UTIL_SOF205
 {
     public class DBUtil
     {
@@ -91,7 +90,7 @@ namespace GUI_SOF205
                     for(int i = 0; i < reader.FieldCount; i++)
                     {
                         string columnName = reader.GetName(i);
-                        PropertyInfo propertyInfo = result.GetType().GetProperty(columnName);
+                        PropertyInfo? propertyInfo = result.GetType().GetProperty(columnName);
 
                         if (propertyInfo != null)
                         {

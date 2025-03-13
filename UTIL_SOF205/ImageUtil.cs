@@ -1,4 +1,6 @@
-﻿namespace UTIL_SOF205
+﻿using System.Windows.Forms;
+
+namespace UTIL_SOF205
 {
     public class ImageUtil
     {

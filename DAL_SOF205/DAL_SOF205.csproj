@@ -1,14 +1,14 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net8.0</TargetFramework>
+    <TargetFramework>net8.0-windows</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\DTO_SOF205\DTO_SOF205.csproj" />
-    <ProjectReference Include="..\UTIL1_SOF205\UTIL_SOF205.csproj" />
+    <ProjectReference Include="..\UTIL_SOF205\UTIL_SOF205.csproj" />
   </ItemGroup>
 
 </Project>
