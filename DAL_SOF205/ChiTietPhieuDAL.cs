@@ -5,7 +5,7 @@ using System.Data;
 
 namespace DAL_SOF205
 {
-    public class ChiTietPhieuDLL : SystemDLL<ChiTietPhieu, Int32>
+    public class ChiTietPhieuDAL : SystemDAL<ChiTietPhieu, Int32>
     {
         public override void insert(ChiTietPhieu entity)
         {

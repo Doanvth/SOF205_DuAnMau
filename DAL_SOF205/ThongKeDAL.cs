@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DAL_SOF205
 {
-    internal class ThongKeDLL
+    internal class ThongKeDAL
     {
     }
 }

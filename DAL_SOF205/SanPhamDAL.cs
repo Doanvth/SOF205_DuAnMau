@@ -7,7 +7,7 @@ using System.Text;
 namespace DAL_SOF205
 {
     public class SanPhamDLL : SystemDLL<SanPham, String>
-    {
+   {
         public override void insert(SanPham entity)
         {
             String sql = "INSERT INTO SanPham (MaSanPham, TenSanPham, DonGia, MaLoai, HinhAnh, TrangThai) VALUES (@0, @1, @2, @3, @4, @5)";
