@@ -2,7 +2,7 @@
 
 namespace DAL_SOF205
 {
-    abstract public class SystemDLL<EntityType, KeyType>
+    abstract public class SystemDAL<EntityType, KeyType>
     {
         abstract public void insert(EntityType entity);
         abstract public void update(EntityType entity);

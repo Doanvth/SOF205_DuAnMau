@@ -6,7 +6,7 @@ using UTIL_SOF205;
 
 namespace DAL_SOF205
 {
-    public class PhieuBanHangDLL : SystemDLL<PhieuBanHang, String>
+    public class PhieuBanHangDAL : SystemDAL<PhieuBanHang, String>
     {
         public override void insert(PhieuBanHang entity)
         {
