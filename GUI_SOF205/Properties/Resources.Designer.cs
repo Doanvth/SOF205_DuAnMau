@@ -933,6 +933,16 @@ namespace GUI_SOF205.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap poly {
+            get {
+                object obj = ResourceManager.GetObject("poly", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap Product_sale_report {
             get {
                 object obj = ResourceManager.GetObject("Product_sale_report", resourceCulture);

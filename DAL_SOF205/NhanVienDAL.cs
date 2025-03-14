@@ -5,7 +5,7 @@ using Microsoft.Data.SqlClient;
 
 namespace DAL_SOF205
 {
-    public class NhanVienDLL : SystemDLL<NhanVien, String>
+    public class NhanVienDAL : SystemDAL<NhanVien, String>
     {
         public override void insert(NhanVien entity)
         {
@@ -61,7 +61,7 @@ namespace DAL_SOF205
             List<NhanVien> list = new List<NhanVien>();
             try
             {
-                SqlDataReader reader = DBUtil.Query(sql, new List<Object>());
+                SqlDataReader reader = DBUtil.Query(sql, args);
                 while (reader.Read())
                 {
                     NhanVien entity = new NhanVien();
