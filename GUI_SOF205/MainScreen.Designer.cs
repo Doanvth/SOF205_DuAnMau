@@ -66,10 +66,12 @@
             // 
             // menuStrip1
             // 
+            menuStrip1.ImageScalingSize = new Size(24, 24);
             menuStrip1.Items.AddRange(new ToolStripItem[] { tàiKhoảnToolStripMenuItem, quảnLýToolStripMenuItem, thốngKêToolStripMenuItem, hỗTrợToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(941, 24);
+            menuStrip1.Padding = new Padding(9, 3, 0, 3);
+            menuStrip1.Size = new Size(1318, 35);
             menuStrip1.TabIndex = 0;
             menuStrip1.Text = "menuStrip1";
             // 
@@ -77,113 +79,119 @@
             // 
             tàiKhoảnToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { đổiMậtKhẩuToolStripMenuItem, đăngXuấtToolStripMenuItem });
             tàiKhoảnToolStripMenuItem.Name = "tàiKhoảnToolStripMenuItem";
-            tàiKhoảnToolStripMenuItem.Size = new Size(70, 20);
+            tàiKhoảnToolStripMenuItem.Size = new Size(102, 29);
             tàiKhoảnToolStripMenuItem.Text = "Tài khoản";
             // 
             // đổiMậtKhẩuToolStripMenuItem
             // 
             đổiMậtKhẩuToolStripMenuItem.Image = Properties.Resources.arrows1;
             đổiMậtKhẩuToolStripMenuItem.Name = "đổiMậtKhẩuToolStripMenuItem";
-            đổiMậtKhẩuToolStripMenuItem.Size = new Size(145, 22);
+            đổiMậtKhẩuToolStripMenuItem.Size = new Size(221, 34);
             đổiMậtKhẩuToolStripMenuItem.Text = "Đổi mật khẩu";
             // 
             // đăngXuấtToolStripMenuItem
             // 
             đăngXuấtToolStripMenuItem.Image = Properties.Resources.exit;
             đăngXuấtToolStripMenuItem.Name = "đăngXuấtToolStripMenuItem";
-            đăngXuấtToolStripMenuItem.Size = new Size(145, 22);
+            đăngXuấtToolStripMenuItem.Size = new Size(221, 34);
             đăngXuấtToolStripMenuItem.Text = "Đăng xuất";
             // 
             // quảnLýToolStripMenuItem
             // 
             quảnLýToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { quảnLýNhânViênToolStripMenuItem, quảnLýKháchHàngToolStripMenuItem, quảnLýLoạiSảnPhẩmToolStripMenuItem, quảnLýSảnPhẩmToolStripMenuItem, quảnLýPhiếuBánHàngToolStripMenuItem });
             quảnLýToolStripMenuItem.Name = "quảnLýToolStripMenuItem";
-            quảnLýToolStripMenuItem.Size = new Size(60, 20);
+            quảnLýToolStripMenuItem.Size = new Size(89, 29);
             quảnLýToolStripMenuItem.Text = "Quản lý";
             // 
             // quảnLýNhânViênToolStripMenuItem
             // 
             quảnLýNhânViênToolStripMenuItem.Image = Properties.Resources.Couple;
             quảnLýNhânViênToolStripMenuItem.Name = "quảnLýNhânViênToolStripMenuItem";
-            quảnLýNhânViênToolStripMenuItem.Size = new Size(201, 22);
+            quảnLýNhânViênToolStripMenuItem.Size = new Size(304, 34);
             quảnLýNhânViênToolStripMenuItem.Text = "Quản lý nhân viên";
+            quảnLýNhânViênToolStripMenuItem.Click += quảnLýNhânViênToolStripMenuItem_Click;
             // 
             // quảnLýKháchHàngToolStripMenuItem
             // 
             quảnLýKháchHàngToolStripMenuItem.Image = Properties.Resources.users;
             quảnLýKháchHàngToolStripMenuItem.Name = "quảnLýKháchHàngToolStripMenuItem";
-            quảnLýKháchHàngToolStripMenuItem.Size = new Size(201, 22);
+            quảnLýKháchHàngToolStripMenuItem.Size = new Size(304, 34);
             quảnLýKháchHàngToolStripMenuItem.Text = "Quản lý khách hàng";
             // 
             // quảnLýLoạiSảnPhẩmToolStripMenuItem
             // 
             quảnLýLoạiSảnPhẩmToolStripMenuItem.Image = Properties.Resources.Packing1;
             quảnLýLoạiSảnPhẩmToolStripMenuItem.Name = "quảnLýLoạiSảnPhẩmToolStripMenuItem";
-            quảnLýLoạiSảnPhẩmToolStripMenuItem.Size = new Size(201, 22);
+            quảnLýLoạiSảnPhẩmToolStripMenuItem.Size = new Size(304, 34);
             quảnLýLoạiSảnPhẩmToolStripMenuItem.Text = "Quản lý loại sản phẩm";
+            quảnLýLoạiSảnPhẩmToolStripMenuItem.Click += quảnLýLoạiSảnPhẩmToolStripMenuItem_Click;
             // 
             // quảnLýSảnPhẩmToolStripMenuItem
             // 
             quảnLýSảnPhẩmToolStripMenuItem.Image = Properties.Resources.coffee;
             quảnLýSảnPhẩmToolStripMenuItem.Name = "quảnLýSảnPhẩmToolStripMenuItem";
-            quảnLýSảnPhẩmToolStripMenuItem.Size = new Size(201, 22);
+            quảnLýSảnPhẩmToolStripMenuItem.Size = new Size(304, 34);
             quảnLýSảnPhẩmToolStripMenuItem.Text = "Quản lý sản phẩm";
+            quảnLýSảnPhẩmToolStripMenuItem.Click += quảnLýSảnPhẩmToolStripMenuItem_Click;
             // 
             // quảnLýPhiếuBánHàngToolStripMenuItem
             // 
             quảnLýPhiếuBánHàngToolStripMenuItem.Image = Properties.Resources.Order_history;
             quảnLýPhiếuBánHàngToolStripMenuItem.Name = "quảnLýPhiếuBánHàngToolStripMenuItem";
-            quảnLýPhiếuBánHàngToolStripMenuItem.Size = new Size(201, 22);
+            quảnLýPhiếuBánHàngToolStripMenuItem.Size = new Size(304, 34);
             quảnLýPhiếuBánHàngToolStripMenuItem.Text = "Quản lý phiếu bán hàng";
+            quảnLýPhiếuBánHàngToolStripMenuItem.Click += quảnLýPhiếuBánHàngToolStripMenuItem_Click;
             // 
             // thốngKêToolStripMenuItem
             // 
             thốngKêToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { doanhThuTheoLoạiToolStripMenuItem, doanhThuTheoNhânViênToolStripMenuItem });
             thốngKêToolStripMenuItem.Name = "thốngKêToolStripMenuItem";
-            thốngKêToolStripMenuItem.Size = new Size(69, 20);
+            thốngKêToolStripMenuItem.Size = new Size(102, 29);
             thốngKêToolStripMenuItem.Text = "Thống kê";
             // 
             // doanhThuTheoLoạiToolStripMenuItem
             // 
             doanhThuTheoLoạiToolStripMenuItem.Image = Properties.Resources.Product_sale_report;
             doanhThuTheoLoạiToolStripMenuItem.Name = "doanhThuTheoLoạiToolStripMenuItem";
-            doanhThuTheoLoạiToolStripMenuItem.Size = new Size(234, 22);
+            doanhThuTheoLoạiToolStripMenuItem.Size = new Size(355, 34);
             doanhThuTheoLoạiToolStripMenuItem.Text = "Doanh thu theo loại sản phẩm";
             // 
             // doanhThuTheoNhânViênToolStripMenuItem
             // 
             doanhThuTheoNhânViênToolStripMenuItem.Image = Properties.Resources.Distributor_report;
             doanhThuTheoNhânViênToolStripMenuItem.Name = "doanhThuTheoNhânViênToolStripMenuItem";
-            doanhThuTheoNhânViênToolStripMenuItem.Size = new Size(234, 22);
+            doanhThuTheoNhânViênToolStripMenuItem.Size = new Size(355, 34);
             doanhThuTheoNhânViênToolStripMenuItem.Text = "Doanh thu theo nhân viên";
             // 
             // hỗTrợToolStripMenuItem
             // 
             hỗTrợToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { trợGiúpToolStripMenuItem, giớiThiệuToolStripMenuItem });
             hỗTrợToolStripMenuItem.Name = "hỗTrợToolStripMenuItem";
-            hỗTrợToolStripMenuItem.Size = new Size(53, 20);
+            hỗTrợToolStripMenuItem.Size = new Size(80, 29);
             hỗTrợToolStripMenuItem.Text = "Hỗ trợ";
             // 
             // trợGiúpToolStripMenuItem
             // 
             trợGiúpToolStripMenuItem.Image = Properties.Resources.application;
             trợGiúpToolStripMenuItem.Name = "trợGiúpToolStripMenuItem";
-            trợGiúpToolStripMenuItem.Size = new Size(125, 22);
+            trợGiúpToolStripMenuItem.Size = new Size(189, 34);
             trợGiúpToolStripMenuItem.Text = "Trợ giúp";
             // 
             // giớiThiệuToolStripMenuItem
             // 
             giớiThiệuToolStripMenuItem.Image = Properties.Resources.information;
             giớiThiệuToolStripMenuItem.Name = "giớiThiệuToolStripMenuItem";
-            giớiThiệuToolStripMenuItem.Size = new Size(125, 22);
+            giớiThiệuToolStripMenuItem.Size = new Size(189, 34);
             giớiThiệuToolStripMenuItem.Text = "Giới thiệu";
             // 
             // statusStrip1
             // 
+            statusStrip1.ImageScalingSize = new Size(24, 24);
             statusStrip1.Items.AddRange(new ToolStripItem[] { toolStripStatusLabel1, toolStripStatusLabel3, toolStripStatusLabel2 });
-            statusStrip1.Location = new Point(0, 483);
+            statusStrip1.Location = new Point(0, 807);
             statusStrip1.Name = "statusStrip1";
-            statusStrip1.Size = new Size(941, 22);
+            statusStrip1.Padding = new Padding(1, 0, 20, 0);
+            statusStrip1.Size = new Size(1318, 32);
             statusStrip1.TabIndex = 1;
             statusStrip1.Text = "statusStrip1";
             // 
@@ -191,13 +199,13 @@
             // 
             toolStripStatusLabel1.Image = Properties.Resources.fpt1;
             toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            toolStripStatusLabel1.Size = new Size(165, 17);
+            toolStripStatusLabel1.Size = new Size(247, 25);
             toolStripStatusLabel1.Text = "Hệ thống quản lý PolyCafe";
             // 
             // toolStripStatusLabel3
             // 
             toolStripStatusLabel3.Name = "toolStripStatusLabel3";
-            toolStripStatusLabel3.Size = new Size(674, 17);
+            toolStripStatusLabel3.Size = new Size(913, 25);
             toolStripStatusLabel3.Spring = true;
             // 
             // toolStripStatusLabel2
@@ -205,16 +213,17 @@
             toolStripStatusLabel2.Image = Properties.Resources.Alarm_clock;
             toolStripStatusLabel2.Name = "toolStripStatusLabel2";
             toolStripStatusLabel2.RightToLeft = RightToLeft.No;
-            toolStripStatusLabel2.Size = new Size(87, 17);
+            toolStripStatusLabel2.Size = new Size(137, 25);
             toolStripStatusLabel2.Text = "10:25:30 AM";
             // 
             // toolStrip1
             // 
             toolStrip1.ImageScalingSize = new Size(32, 32);
             toolStrip1.Items.AddRange(new ToolStripItem[] { toolStripButton3, toolStripSeparator1, toolStripButton1, toolStripButton2, toolStripButton4, toolStripSeparator2, toolStripButton5, toolStripLabel2 });
-            toolStrip1.Location = new Point(0, 24);
+            toolStrip1.Location = new Point(0, 35);
             toolStrip1.Name = "toolStrip1";
-            toolStrip1.Size = new Size(941, 39);
+            toolStrip1.Padding = new Padding(0, 0, 3, 0);
+            toolStrip1.Size = new Size(1318, 39);
             toolStrip1.TabIndex = 2;
             toolStrip1.Text = "toolStrip1";
             // 
@@ -284,28 +293,30 @@
             toolStripLabel2.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             toolStripLabel2.Margin = new Padding(0, 1, 5, 2);
             toolStripLabel2.Name = "toolStripLabel2";
-            toolStripLabel2.Size = new Size(53, 36);
+            toolStripLabel2.Size = new Size(74, 36);
             toolStripLabel2.Text = "Admin";
             // 
             // pnlFormContainer
             // 
             pnlFormContainer.AutoSize = true;
-            pnlFormContainer.Location = new Point(0, 66);
+            pnlFormContainer.Location = new Point(0, 110);
+            pnlFormContainer.Margin = new Padding(4, 5, 4, 5);
             pnlFormContainer.Name = "pnlFormContainer";
-            pnlFormContainer.Size = new Size(941, 414);
+            pnlFormContainer.Size = new Size(1320, 700);
             pnlFormContainer.TabIndex = 3;
             // 
             // MainScreen
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(941, 505);
+            ClientSize = new Size(1318, 839);
             Controls.Add(pnlFormContainer);
             Controls.Add(toolStrip1);
             Controls.Add(statusStrip1);
             Controls.Add(menuStrip1);
             Icon = (Icon)resources.GetObject("$this.Icon");
             MainMenuStrip = menuStrip1;
+            Margin = new Padding(4, 5, 4, 5);
             Name = "MainScreen";
             Text = "Trang chủ";
             menuStrip1.ResumeLayout(false);

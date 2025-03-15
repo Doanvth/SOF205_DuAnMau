@@ -1,0 +1,258 @@
+﻿namespace GUI_SOF205
+{
+    partial class QuanLySanPham
+    {
+        private System.ComponentModel.IContainer components = null;
+        private System.Windows.Forms.TabControl tabControl;
+        private System.Windows.Forms.TabPage tabCapNhat;
+        private System.Windows.Forms.TabPage tabDanhSach;
+        private System.Windows.Forms.DataGridView dgvSanPham;
+
+        private System.Windows.Forms.TextBox txtMaSanPham;
+        private System.Windows.Forms.TextBox txtTenSanPham;
+        private System.Windows.Forms.TextBox txtDonGia;
+        private System.Windows.Forms.ComboBox cboLoaiSanPham;
+        private System.Windows.Forms.RadioButton rbHoatDong;
+        private System.Windows.Forms.RadioButton rbNgungBan;
+        private System.Windows.Forms.Button btnThem;
+        private System.Windows.Forms.Button btnSua;
+        private System.Windows.Forms.Button btnXoa;
+        private System.Windows.Forms.Button btnMoi;
+        private System.Windows.Forms.Label lblMaSanPham, lblTenSanPham, lblDonGia, lblLoaiSanPham, lblTrangThai;
+
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        private void InitializeComponent()
+        {
+            tabControl = new TabControl();
+            tabCapNhat = new TabPage();
+            lblMaSanPham = new Label();
+            txtMaSanPham = new TextBox();
+            lblTenSanPham = new Label();
+            txtTenSanPham = new TextBox();
+            lblDonGia = new Label();
+            txtDonGia = new TextBox();
+            lblLoaiSanPham = new Label();
+            cboLoaiSanPham = new ComboBox();
+            lblTrangThai = new Label();
+            rbHoatDong = new RadioButton();
+            rbNgungBan = new RadioButton();
+            btnThem = new Button();
+            btnSua = new Button();
+            btnXoa = new Button();
+            btnMoi = new Button();
+            tabDanhSach = new TabPage();
+            dgvSanPham = new DataGridView();
+            tabControl.SuspendLayout();
+            tabCapNhat.SuspendLayout();
+            tabDanhSach.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvSanPham).BeginInit();
+            SuspendLayout();
+            // 
+            // tabControl
+            // 
+            tabControl.Controls.Add(tabCapNhat);
+            tabControl.Controls.Add(tabDanhSach);
+            tabControl.Dock = DockStyle.Fill;
+            tabControl.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            tabControl.Location = new Point(0, 0);
+            tabControl.Name = "tabControl";
+            tabControl.SelectedIndex = 0;
+            tabControl.Size = new Size(1303, 694);
+            tabControl.TabIndex = 0;
+            // 
+            // tabCapNhat
+            // 
+            tabCapNhat.Controls.Add(lblMaSanPham);
+            tabCapNhat.Controls.Add(txtMaSanPham);
+            tabCapNhat.Controls.Add(lblTenSanPham);
+            tabCapNhat.Controls.Add(txtTenSanPham);
+            tabCapNhat.Controls.Add(lblDonGia);
+            tabCapNhat.Controls.Add(txtDonGia);
+            tabCapNhat.Controls.Add(lblLoaiSanPham);
+            tabCapNhat.Controls.Add(cboLoaiSanPham);
+            tabCapNhat.Controls.Add(lblTrangThai);
+            tabCapNhat.Controls.Add(rbHoatDong);
+            tabCapNhat.Controls.Add(rbNgungBan);
+            tabCapNhat.Controls.Add(btnThem);
+            tabCapNhat.Controls.Add(btnSua);
+            tabCapNhat.Controls.Add(btnXoa);
+            tabCapNhat.Controls.Add(btnMoi);
+            tabCapNhat.Location = new Point(4, 37);
+            tabCapNhat.Name = "tabCapNhat";
+            tabCapNhat.Size = new Size(1295, 653);
+            tabCapNhat.TabIndex = 0;
+            tabCapNhat.Text = "CẬP NHẬT";
+            tabCapNhat.UseVisualStyleBackColor = true;
+            // 
+            // lblMaSanPham
+            // 
+            lblMaSanPham.Font = new Font("Segoe UI", 10F);
+            lblMaSanPham.Location = new Point(267, 66);
+            lblMaSanPham.Name = "lblMaSanPham";
+            lblMaSanPham.Size = new Size(177, 33);
+            lblMaSanPham.TabIndex = 0;
+            lblMaSanPham.Text = "Mã sản phẩm:";
+            // 
+            // txtMaSanPham
+            // 
+            txtMaSanPham.Location = new Point(571, 63);
+            txtMaSanPham.Name = "txtMaSanPham";
+            txtMaSanPham.Size = new Size(400, 34);
+            txtMaSanPham.TabIndex = 1;
+            // 
+            // lblTenSanPham
+            // 
+            lblTenSanPham.Font = new Font("Segoe UI", 10F);
+            lblTenSanPham.Location = new Point(267, 140);
+            lblTenSanPham.Name = "lblTenSanPham";
+            lblTenSanPham.Size = new Size(177, 29);
+            lblTenSanPham.TabIndex = 2;
+            lblTenSanPham.Text = "Tên sản phẩm:";
+            // 
+            // txtTenSanPham
+            // 
+            txtTenSanPham.Location = new Point(571, 135);
+            txtTenSanPham.Name = "txtTenSanPham";
+            txtTenSanPham.Size = new Size(400, 34);
+            txtTenSanPham.TabIndex = 3;
+            // 
+            // lblDonGia
+            // 
+            lblDonGia.Font = new Font("Segoe UI", 10F);
+            lblDonGia.Location = new Point(267, 208);
+            lblDonGia.Name = "lblDonGia";
+            lblDonGia.Size = new Size(127, 35);
+            lblDonGia.TabIndex = 4;
+            lblDonGia.Text = "Đơn giá:";
+            // 
+            // txtDonGia
+            // 
+            txtDonGia.Location = new Point(571, 205);
+            txtDonGia.Name = "txtDonGia";
+            txtDonGia.Size = new Size(400, 34);
+            txtDonGia.TabIndex = 5;
+            // 
+            // lblLoaiSanPham
+            // 
+            lblLoaiSanPham.Font = new Font("Segoe UI", 10F);
+            lblLoaiSanPham.Location = new Point(267, 287);
+            lblLoaiSanPham.Name = "lblLoaiSanPham";
+            lblLoaiSanPham.Size = new Size(188, 33);
+            lblLoaiSanPham.TabIndex = 6;
+            lblLoaiSanPham.Text = "Loại sản phẩm:";
+            // 
+            // cboLoaiSanPham
+            // 
+            cboLoaiSanPham.Location = new Point(571, 284);
+            cboLoaiSanPham.Name = "cboLoaiSanPham";
+            cboLoaiSanPham.Size = new Size(400, 36);
+            cboLoaiSanPham.TabIndex = 7;
+            // 
+            // lblTrangThai
+            // 
+            lblTrangThai.Font = new Font("Segoe UI", 10F);
+            lblTrangThai.Location = new Point(267, 368);
+            lblTrangThai.Name = "lblTrangThai";
+            lblTrangThai.Size = new Size(160, 41);
+            lblTrangThai.TabIndex = 8;
+            lblTrangThai.Text = "Trạng thái:";
+            // 
+            // rbHoatDong
+            // 
+            rbHoatDong.Font = new Font("Segoe UI", 10F);
+            rbHoatDong.Location = new Point(571, 366);
+            rbHoatDong.Name = "rbHoatDong";
+            rbHoatDong.Size = new Size(154, 33);
+            rbHoatDong.TabIndex = 9;
+            rbHoatDong.Text = "Hoạt động";
+            // 
+            // rbNgungBan
+            // 
+            rbNgungBan.Font = new Font("Segoe UI", 10F);
+            rbNgungBan.Location = new Point(754, 366);
+            rbNgungBan.Name = "rbNgungBan";
+            rbNgungBan.Size = new Size(163, 33);
+            rbNgungBan.TabIndex = 10;
+            rbNgungBan.Text = "Ngừng bán";
+            // 
+            // btnThem
+            // 
+            btnThem.Font = new Font("Segoe UI", 10F);
+            btnThem.Location = new Point(472, 468);
+            btnThem.Name = "btnThem";
+            btnThem.Size = new Size(129, 50);
+            btnThem.TabIndex = 11;
+            btnThem.Text = "Thêm";
+            // 
+            // btnSua
+            // 
+            btnSua.Enabled = false;
+            btnSua.Font = new Font("Segoe UI", 10F);
+            btnSua.Location = new Point(628, 468);
+            btnSua.Name = "btnSua";
+            btnSua.Size = new Size(129, 50);
+            btnSua.TabIndex = 12;
+            btnSua.Text = "Sửa";
+            // 
+            // btnXoa
+            // 
+            btnXoa.Enabled = false;
+            btnXoa.Font = new Font("Segoe UI", 10F);
+            btnXoa.Location = new Point(786, 468);
+            btnXoa.Name = "btnXoa";
+            btnXoa.Size = new Size(129, 50);
+            btnXoa.TabIndex = 13;
+            btnXoa.Text = "Xóa";
+            // 
+            // btnMoi
+            // 
+            btnMoi.Font = new Font("Segoe UI", 10F);
+            btnMoi.Location = new Point(313, 468);
+            btnMoi.Name = "btnMoi";
+            btnMoi.Size = new Size(129, 50);
+            btnMoi.TabIndex = 14;
+            btnMoi.Text = "Mới";
+            // 
+            // tabDanhSach
+            // 
+            tabDanhSach.Controls.Add(dgvSanPham);
+            tabDanhSach.Location = new Point(4, 37);
+            tabDanhSach.Name = "tabDanhSach";
+            tabDanhSach.Size = new Size(1295, 798);
+            tabDanhSach.TabIndex = 1;
+            tabDanhSach.Text = "DANH SÁCH";
+            tabDanhSach.UseVisualStyleBackColor = true;
+            // 
+            // dgvSanPham
+            // 
+            dgvSanPham.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvSanPham.Dock = DockStyle.Fill;
+            dgvSanPham.Location = new Point(0, 0);
+            dgvSanPham.Name = "dgvSanPham";
+            dgvSanPham.RowHeadersWidth = 62;
+            dgvSanPham.Size = new Size(1295, 798);
+            dgvSanPham.TabIndex = 0;
+            // 
+            // QuanLySanPham
+            // 
+            ClientSize = new Size(1303, 694);
+            Controls.Add(tabControl);
+            Name = "QuanLySanPham";
+            Text = "Quản Lý Sản Phẩm";
+            tabControl.ResumeLayout(false);
+            tabCapNhat.ResumeLayout(false);
+            tabCapNhat.PerformLayout();
+            tabDanhSach.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)dgvSanPham).EndInit();
+            ResumeLayout(false);
+        }
+    }
+}
