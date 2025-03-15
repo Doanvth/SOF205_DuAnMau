@@ -17,7 +17,6 @@ namespace GUI_SOF205
             Login formLogin = new Login();
             formLogin.ShowDialog();
         }
-
         private void CheckRole()
         {
             if (!AuthUtil.IsLogin())
@@ -126,7 +125,6 @@ namespace GUI_SOF205
                 Logout();
             }
         }
-        
     }
 }
 

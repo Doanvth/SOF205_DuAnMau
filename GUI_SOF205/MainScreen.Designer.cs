@@ -134,8 +134,6 @@
             quảnLýSảnPhẩmToolStripMenuItem.Size = new Size(304, 34);
             quảnLýSảnPhẩmToolStripMenuItem.Text = "Quản lý sản phẩm";
             quảnLýSảnPhẩmToolStripMenuItem.Click += quảnLýSảnPhẩmToolStripMenuItem_Click;
-      // 
-            // MenuQLPhieuBanHang
             // 
 
             quảnLýPhiếuBánHàngToolStripMenuItem.Image = Properties.Resources.Order_history;
@@ -219,6 +217,7 @@
             lblDongHo.RightToLeft = RightToLeft.No;
             lblDongHo.Size = new Size(87, 17);
             lblDongHo.Text = "10:25:30 AM";
+
             // 
             // toolStrip1
             // 

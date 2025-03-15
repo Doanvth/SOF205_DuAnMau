@@ -71,9 +71,9 @@
             tabCapNhat.Controls.Add(btnSua);
             tabCapNhat.Controls.Add(btnXoa);
             tabCapNhat.Controls.Add(btnMoi);
-            tabCapNhat.Location = new Point(4, 26);
+            tabCapNhat.Location = new Point(4, 37);
             tabCapNhat.Name = "tabCapNhat";
-            tabCapNhat.Size = new Size(1295, 664);
+            tabCapNhat.Size = new Size(1295, 653);
             tabCapNhat.TabIndex = 0;
             tabCapNhat.Text = "CẬP NHẬT";
             tabCapNhat.UseVisualStyleBackColor = true;
@@ -82,6 +82,7 @@
             // 
             lblMaLoai.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblMaLoai.Location = new Point(43, 45);
+            lblMaLoai.Location = new Point(294, 69);
             lblMaLoai.Name = "lblMaLoai";
             lblMaLoai.Size = new Size(122, 32);
             lblMaLoai.TabIndex = 0;
@@ -89,15 +90,17 @@
             // 
             // txtMaLoai
             // 
-            txtMaLoai.Location = new Point(278, 120);
+
+            txtMaLoai.Location = new Point(529, 144);
             txtMaLoai.Name = "txtMaLoai";
-            txtMaLoai.Size = new Size(400, 25);
+            txtMaLoai.Size = new Size(400, 34);
             txtMaLoai.TabIndex = 1;
             // 
             // lblTenLoai
             // 
             lblTenLoai.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblTenLoai.Location = new Point(43, 123);
+            lblTenLoai.Location = new Point(294, 147);
             lblTenLoai.Name = "lblTenLoai";
             lblTenLoai.Size = new Size(122, 35);
             lblTenLoai.TabIndex = 2;
@@ -105,15 +108,16 @@
             // 
             // txtTenLoai
             // 
-            txtTenLoai.Location = new Point(278, 42);
+
+            txtTenLoai.Location = new Point(529, 66);
             txtTenLoai.Name = "txtTenLoai";
-            txtTenLoai.Size = new Size(400, 25);
+            txtTenLoai.Size = new Size(400, 34);
             txtTenLoai.TabIndex = 3;
             // 
             // lblGhiChu
             // 
             lblGhiChu.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblGhiChu.Location = new Point(43, 203);
+            lblGhiChu.Location = new Point(294, 227);
             lblGhiChu.Name = "lblGhiChu";
             lblGhiChu.Size = new Size(124, 26);
             lblGhiChu.TabIndex = 4;
@@ -121,7 +125,7 @@
             // 
             // txtGhiChu
             // 
-            txtGhiChu.Location = new Point(278, 200);
+            txtGhiChu.Location = new Point(529, 224);
             txtGhiChu.Multiline = true;
             txtGhiChu.Name = "txtGhiChu";
             txtGhiChu.Size = new Size(400, 80);
@@ -130,7 +134,7 @@
             // btnThem
             // 
             btnThem.Font = new Font("Segoe UI", 10F);
-            btnThem.Location = new Point(228, 334);
+            btnThem.Location = new Point(479, 358);
             btnThem.Name = "btnThem";
             btnThem.Size = new Size(129, 50);
             btnThem.TabIndex = 6;
@@ -141,18 +145,18 @@
             // 
             btnSua.Enabled = false;
             btnSua.Font = new Font("Segoe UI", 10F);
-            btnSua.Location = new Point(384, 334);
+            btnSua.Location = new Point(635, 358);
             btnSua.Name = "btnSua";
             btnSua.Size = new Size(129, 50);
             btnSua.TabIndex = 7;
             btnSua.Text = "Sửa";
             btnSua.Click += btnSua_Click;
-            // 
+           // 
             // btnXoa
             // 
             btnXoa.Enabled = false;
             btnXoa.Font = new Font("Segoe UI", 10F);
-            btnXoa.Location = new Point(536, 334);
+            btnXoa.Location = new Point(787, 358);
             btnXoa.Name = "btnXoa";
             btnXoa.Size = new Size(129, 50);
             btnXoa.TabIndex = 8;
@@ -162,7 +166,7 @@
             // btnMoi
             // 
             btnMoi.Font = new Font("Segoe UI", 10F);
-            btnMoi.Location = new Point(78, 334);
+            btnMoi.Location = new Point(329, 358);
             btnMoi.Name = "btnMoi";
             btnMoi.Size = new Size(129, 50);
             btnMoi.TabIndex = 9;
@@ -172,9 +176,9 @@
             // tabDanhSach
             // 
             tabDanhSach.Controls.Add(dgvLoaiSanPham);
-            tabDanhSach.Location = new Point(4, 26);
+            tabDanhSach.Location = new Point(4, 37);
             tabDanhSach.Name = "tabDanhSach";
-            tabDanhSach.Size = new Size(1295, 664);
+            tabDanhSach.Size = new Size(1295, 798);
             tabDanhSach.TabIndex = 1;
             tabDanhSach.Text = "DANH SÁCH";
             tabDanhSach.UseVisualStyleBackColor = true;
@@ -186,7 +190,7 @@
             dgvLoaiSanPham.Location = new Point(0, 0);
             dgvLoaiSanPham.Name = "dgvLoaiSanPham";
             dgvLoaiSanPham.RowHeadersWidth = 62;
-            dgvLoaiSanPham.Size = new Size(1295, 664);
+            dgvLoaiSanPham.Size = new Size(1295, 798);
             dgvLoaiSanPham.TabIndex = 0;
             // 
             // QuanLyLoaiSanPham

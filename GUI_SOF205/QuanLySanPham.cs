@@ -1,3 +1,4 @@
+
 ﻿using DAL_SOF205;
 using DTO_SOF205;
 using System;
@@ -10,7 +11,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using UTIL_SOF205;
-
 namespace GUI_SOF205
 {
     public partial class QuanLySanPham : Form
@@ -19,6 +19,7 @@ namespace GUI_SOF205
         {
             InitializeComponent();
         }
+
         private void ClearForm()
         {
             btnThem.Enabled = true;
@@ -203,13 +204,13 @@ namespace GUI_SOF205
         {
             try
             {
-                // 1️ Lấy dữ liệu từ form
+                //  Lấy dữ liệu từ form
                 string maSP = txtMaSanPham.Text.Trim();
                 string tenSP = txtTenSanPham.Text.Trim();
                 string donGiaText = txtDonGia.Text.Trim();
                 string maLoai = cboLoaiSanPham.SelectedValue?.ToString(); // Lấy mã loại từ combobox
                 bool trangThai = rbHoatDong.Checked; // Nếu chọn "Hoạt động" thì true, ngược lại false
-                // 2️ Kiểm tra dữ liệu nhập vào
+                //  Kiểm tra dữ liệu nhập vào
                 if (string.IsNullOrEmpty(maSP) || string.IsNullOrEmpty(tenSP) || string.IsNullOrEmpty(donGiaText) || string.IsNullOrEmpty(maLoai))
                 {
                     MessageBox.Show("Vui lòng nhập đầy đủ thông tin!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -221,7 +222,7 @@ namespace GUI_SOF205
                     MessageBox.Show("Đơn giá không hợp lệ!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
-                // 3️ Xử lý ảnh sản phẩm (nếu có cập nhật)
+                // Xử lý ảnh sản phẩm (nếu có cập nhật)
                 string savedImageName = "";
                 if (pbHinhAnh.Tag != null) // Kiểm tra xem người dùng đã chọn ảnh chưa
                 {
@@ -245,7 +246,7 @@ namespace GUI_SOF205
                         return;
                     }
                 }
-                // 4️ Tạo đối tượng sản phẩm
+                //  Tạo đối tượng sản phẩm
                 SanPham sp = new SanPham
                 {
                     MaSanPham = maSP,
@@ -255,7 +256,7 @@ namespace GUI_SOF205
                     TrangThai = trangThai,
                     HinhAnh = savedImageName // Lưu đường dẫn ảnh mới (nếu có)
                 };
-                // 5️ Gọi DAL để cập nhật sản phẩm trong database
+                // Gọi DAL để cập nhật sản phẩm trong database
                 SanPhamDLL sanPhamDLL = new SanPhamDLL();
                 sanPhamDLL.update(sp);
                 MessageBox.Show("Cập nhật sản phẩm thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -268,15 +269,15 @@ namespace GUI_SOF205
 
         private void btnXoa_Click(object sender, EventArgs e)
         {
-            // 1️ Lấy mã sản phẩm từ textbox
+            //  Lấy mã sản phẩm từ textbox
             string maSP = txtMaSanPham.Text.Trim();
-            // 2️ Kiểm tra nếu không có mã sản phẩm
+            // Kiểm tra nếu không có mã sản phẩm
             if (string.IsNullOrEmpty(maSP))
             {
                 MessageBox.Show("Vui lòng chọn sản phẩm cần xóa!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            // 3️ Hỏi xác nhận trước khi xóa
+            //  Hỏi xác nhận trước khi xóa
             DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn xóa sản phẩm này?", "Xác nhận xóa",
                                                   MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
@@ -284,11 +285,11 @@ namespace GUI_SOF205
             {
                 try
                 {
-                    // 4️ Gọi phương thức xóa sản phẩm
+                    //  Gọi phương thức xóa sản phẩm
                     SanPhamDLL sanPhamDLL = new SanPhamDLL();
                     sanPhamDLL.delete(maSP);
 
-                    // 5️ Làm mới form sau khi xóa
+                    //  Làm mới form sau khi xóa
                     ClearForm();
 
                     // Chuyển về tab "DANH SÁCH"
@@ -302,5 +303,5 @@ namespace GUI_SOF205
                 }
             }
         }
-    }
+   }
 }

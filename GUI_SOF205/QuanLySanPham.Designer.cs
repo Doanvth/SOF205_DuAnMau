@@ -19,12 +19,11 @@
         private System.Windows.Forms.Button btnXoa;
         private System.Windows.Forms.Button btnMoi;
         private System.Windows.Forms.Label lblMaSanPham, lblTenSanPham, lblDonGia, lblLoaiSanPham, lblTrangThai;
-
-
         //Hình ảnh
         private System.Windows.Forms.PictureBox pbHinhAnh;
         private System.Windows.Forms.Button btnChonAnh;
         private System.Windows.Forms.OpenFileDialog openFileDialog;
+
 
         protected override void Dispose(bool disposing)
         {
@@ -62,6 +61,10 @@
             tabControl.SuspendLayout();
             tabCapNhat.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pbHinhAnh).BeginInit();
+            tabDanhSach = new TabPage();
+            dgvSanPham = new DataGridView();
+            tabControl.SuspendLayout();
+            tabCapNhat.SuspendLayout();
             tabDanhSach.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvSanPham).BeginInit();
             SuspendLayout();
@@ -78,6 +81,7 @@
             tabControl.Size = new Size(1303, 694);
             tabControl.TabIndex = 0;
             tabControl.SelectedIndexChanged += tabControl_SelectedIndexChanged;
+
             // 
             // tabCapNhat
             // 
@@ -96,11 +100,13 @@
             tabCapNhat.Controls.Add(btnSua);
             tabCapNhat.Controls.Add(btnXoa);
             tabCapNhat.Controls.Add(btnMoi);
+
             tabCapNhat.Controls.Add(pbHinhAnh);
             tabCapNhat.Controls.Add(btnChonAnh);
-            tabCapNhat.Location = new Point(4, 26);
-            tabCapNhat.Name = "tabCapNhat";
             tabCapNhat.Size = new Size(1295, 664);
+            tabCapNhat.Location = new Point(4, 37);
+            tabCapNhat.Name = "tabCapNhat";
+            tabCapNhat.Size = new Size(1295, 653);
             tabCapNhat.TabIndex = 0;
             tabCapNhat.Text = "CẬP NHẬT";
             tabCapNhat.UseVisualStyleBackColor = true;
@@ -108,17 +114,17 @@
             // lblMaSanPham
             // 
             lblMaSanPham.Font = new Font("Segoe UI", 10F);
-            lblMaSanPham.Location = new Point(8, 19);
+            lblMaSanPham.Location = new Point(267, 66);
             lblMaSanPham.Name = "lblMaSanPham";
-            lblMaSanPham.Size = new Size(111, 35);
+            lblMaSanPham.Size = new Size(177, 33);
             lblMaSanPham.TabIndex = 0;
             lblMaSanPham.Text = "Mã sản phẩm:";
             // 
             // txtMaSanPham
             // 
-            txtMaSanPham.Location = new Point(125, 19);
+            txtMaSanPham.Location = new Point(571, 63);
             txtMaSanPham.Name = "txtMaSanPham";
-            txtMaSanPham.Size = new Size(400, 25);
+            txtMaSanPham.Size = new Size(400, 34);
             txtMaSanPham.TabIndex = 1;
             // 
             // lblTenSanPham
@@ -127,30 +133,33 @@
             lblTenSanPham.Location = new Point(8, 67);
             lblTenSanPham.Name = "lblTenSanPham";
             lblTenSanPham.Size = new Size(99, 23);
+            lblTenSanPham.Location = new Point(267, 140);
+            lblTenSanPham.Name = "lblTenSanPham";
+            lblTenSanPham.Size = new Size(177, 29);
             lblTenSanPham.TabIndex = 2;
             lblTenSanPham.Text = "Tên sản phẩm:";
             // 
             // txtTenSanPham
             // 
-            txtTenSanPham.Location = new Point(125, 65);
+            txtTenSanPham.Location = new Point(571, 135);
             txtTenSanPham.Name = "txtTenSanPham";
-            txtTenSanPham.Size = new Size(400, 25);
+            txtTenSanPham.Size = new Size(400, 34);
             txtTenSanPham.TabIndex = 3;
             // 
             // lblDonGia
             // 
-            lblDonGia.Font = new Font("Segoe UI", 10F);
-            lblDonGia.Location = new Point(8, 112);
+            lblDonGia.Font = new Font("Segoe UI", 10F); lblDonGia.Size = new Size(66, 32);
+            lblDonGia.Location = new Point(267, 208);
             lblDonGia.Name = "lblDonGia";
-            lblDonGia.Size = new Size(66, 32);
+            lblDonGia.Size = new Size(127, 35);
             lblDonGia.TabIndex = 4;
             lblDonGia.Text = "Đơn giá:";
             // 
             // txtDonGia
             // 
-            txtDonGia.Location = new Point(125, 109);
+            txtDonGia.Location = new Point(571, 205);
             txtDonGia.Name = "txtDonGia";
-            txtDonGia.Size = new Size(400, 25);
+            txtDonGia.Size = new Size(400, 34);
             txtDonGia.TabIndex = 5;
             // 
             // lblLoaiSanPham
@@ -159,30 +168,35 @@
             lblLoaiSanPham.Location = new Point(8, 155);
             lblLoaiSanPham.Name = "lblLoaiSanPham";
             lblLoaiSanPham.Size = new Size(111, 25);
+            lblLoaiSanPham.Location = new Point(267, 287);
+            lblLoaiSanPham.Name = "lblLoaiSanPham";
+            lblLoaiSanPham.Size = new Size(188, 33);
             lblLoaiSanPham.TabIndex = 6;
             lblLoaiSanPham.Text = "Loại sản phẩm:";
             // 
             // cboLoaiSanPham
             // 
-            cboLoaiSanPham.Location = new Point(125, 152);
+
+            cboLoaiSanPham.Location = new Point(571, 284);
             cboLoaiSanPham.Name = "cboLoaiSanPham";
-            cboLoaiSanPham.Size = new Size(400, 25);
+            cboLoaiSanPham.Size = new Size(400, 36);
             cboLoaiSanPham.TabIndex = 7;
             // 
             // lblTrangThai
             // 
             lblTrangThai.Font = new Font("Segoe UI", 10F);
-            lblTrangThai.Location = new Point(8, 202);
+            lblTrangThai.Location = new Point(267, 368);
             lblTrangThai.Name = "lblTrangThai";
-            lblTrangThai.Size = new Size(99, 34);
+            lblTrangThai.Size = new Size(160, 41);
             lblTrangThai.TabIndex = 8;
             lblTrangThai.Text = "Trạng thái:";
             // 
             // rbHoatDong
             // 
+
             rbHoatDong.Checked = true;
             rbHoatDong.Font = new Font("Segoe UI", 10F);
-            rbHoatDong.Location = new Point(125, 202);
+            rbHoatDong.Location = new Point(571, 366);
             rbHoatDong.Name = "rbHoatDong";
             rbHoatDong.Size = new Size(154, 33);
             rbHoatDong.TabIndex = 9;
@@ -192,7 +206,8 @@
             // rbNgungBan
             // 
             rbNgungBan.Font = new Font("Segoe UI", 10F);
-            rbNgungBan.Location = new Point(302, 202);
+
+            rbNgungBan.Location = new Point(754, 366);
             rbNgungBan.Name = "rbNgungBan";
             rbNgungBan.Size = new Size(163, 33);
             rbNgungBan.TabIndex = 10;
@@ -201,7 +216,7 @@
             // btnThem
             // 
             btnThem.Font = new Font("Segoe UI", 10F);
-            btnThem.Location = new Point(161, 282);
+            btnThem.Location = new Point(472, 468);
             btnThem.Name = "btnThem";
             btnThem.Size = new Size(129, 50);
             btnThem.TabIndex = 11;
@@ -212,18 +227,18 @@
             // 
             btnSua.Enabled = false;
             btnSua.Font = new Font("Segoe UI", 10F);
-            btnSua.Location = new Point(317, 282);
+            btnSua.Location = new Point(628, 468);
             btnSua.Name = "btnSua";
             btnSua.Size = new Size(129, 50);
             btnSua.TabIndex = 12;
             btnSua.Text = "Sửa";
             btnSua.Click += btnSua_Click;
-            // 
+           // 
             // btnXoa
             // 
             btnXoa.Enabled = false;
             btnXoa.Font = new Font("Segoe UI", 10F);
-            btnXoa.Location = new Point(475, 282);
+            btnXoa.Location = new Point(786, 468);
             btnXoa.Name = "btnXoa";
             btnXoa.Size = new Size(129, 50);
             btnXoa.TabIndex = 13;
@@ -233,7 +248,7 @@
             // btnMoi
             // 
             btnMoi.Font = new Font("Segoe UI", 10F);
-            btnMoi.Location = new Point(2, 282);
+            btnMoi.Location = new Point(313, 468);
             btnMoi.Name = "btnMoi";
             btnMoi.Size = new Size(129, 50);
             btnMoi.TabIndex = 14;
@@ -263,6 +278,12 @@
             tabDanhSach.Location = new Point(4, 26);
             tabDanhSach.Name = "tabDanhSach";
             tabDanhSach.Size = new Size(1295, 664);
+            // tabDanhSach
+            // 
+            tabDanhSach.Controls.Add(dgvSanPham);
+            tabDanhSach.Location = new Point(4, 37);
+            tabDanhSach.Name = "tabDanhSach";
+            tabDanhSach.Size = new Size(1295, 798);
             tabDanhSach.TabIndex = 1;
             tabDanhSach.Text = "DANH SÁCH";
             tabDanhSach.UseVisualStyleBackColor = true;
@@ -276,6 +297,8 @@
             dgvSanPham.RowHeadersWidth = 62;
             dgvSanPham.Size = new Size(1295, 664);
             dgvSanPham.TabIndex = 0;
+            dgvSanPham.Size = new Size(1295, 798);
+            dgvSanPham.TabIndex = 0;
             dgvSanPham.CellClick += dgvSanPham_CellClick;
             // 
             // QuanLySanPham
@@ -284,12 +307,13 @@
             Controls.Add(tabControl);
             Name = "QuanLySanPham";
             Text = "Quản Lý Sản Phẩm";
+
             Load += QuanLySanPham_Load;
             tabControl.ResumeLayout(false);
             tabCapNhat.ResumeLayout(false);
             tabCapNhat.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pbHinhAnh).EndInit();
-            tabDanhSach.ResumeLayout(false);
+           tabDanhSach.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dgvSanPham).EndInit();
             ResumeLayout(false);
         }

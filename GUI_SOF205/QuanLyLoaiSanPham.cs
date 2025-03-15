@@ -1,3 +1,4 @@
+
 ﻿using DAL_SOF205;
 using DTO_SOF205;
 using System;
@@ -37,19 +38,19 @@ namespace GUI_SOF205
         {
             try
             {
-                // 1️ Lấy dữ liệu từ form
+                // Lấy dữ liệu từ form
                 string maLoai = txtMaLoai.Text.Trim();
                 string tenLoai = txtTenLoai.Text.Trim();
                 string ghiChu = txtGhiChu.Text.Trim();
 
-                // 2️ Kiểm tra dữ liệu nhập vào
+                //  Kiểm tra dữ liệu nhập vào
                 if (string.IsNullOrEmpty(maLoai) || string.IsNullOrEmpty(tenLoai) || string.IsNullOrEmpty(ghiChu))
                 {
                     MessageBox.Show("Vui lòng nhập đầy đủ thông tin!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
 
-                // 3️ Tạo đối tượng loại sản phẩm
+                // Tạo đối tượng loại sản phẩm
                 LoaiSanPham loaiSP = new LoaiSanPham
                 {
                     MaLoai = maLoai,
@@ -57,13 +58,13 @@ namespace GUI_SOF205
                     GhiChu = ghiChu,
                 };
 
-                // 4️ Gọi DAL để thêm nhân viên vào database
+                // Gọi DAL để thêm nhân viên vào database
                 LoaiSanPhamDLL loaiSanPhamDLL = new LoaiSanPhamDLL();
                 loaiSanPhamDLL.insert(loaiSP);
                 MessageBox.Show("Thêm loại sản phẩm thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
 
-                // 5️ Làm mới form sau khi thêm thành công
+                // Làm mới form sau khi thêm thành công
                 ClearForm();
             }
             catch (Exception ex)

@@ -1,3 +1,4 @@
+
 ﻿using DAL_SOF205;
 using DTO_SOF205;
 using System;
@@ -18,7 +19,6 @@ namespace GUI_SOF205
         {
             InitializeComponent();
         }
-
         private void btnMoi_Click(object sender, EventArgs e)
         {
             ClearForm();
