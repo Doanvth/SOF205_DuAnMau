@@ -32,6 +32,8 @@
         {
             tabControl = new TabControl();
             tabCapNhat = new TabPage();
+            txtEmail = new TextBox();
+            lblEmail = new Label();
             lblMaNhanVien = new Label();
             txtMaNhanVien = new TextBox();
             lblMatKhau = new Label();
@@ -66,9 +68,12 @@
             tabControl.SelectedIndex = 0;
             tabControl.Size = new Size(1303, 694);
             tabControl.TabIndex = 0;
+            tabControl.SelectedIndexChanged += tabControl_SelectedIndexChanged;
             // 
             // tabCapNhat
             // 
+            tabCapNhat.Controls.Add(txtEmail);
+            tabCapNhat.Controls.Add(lblEmail);
             tabCapNhat.Controls.Add(lblMaNhanVien);
             tabCapNhat.Controls.Add(txtMaNhanVien);
             tabCapNhat.Controls.Add(lblMatKhau);
@@ -84,33 +89,49 @@
             tabCapNhat.Controls.Add(btnSua);
             tabCapNhat.Controls.Add(btnXoa);
             tabCapNhat.Controls.Add(btnMoi);
-            tabCapNhat.Location = new Point(4, 37);
+            tabCapNhat.Location = new Point(4, 26);
             tabCapNhat.Name = "tabCapNhat";
-            tabCapNhat.Size = new Size(1295, 653);
+            tabCapNhat.Size = new Size(1295, 664);
             tabCapNhat.TabIndex = 0;
             tabCapNhat.Text = "CẬP NHẬT";
             tabCapNhat.UseVisualStyleBackColor = true;
             // 
+            // txtEmail
+            // 
+            txtEmail.Location = new Point(186, 101);
+            txtEmail.Name = "txtEmail";
+            txtEmail.Size = new Size(400, 25);
+            txtEmail.TabIndex = 3;
+            // 
+            // lblEmail
+            // 
+            lblEmail.AutoSize = true;
+            lblEmail.Location = new Point(18, 101);
+            lblEmail.Name = "lblEmail";
+            lblEmail.Size = new Size(41, 19);
+            lblEmail.TabIndex = 1;
+            lblEmail.Text = "Email";
+            // 
             // lblMaNhanVien
             // 
             lblMaNhanVien.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblMaNhanVien.Location = new Point(220, 57);
+            lblMaNhanVien.Location = new Point(18, 22);
             lblMaNhanVien.Name = "lblMaNhanVien";
-            lblMaNhanVien.Size = new Size(194, 35);
+            lblMaNhanVien.Size = new Size(118, 35);
             lblMaNhanVien.TabIndex = 0;
             lblMaNhanVien.Text = "Mã nhân viên:";
             // 
             // txtMaNhanVien
             // 
-            txtMaNhanVien.Location = new Point(599, 54);
+            txtMaNhanVien.Location = new Point(186, 19);
             txtMaNhanVien.Name = "txtMaNhanVien";
-            txtMaNhanVien.Size = new Size(400, 34);
+            txtMaNhanVien.Size = new Size(400, 25);
             txtMaNhanVien.TabIndex = 1;
             // 
             // lblMatKhau
             // 
             lblMatKhau.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblMatKhau.Location = new Point(220, 220);
+            lblMatKhau.Location = new Point(18, 136);
             lblMatKhau.Name = "lblMatKhau";
             lblMatKhau.Size = new Size(129, 37);
             lblMatKhau.TabIndex = 2;
@@ -118,31 +139,31 @@
             // 
             // txtMatKhau
             // 
-            txtMatKhau.Location = new Point(599, 217);
+            txtMatKhau.Location = new Point(186, 133);
             txtMatKhau.Name = "txtMatKhau";
-            txtMatKhau.Size = new Size(400, 34);
-            txtMatKhau.TabIndex = 3;
+            txtMatKhau.Size = new Size(400, 25);
+            txtMatKhau.TabIndex = 4;
             // 
             // lblXacNhan
             // 
             lblXacNhan.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblXacNhan.Location = new Point(220, 303);
+            lblXacNhan.Location = new Point(18, 172);
             lblXacNhan.Name = "lblXacNhan";
-            lblXacNhan.Size = new Size(242, 33);
+            lblXacNhan.Size = new Size(145, 33);
             lblXacNhan.TabIndex = 4;
             lblXacNhan.Text = "Xác nhận mật khẩu:";
             // 
             // txtXacNhanMatKhau
             // 
-            txtXacNhanMatKhau.Location = new Point(599, 300);
+            txtXacNhanMatKhau.Location = new Point(186, 169);
             txtXacNhanMatKhau.Name = "txtXacNhanMatKhau";
-            txtXacNhanMatKhau.Size = new Size(400, 34);
+            txtXacNhanMatKhau.Size = new Size(400, 25);
             txtXacNhanMatKhau.TabIndex = 5;
             // 
             // lblHoTen
             // 
             lblHoTen.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblHoTen.Location = new Point(220, 140);
+            lblHoTen.Location = new Point(18, 69);
             lblHoTen.Name = "lblHoTen";
             lblHoTen.Size = new Size(159, 32);
             lblHoTen.TabIndex = 6;
@@ -150,15 +171,15 @@
             // 
             // txtHoTen
             // 
-            txtHoTen.Location = new Point(599, 137);
+            txtHoTen.Location = new Point(186, 66);
             txtHoTen.Name = "txtHoTen";
-            txtHoTen.Size = new Size(400, 34);
-            txtHoTen.TabIndex = 7;
+            txtHoTen.Size = new Size(400, 25);
+            txtHoTen.TabIndex = 2;
             // 
             // lblVaiTro
             // 
             lblVaiTro.Font = new Font("Segoe UI", 10F);
-            lblVaiTro.Location = new Point(224, 391);
+            lblVaiTro.Location = new Point(18, 218);
             lblVaiTro.Name = "lblVaiTro";
             lblVaiTro.Size = new Size(100, 23);
             lblVaiTro.TabIndex = 8;
@@ -167,67 +188,71 @@
             // rdoQuanly
             // 
             rdoQuanly.Font = new Font("Segoe UI", 10F);
-            rdoQuanly.Location = new Point(795, 387);
+            rdoQuanly.Location = new Point(341, 215);
             rdoQuanly.Name = "rdoQuanly";
             rdoQuanly.Size = new Size(154, 37);
-            rdoQuanly.TabIndex = 9;
+            rdoQuanly.TabIndex = 7;
             rdoQuanly.Text = "Quản lý";
             // 
             // rdoNhanVien
             // 
             rdoNhanVien.Checked = true;
             rdoNhanVien.Font = new Font("Segoe UI", 10F);
-            rdoNhanVien.Location = new Point(599, 380);
+            rdoNhanVien.Location = new Point(186, 208);
             rdoNhanVien.Name = "rdoNhanVien";
             rdoNhanVien.Size = new Size(182, 51);
-            rdoNhanVien.TabIndex = 10;
+            rdoNhanVien.TabIndex = 6;
             rdoNhanVien.TabStop = true;
             rdoNhanVien.Text = "Nhân viên";
             // 
             // btnThem
             // 
             btnThem.Font = new Font("Segoe UI", 10F);
-            btnThem.Location = new Point(457, 490);
+            btnThem.Location = new Point(186, 288);
             btnThem.Name = "btnThem";
             btnThem.Size = new Size(129, 50);
             btnThem.TabIndex = 11;
             btnThem.Text = "Thêm";
+            btnThem.Click += btnThem_Click;
             // 
             // btnSua
             // 
             btnSua.Enabled = false;
             btnSua.Font = new Font("Segoe UI", 10F);
-            btnSua.Location = new Point(637, 490);
+            btnSua.Location = new Point(341, 288);
             btnSua.Name = "btnSua";
             btnSua.Size = new Size(129, 50);
             btnSua.TabIndex = 12;
             btnSua.Text = "Sửa";
+            btnSua.Click += btnSua_Click;
             // 
             // btnXoa
             // 
             btnXoa.Enabled = false;
             btnXoa.Font = new Font("Segoe UI", 10F);
-            btnXoa.Location = new Point(820, 490);
+            btnXoa.Location = new Point(495, 288);
             btnXoa.Name = "btnXoa";
             btnXoa.Size = new Size(129, 50);
             btnXoa.TabIndex = 13;
             btnXoa.Text = "Xóa";
+            btnXoa.Click += btnXoa_Click;
             // 
             // btnMoi
             // 
             btnMoi.Font = new Font("Segoe UI", 10F);
-            btnMoi.Location = new Point(276, 490);
+            btnMoi.Location = new Point(34, 288);
             btnMoi.Name = "btnMoi";
             btnMoi.Size = new Size(129, 50);
             btnMoi.TabIndex = 14;
             btnMoi.Text = "Mới";
+            btnMoi.Click += btnMoi_Click;
             // 
             // tabDanhSach
             // 
             tabDanhSach.Controls.Add(dgvNhanVien);
-            tabDanhSach.Location = new Point(4, 37);
+            tabDanhSach.Location = new Point(4, 26);
             tabDanhSach.Name = "tabDanhSach";
-            tabDanhSach.Size = new Size(1295, 798);
+            tabDanhSach.Size = new Size(1295, 664);
             tabDanhSach.TabIndex = 1;
             tabDanhSach.Text = "DANH SÁCH";
             tabDanhSach.UseVisualStyleBackColor = true;
@@ -239,8 +264,9 @@
             dgvNhanVien.Location = new Point(0, 0);
             dgvNhanVien.Name = "dgvNhanVien";
             dgvNhanVien.RowHeadersWidth = 62;
-            dgvNhanVien.Size = new Size(1295, 798);
+            dgvNhanVien.Size = new Size(1295, 664);
             dgvNhanVien.TabIndex = 0;
+            dgvNhanVien.CellClick += dgvNhanVien_CellClick;
             // 
             // QuanLyNhanVien
             // 
@@ -255,5 +281,8 @@
             ((System.ComponentModel.ISupportInitialize)dgvNhanVien).EndInit();
             ResumeLayout(false);
         }
+
+        private Label lblEmail;
+        private TextBox txtEmail;
     }
 }

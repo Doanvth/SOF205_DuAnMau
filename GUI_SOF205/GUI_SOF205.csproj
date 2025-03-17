@@ -9,6 +9,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\DAL_SOF205\DAL_SOF205.csproj" />
     <ProjectReference Include="..\DTO_SOF205\DTO_SOF205.csproj" />
   </ItemGroup>
 

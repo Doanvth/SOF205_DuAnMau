@@ -27,7 +27,7 @@ namespace UTIL_SOF205
         /// </summary>
         public static Boolean IsManager()
         {
-            return user != null && user.QuanLy;
+            return user != null && user.VaiTro;
         }
     }
 }
