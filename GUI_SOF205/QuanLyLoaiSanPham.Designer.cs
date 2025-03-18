@@ -81,7 +81,7 @@
             // lblMaLoai
             // 
             lblMaLoai.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblMaLoai.Location = new Point(43, 45);
+            lblMaLoai.Location = new Point(294, 69);
             lblMaLoai.Name = "lblMaLoai";
             lblMaLoai.Size = new Size(122, 32);
             lblMaLoai.TabIndex = 0;
@@ -89,7 +89,7 @@
             // 
             // txtMaLoai
             // 
-            txtMaLoai.Location = new Point(278, 120);
+            txtMaLoai.Location = new Point(529, 144);
             txtMaLoai.Name = "txtMaLoai";
             txtMaLoai.Size = new Size(400, 25);
             txtMaLoai.TabIndex = 1;
@@ -97,7 +97,7 @@
             // lblTenLoai
             // 
             lblTenLoai.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblTenLoai.Location = new Point(43, 123);
+            lblTenLoai.Location = new Point(294, 147);
             lblTenLoai.Name = "lblTenLoai";
             lblTenLoai.Size = new Size(122, 35);
             lblTenLoai.TabIndex = 2;
@@ -105,7 +105,7 @@
             // 
             // txtTenLoai
             // 
-            txtTenLoai.Location = new Point(278, 42);
+            txtTenLoai.Location = new Point(529, 66);
             txtTenLoai.Name = "txtTenLoai";
             txtTenLoai.Size = new Size(400, 25);
             txtTenLoai.TabIndex = 3;
@@ -135,6 +135,7 @@
             btnThem.Size = new Size(129, 50);
             btnThem.TabIndex = 6;
             btnThem.Text = "Thêm";
+
             btnThem.Click += btnThem_Click;
             // 
             // btnSua
