@@ -11,6 +11,41 @@ namespace GUI_SOF205
             CheckRole();
         }
 
+        private void ShowFormInPanel(Form form)
+        {
+            // Xóa form cũ trong panel
+            pnlFormContainer.Controls.Clear();
+
+            // Thiết lập form con
+            form.TopLevel = false;
+            form.FormBorderStyle = FormBorderStyle.None;
+            form.Dock = DockStyle.Fill;
+
+            // Thêm form vào panel
+            pnlFormContainer.Controls.Add(form);
+            form.Show();
+        }
+
+        private void quảnLýNhânViênToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ShowFormInPanel(new QuanLyNhanVien());
+        }
+
+        private void quảnLýLoạiSảnPhẩmToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ShowFormInPanel(new QuanLyLoaiSanPham());
+        }
+
+        private void quảnLýSảnPhẩmToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ShowFormInPanel(new QuanLySanPham());
+        }
+
+        private void quảnLýPhiếuBánHàngToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ShowFormInPanel(new PhieuBanHang());
+        }
+
         private void Init()
         {
             Welcome formWelcome = new Welcome();
@@ -19,7 +54,7 @@ namespace GUI_SOF205
             formLogin.ShowDialog();
         }
 
-        private void CheckRole()
+		private void CheckRole()
         {
             if (!AuthUtil.IsLogin())
             {
@@ -28,70 +63,27 @@ namespace GUI_SOF205
             }
             else
             {
-                lblTaiKhoan.Text = AuthUtil.user.HoTen;
+                lblAccount.Text = AuthUtil.user.HoTen;
                 if (!AuthUtil.IsManager()) 
                 {
-                    MenuQLLoaiSanPham.Enabled = false;
-                    MenuQLSanPham.Enabled = false;
-                    MenuQLNhanVien.Enabled = false;
-                    MenuQLTheLuuDong.Enabled = false;
-                    MenuQLPhieuBanHang.Enabled = false;
-                    MenuTKTheoLoaiSP.Enabled = false;
-                    MenuTKTheoNhanVien.Enabled = false;
+                    itmQLLoaiSanPham.Enabled = false;
+                    itmQLSanPham.Enabled = false;
+                    itmQLNhanVien.Enabled = false;
+                    itmQLTheLuuDong.Enabled = false;
+                    itmQLPhieuBanHang.Enabled = false;
+                    itmTKTheoLoaiSP.Enabled = false;
+                    itmTKTheoNV.Enabled = false;
                 }
                 else
                 {
-                    MenuQLLoaiSanPham.Enabled = true;
-                    MenuQLSanPham.Enabled = true;
-                    MenuQLNhanVien.Enabled = true;
-                    MenuQLTheLuuDong.Enabled = true;
-                    MenuQLPhieuBanHang.Enabled = true;
-                    MenuTKTheoLoaiSP.Enabled = true;
-                    MenuTKTheoNhanVien.Enabled = true;
+                    itmQLLoaiSanPham.Enabled = true;
+                    itmQLSanPham.Enabled = true;
+                    itmQLNhanVien.Enabled = true;
+                    itmQLTheLuuDong.Enabled = true;
+                    itmQLPhieuBanHang.Enabled = true;
+                    itmTKTheoLoaiSP.Enabled = true;
+                    itmTKTheoNV.Enabled = true;
                 }
-            }
-        }
-
-        private void LoadForm(Form form)
-        {
-            form.TopLevel = false;
-            pnlFormContainer.Controls.Add(form);
-            form.FormBorderStyle = FormBorderStyle.None;
-            form.Dock = DockStyle.Fill;
-            form.Show();
-        }
-
-        private void Logout()
-        {
-            AuthUtil.Logout();
-            this.Hide();
-            Login formLogin = new Login();
-            formLogin.ShowDialog();
-            this.Show();
-            CheckRole();
-        }
-
-        private void btnDangXuat_Click(object sender, EventArgs e)
-        {
-            DialogResult result = MessageBox.Show("Xác nhận đăng xuất tài khoản?",
-                                          "Đăng xuất",
-                                          MessageBoxButtons.YesNo,
-                                          MessageBoxIcon.Question);
-            if (result == DialogResult.Yes)
-            {
-                Logout();
-            }
-        }
-
-        private void MenuDangXuat_Click(object sender, EventArgs e)
-        {
-            DialogResult result = MessageBox.Show("Xác nhận đăng xuất tài khoản?",
-                                          "Đăng xuất",
-                                          MessageBoxButtons.YesNo,
-                                          MessageBoxIcon.Question);
-            if (result == DialogResult.Yes)
-            {
-                Logout();
             }
         }
     }
