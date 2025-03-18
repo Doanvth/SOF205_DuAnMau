@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using UTIL_SOF205;
 
 namespace GUI_SOF205
 {
@@ -29,7 +30,6 @@ namespace GUI_SOF205
         {
             try
             {
-
                 // Lấy dữ liệu từ form
                 string maSP = txtMaSanPham.Text.Trim();
                 string tenSP = txtTenSanPham.Text.Trim();
@@ -52,24 +52,29 @@ namespace GUI_SOF205
                 }
 
                 // Xử lý ảnh sản phẩm
-                string imagePath = "";
-                string selectedImagePath = pbHinhAnh.Tag.ToString();
-                string imageFileName = Path.GetFileName(selectedImagePath); // Lấy tên file ảnh
+
+                string savedImageName = "";
                 if (pbHinhAnh.Tag != null) // Kiểm tra xem người dùng đã chọn ảnh chưa
                 {
-                    //string saveDirectory = Path.Combine(Application.StartupPath, "Resource\\HinhAnhSanPham"); // Thư mục lưu ảnh
-                    //  string projectDirectory = AppDomain.CurrentDomain.BaseDirectory;
-                    //Cách lưu trên thư mục chỉnh định
-                    string projectRoot = @"E:\FPT_Giangday\a_Spring2025\DUANMAUCSHARP\SOF205_DuAnMau\GUI_SOF205"; //đường dẩn từ thư mục gốc
-                    string saveDirectory = Path.Combine(projectRoot, "Resources", "HinhAnhSanPham");
+                    string selectedImagePath = pbHinhAnh.Tag.ToString();
 
-                    if (!Directory.Exists(saveDirectory))
+                    // Mở hộp thoại chọn ảnh
+                    OpenFileDialog openFileDialog = new OpenFileDialog
                     {
-                        Directory.CreateDirectory(saveDirectory); // Tạo thư mục nếu chưa có
-                    }
+                        FileName = selectedImagePath
+                    };
 
-                    imagePath = Path.Combine(saveDirectory, imageFileName);
-                    File.Copy(selectedImagePath, imagePath, true); // Sao chép ảnh vào thư mục lưu trữ
+                    // Kiểm tra và lưu ảnh bằng ImageUtil
+                    try
+                    {
+                        ImageUtil imageUtil = new ImageUtil();
+                         savedImageName = imageUtil.save(openFileDialog);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Lỗi xử lý ảnh: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
                 }
 
                 // Tạo đối tượng sản phẩm
@@ -80,7 +85,7 @@ namespace GUI_SOF205
                     DonGia = donGia,
                     MaLoai = maLoai,
                     TrangThai = trangThai, // Mặc định là trạng thái đã chọn
-                    HinhAnh = imagePath // Lưu đường tên ảnh
+                    HinhAnh = savedImageName // Lưu đường dẫn ảnh
                 };
 
                 // Gọi DAL để thêm sản phẩm vào database
@@ -103,7 +108,6 @@ namespace GUI_SOF205
             {
                 LoaiSanPhamDLL loaiSanPhamDLL = new LoaiSanPhamDLL();
                 List<LoaiSanPham> dsLoai = loaiSanPhamDLL.selectAll(); // Lấy danh sách loại sản phẩm
-
                 cboLoaiSanPham.DataSource = dsLoai;
                 cboLoaiSanPham.DisplayMember = "TenLoai"; // Hiển thị tên loại
                 cboLoaiSanPham.ValueMember = "MaLoai"; // Giá trị thực là MaLoai
@@ -145,12 +149,10 @@ namespace GUI_SOF205
             }
             // Chuyển sang tab "CẬP NHẬT"
             tabControl.SelectedTab = tabCapNhat;
-
             // Bật nút "Sửa" & "Xóa", tắt "Thêm"
             btnThem.Enabled = false;
             btnSua.Enabled = true;
             btnXoa.Enabled = true;
-
             // Tắt chỉnh sửa mã sản phẩm
             txtMaSanPham.Enabled = false;
         }
@@ -160,8 +162,11 @@ namespace GUI_SOF205
             SanPhamDLL sanPhamDLL = new SanPhamDLL();
             List<SanPham> danhSach = sanPhamDLL.selectAll();
 
-            string basePath = @"E:\FPT_Giangday\a_Spring2025\DUANMAUCSHARP\SOF205_DuAnMau\GUI_SOF205\Resources\";
+            // Khởi tạo đối tượng ImageUtil
+            ImageUtil imageUtil = new ImageUtil();
+
             dgvSanPham.DataSource = null;
+
             // Tạo danh sách sản phẩm với hình ảnh
             var danhSachHinhAnh = danhSach.Select(sp => new
             {
@@ -170,11 +175,10 @@ namespace GUI_SOF205
                 sp.DonGia,
                 sp.MaLoai,
                 sp.TrangThai,
-                HinhAnh = GetImageFromPath(Path.Combine(basePath, sp.HinhAnh))
+                HinhAnh = imageUtil.load(sp.HinhAnh) // Sử dụng hàm load ảnh từ ImageUtil
             }).ToList();
 
             // Xóa dữ liệu cũ và thiết lập DataSource
-            // dgvSanPham.DataSource = null;
             dgvSanPham.DataSource = danhSachHinhAnh;
 
             // Thiết lập cột hình ảnh
@@ -183,29 +187,10 @@ namespace GUI_SOF205
             {
                 imageColumn.ImageLayout = DataGridViewImageCellLayout.Zoom; // Ảnh vừa ô, không bị méo
             }
-            // Tăng kích thước hàng lên 120px
-            // dgvSanPham.RowTemplate.Height = 120;
 
             // Tự động điều chỉnh hàng theo nội dung
             dgvSanPham.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
         }
-
-        // Hàm load ảnh an toàn, tránh lỗi file bị khóa
-        private Image GetImageFromPath(string path)
-        {
-            if (File.Exists(path))
-            {
-                using (FileStream stream = new FileStream(path, FileMode.Open, FileAccess.Read))
-                {
-                    return Image.FromStream(stream);
-                }
-            }
-            return null;
-        }
-
-
-
-
 
         private void tabControl_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -214,52 +199,52 @@ namespace GUI_SOF205
                 LoadDanhSachSanPham();
             }
         }
-
         private void btnSua_Click(object sender, EventArgs e)
         {
             try
             {
-                // 1️⃣ Lấy dữ liệu từ form
+                // 1️ Lấy dữ liệu từ form
                 string maSP = txtMaSanPham.Text.Trim();
                 string tenSP = txtTenSanPham.Text.Trim();
                 string donGiaText = txtDonGia.Text.Trim();
                 string maLoai = cboLoaiSanPham.SelectedValue?.ToString(); // Lấy mã loại từ combobox
                 bool trangThai = rbHoatDong.Checked; // Nếu chọn "Hoạt động" thì true, ngược lại false
-
                 // 2️ Kiểm tra dữ liệu nhập vào
                 if (string.IsNullOrEmpty(maSP) || string.IsNullOrEmpty(tenSP) || string.IsNullOrEmpty(donGiaText) || string.IsNullOrEmpty(maLoai))
                 {
                     MessageBox.Show("Vui lòng nhập đầy đủ thông tin!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
-
                 // Chuyển đổi đơn giá
                 if (!decimal.TryParse(donGiaText, out decimal donGia))
                 {
                     MessageBox.Show("Đơn giá không hợp lệ!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
-
                 // 3️ Xử lý ảnh sản phẩm (nếu có cập nhật)
-                string imagePath = "";
-                if (pbHinhAnh.Tag != null)
+                string savedImageName = "";
+                if (pbHinhAnh.Tag != null) // Kiểm tra xem người dùng đã chọn ảnh chưa
                 {
                     string selectedImagePath = pbHinhAnh.Tag.ToString();
-                    string imageFileName = Path.GetFileName(selectedImagePath);
 
-                    // Đường dẫn thư mục lưu ảnh
-                    string projectRoot = @"E:\FPT_Giangday\a_Spring2025\DUANMAUCSHARP\SOF205_DuAnMau\GUI_SOF205";
-                    string saveDirectory = Path.Combine(projectRoot, "Resources", "HinhAnhSanPham");
-
-                    if (!Directory.Exists(saveDirectory))
+                    // Mở hộp thoại chọn ảnh
+                    OpenFileDialog openFileDialog = new OpenFileDialog
                     {
-                        Directory.CreateDirectory(saveDirectory);
+                        FileName = selectedImagePath
+                    };
+
+                    // Kiểm tra và lưu ảnh bằng ImageUtil
+                    try
+                    {
+                        ImageUtil imageUtil = new ImageUtil();
+                        savedImageName = imageUtil.save(openFileDialog);
                     }
-
-                    imagePath = Path.Combine(saveDirectory, imageFileName);
-                    File.Copy(selectedImagePath, imagePath, true); // Ghi đè ảnh nếu có trùng
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Lỗi xử lý ảnh: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
                 }
-
                 // 4️ Tạo đối tượng sản phẩm
                 SanPham sp = new SanPham
                 {
@@ -268,10 +253,9 @@ namespace GUI_SOF205
                     DonGia = donGia,
                     MaLoai = maLoai,
                     TrangThai = trangThai,
-                    HinhAnh = imagePath // Lưu đường dẫn ảnh mới (nếu có)
+                    HinhAnh = savedImageName // Lưu đường dẫn ảnh mới (nếu có)
                 };
-
-                // 5️⃣ Gọi DAL để cập nhật sản phẩm trong database
+                // 5️ Gọi DAL để cập nhật sản phẩm trong database
                 SanPhamDLL sanPhamDLL = new SanPhamDLL();
                 sanPhamDLL.update(sp);
                 MessageBox.Show("Cập nhật sản phẩm thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -284,43 +268,39 @@ namespace GUI_SOF205
 
         private void btnXoa_Click(object sender, EventArgs e)
         {
-                // 1️ Lấy mã sản phẩm từ textbox
-                string maSP = txtMaSanPham.Text.Trim();
+            // 1️ Lấy mã sản phẩm từ textbox
+            string maSP = txtMaSanPham.Text.Trim();
+            // 2️ Kiểm tra nếu không có mã sản phẩm
+            if (string.IsNullOrEmpty(maSP))
+            {
+                MessageBox.Show("Vui lòng chọn sản phẩm cần xóa!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            // 3️ Hỏi xác nhận trước khi xóa
+            DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn xóa sản phẩm này?", "Xác nhận xóa",
+                                                  MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
-                // 2️ Kiểm tra nếu không có mã sản phẩm
-                if (string.IsNullOrEmpty(maSP))
+            if (result == DialogResult.Yes)
+            {
+                try
                 {
-                    MessageBox.Show("Vui lòng chọn sản phẩm cần xóa!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
+                    // 4️ Gọi phương thức xóa sản phẩm
+                    SanPhamDLL sanPhamDLL = new SanPhamDLL();
+                    sanPhamDLL.delete(maSP);
+
+                    // 5️ Làm mới form sau khi xóa
+                    ClearForm();
+
+                    // Chuyển về tab "DANH SÁCH"
+                    tabControl.SelectedTab = tabDanhSach;
+
+                    MessageBox.Show("Xóa sản phẩm thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
-
-                // 3️ Hỏi xác nhận trước khi xóa
-                DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn xóa sản phẩm này?", "Xác nhận xóa",
-                                                      MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-                if (result == DialogResult.Yes)
+                catch (Exception ex)
                 {
-                    try
-                    {
-                        // 4️ Gọi phương thức xóa sản phẩm
-                        SanPhamDLL sanPhamDLL = new SanPhamDLL();
-                        sanPhamDLL.delete(maSP);
-
-                        // 5️ Làm mới form sau khi xóa
-                        ClearForm();
-
-                        // Chuyển về tab "DANH SÁCH"
-                        tabControl.SelectedTab = tabDanhSach;
-
-                        MessageBox.Show("Xóa sản phẩm thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show("Lỗi khi xóa sản phẩm: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
+                    MessageBox.Show("Lỗi khi xóa sản phẩm: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-        
-
+            }
         }
     }
 }
