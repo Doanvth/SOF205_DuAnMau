@@ -72,6 +72,9 @@
             // 
             tabCapNhat.Controls.Add(txtEmail);
             tabCapNhat.Controls.Add(lblEmail);
+            // 
+            // tabCapNhat
+            // 
             tabCapNhat.Controls.Add(lblMaNhanVien);
             tabCapNhat.Controls.Add(txtMaNhanVien);
             tabCapNhat.Controls.Add(lblMatKhau);
@@ -185,6 +188,7 @@
             // 
             // rdoQuanly
             // 
+            rdoQuanly.Font = new Font("Segoe UI", 10F);
             rdoQuanly.Location = new Point(795, 387);
             rdoQuanly.Name = "rdoQuanly";
             rdoQuanly.Size = new Size(154, 37);
@@ -211,8 +215,8 @@
             btnThem.TabIndex = 11;
             btnThem.Text = "Thêm";
             btnThem.Click += btnThem_Click;
-           // 
-            // btnSua
+           //             
+           // btnSua
             // 
             btnSua.Enabled = false;
             btnSua.Font = new Font("Segoe UI", 10F);
@@ -221,10 +225,9 @@
             btnSua.Size = new Size(129, 50);
             btnSua.TabIndex = 12;
             btnSua.Text = "Sửa";
-
             btnSua.Click += btnSua_Click;
            // 
-            // btnXoa
+           // btnXoa
             // 
             btnXoa.Enabled = false;
             btnXoa.Font = new Font("Segoe UI", 10F);
@@ -233,23 +236,21 @@
             btnXoa.Size = new Size(129, 50);
             btnXoa.TabIndex = 13;
             btnXoa.Text = "Xóa";
-            btnXoa.Click += btnXoa_Click;
-           // 
+            // 
             // btnMoi
             // 
             btnMoi.Font = new Font("Segoe UI", 10F);
-            btnMoi.Location = new Point(34, 288);
             btnMoi.Location = new Point(276, 490);
             btnMoi.Name = "btnMoi";
             btnMoi.Size = new Size(129, 50);
             btnMoi.TabIndex = 14;
             btnMoi.Text = "Mới";
+
             btnMoi.Click += btnMoi_Click;
             // 
             // tabDanhSach
             // 
             tabDanhSach.Controls.Add(dgvNhanVien);
-
             tabDanhSach.Location = new Point(4, 37);
             tabDanhSach.Name = "tabDanhSach";
             tabDanhSach.Size = new Size(1295, 798);
@@ -267,7 +268,6 @@
             dgvNhanVien.Size = new Size(1295, 798);
             dgvNhanVien.TabIndex = 0;
             dgvNhanVien.CellClick += dgvNhanVien_CellClick;
-
             // 
             // QuanLyNhanVien
             // 

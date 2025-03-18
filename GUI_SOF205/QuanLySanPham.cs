@@ -1,5 +1,4 @@
-
-﻿using DAL_SOF205;
+using DAL_SOF205;
 using DTO_SOF205;
 using System;
 using System.Collections.Generic;
@@ -10,7 +9,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using UTIL_SOF205;
 namespace GUI_SOF205
 {
     public partial class QuanLySanPham : Form

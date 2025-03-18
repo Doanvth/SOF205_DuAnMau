@@ -10,53 +10,6 @@ namespace GUI_SOF205
             Init();
             CheckRole();
         }
-        private void Init()
-        {
-            Welcome formWelcome = new Welcome();
-            formWelcome.ShowDialog();
-            Login formLogin = new Login();
-            formLogin.ShowDialog();
-        }
-        private void CheckRole()
-        {
-            if (!AuthUtil.IsLogin())
-            {
-                Login formLogin = new Login();
-                formLogin.ShowDialog();
-            }
-            else
-            {
-                lblTaiKhoan.Text = AuthUtil.user.HoTen;
-                if (!AuthUtil.IsManager()) 
-                {
-                    MenuQLLoaiSanPham.Enabled = false;
-                    MenuQLSanPham.Enabled = false;
-                    MenuQLNhanVien.Enabled = false;
-                    MenuQLTheLuuDong.Enabled = false;
-                    MenuQLPhieuBanHang.Enabled = false;
-                    MenuTKTheoLoaiSP.Enabled = false;
-                    MenuTKTheoNhanVien.Enabled = false;
-                }
-                else
-                {
-                    MenuQLLoaiSanPham.Enabled = true;
-                    MenuQLSanPham.Enabled = true;
-                    MenuQLNhanVien.Enabled = true;
-                    MenuQLTheLuuDong.Enabled = true;
-                    MenuQLPhieuBanHang.Enabled = true;
-                    MenuTKTheoLoaiSP.Enabled = true;
-                    MenuTKTheoNhanVien.Enabled = true;
-                }
-            }
-        }
-        private void LoadForm(Form form)
-        {
-            form.TopLevel = false;
-            pnlFormContainer.Controls.Add(form);
-            form.FormBorderStyle = FormBorderStyle.None;
-            form.Dock = DockStyle.Fill;
-            form.Show();
-        }
 
         private void ShowFormInPanel(Form form)
         {
@@ -92,6 +45,55 @@ namespace GUI_SOF205
         {
             ShowFormInPanel(new PhieuBanHang());
         }
+        private void Init()
+        {
+            Welcome formWelcome = new Welcome();
+            formWelcome.ShowDialog();
+            Login formLogin = new Login();
+            formLogin.ShowDialog();
+        }
+
+		private void CheckRole()
+        {
+            if (!AuthUtil.IsLogin())
+            {
+                Login formLogin = new Login();
+                formLogin.ShowDialog();
+            }
+            else
+            {
+                lblAccount.Text = AuthUtil.user.HoTen;
+                if (!AuthUtil.IsManager()) 
+                {
+                    itmQLLoaiSanPham.Enabled = false;
+                    itmQLSanPham.Enabled = false;
+                    itmQLNhanVien.Enabled = false;
+                    itmQLTheLuuDong.Enabled = false;
+                    itmQLPhieuBanHang.Enabled = false;
+                    itmTKTheoLoaiSP.Enabled = false;
+                    itmTKTheoNV.Enabled = false;
+                }
+                else
+                {
+                    itmQLLoaiSanPham.Enabled = true;
+                    itmQLSanPham.Enabled = true;
+                    itmQLNhanVien.Enabled = true;
+                    itmQLTheLuuDong.Enabled = true;
+                    itmQLPhieuBanHang.Enabled = true;
+                    itmTKTheoLoaiSP.Enabled = true;
+                    itmTKTheoNV.Enabled = true;
+                }
+            }
+        }
+        private void LoadForm(Form form)
+        {
+            form.TopLevel = false;
+            pnlFormContainer.Controls.Add(form);
+            form.FormBorderStyle = FormBorderStyle.None;
+            form.Dock = DockStyle.Fill;
+            form.Show();
+        }
+
         private void Logout()
         {
             AuthUtil.Logout();

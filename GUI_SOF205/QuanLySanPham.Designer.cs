@@ -23,14 +23,6 @@
         private System.Windows.Forms.PictureBox pbHinhAnh;
         private System.Windows.Forms.Button btnChonAnh;
         private System.Windows.Forms.OpenFileDialog openFileDialog;
-
-
-
-        //Hình ảnh
-        private System.Windows.Forms.PictureBox pbHinhAnh;
-        private System.Windows.Forms.Button btnChonAnh;
-        private System.Windows.Forms.OpenFileDialog openFileDialog;
-
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -105,7 +97,7 @@
             tabCapNhat.Controls.Add(btnChonAnh);
             tabCapNhat.Location = new Point(4, 37);
             tabCapNhat.Name = "tabCapNhat";
-            tabCapNhat.Size = new Size(1295, 664);
+            tabCapNhat.Size = new Size(1295, 653);
             tabCapNhat.TabIndex = 0;
             tabCapNhat.Text = "CẬP NHẬT";
             tabCapNhat.UseVisualStyleBackColor = true;
@@ -123,7 +115,7 @@
             // 
             txtMaSanPham.Location = new Point(459, 63);
             txtMaSanPham.Name = "txtMaSanPham";
-            txtMaSanPham.Size = new Size(400, 25);
+            txtMaSanPham.Size = new Size(400, 34);
             txtMaSanPham.TabIndex = 1;
             // 
             // lblTenSanPham
@@ -139,7 +131,7 @@
             // 
             txtTenSanPham.Location = new Point(459, 135);
             txtTenSanPham.Name = "txtTenSanPham";
-            txtTenSanPham.Size = new Size(400, 25);
+            txtTenSanPham.Size = new Size(400, 34);
             txtTenSanPham.TabIndex = 3;
             // 
             // lblDonGia
@@ -155,7 +147,7 @@
             // 
             txtDonGia.Location = new Point(459, 205);
             txtDonGia.Name = "txtDonGia";
-            txtDonGia.Size = new Size(400, 25);
+            txtDonGia.Size = new Size(400, 34);
             txtDonGia.TabIndex = 5;
             // 
             // lblLoaiSanPham
@@ -171,7 +163,7 @@
             // 
             cboLoaiSanPham.Location = new Point(459, 284);
             cboLoaiSanPham.Name = "cboLoaiSanPham";
-            cboLoaiSanPham.Size = new Size(400, 25);
+            cboLoaiSanPham.Size = new Size(400, 36);
             cboLoaiSanPham.TabIndex = 7;
             // 
             // lblTrangThai
@@ -265,7 +257,7 @@
             // tabDanhSach
             // 
             tabDanhSach.Controls.Add(dgvSanPham);
-            tabDanhSach.Location = new Point(4, 26);
+            tabDanhSach.Location = new Point(4, 37);
             tabDanhSach.Name = "tabDanhSach";
             tabDanhSach.Size = new Size(1295, 653);
             tabDanhSach.TabIndex = 1;
@@ -281,6 +273,7 @@
             dgvSanPham.RowHeadersWidth = 62;
             dgvSanPham.Size = new Size(1295, 653);
             dgvSanPham.TabIndex = 0;
+
             dgvSanPham.CellClick += dgvSanPham_CellClick;
             // 
             // QuanLySanPham
@@ -321,6 +314,7 @@
 
                 // Lưu đường dẫn ảnh vào Tag để sử dụng sau này
                 pbHinhAnh.Tag = filePath;
+
             }
         }
     }
