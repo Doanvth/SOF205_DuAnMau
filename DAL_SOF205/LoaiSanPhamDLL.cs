@@ -10,7 +10,7 @@ namespace DAL_SOF205
     {
         public override void insert(LoaiSanPham entity)
         {
-            String sql = "INSERT INTO LoaiSanPham (MaLoai, TenLoai, GhiChu) VALUE (@1, @2, @3)";
+            String sql = "INSERT INTO LoaiSanPham (MaLoai, TenLoai, GhiChu) VALUES (@0, @1, @2)";
             List<Object> thamSo = new List<Object>();
             thamSo.Add(entity.MaLoai);
             thamSo.Add(entity.TenLoai);
@@ -20,7 +20,7 @@ namespace DAL_SOF205
 
         public override void update(LoaiSanPham entity)
         {
-            String sql = "UPDATE LoaiSanPham SET TenLoai=@1, GhiChu=@2 WHERE MaLoai=@3";
+            String sql = "UPDATE LoaiSanPham SET TenLoai=@0, GhiChu=@1 WHERE MaLoai=@2";
             List<Object> thamSo = new List<Object>();
             thamSo.Add(entity.TenLoai);
             thamSo.Add(entity.GhiChu);
@@ -30,7 +30,7 @@ namespace DAL_SOF205
 
         public override void delete(string id)
         {
-            String sql = "DELETE FROM LoaiSanPham WHERE MaLoai=@1";
+            String sql = "DELETE FROM LoaiSanPham WHERE MaLoai=@0";
             List<Object> thamSo = new List<Object>();
             thamSo.Add(id);
             DBUtil.Update(sql, thamSo);
