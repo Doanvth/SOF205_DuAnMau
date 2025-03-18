@@ -28,7 +28,7 @@ namespace GUI_SOF205
         {
             try
             {
-                // 1️⃣ Lấy dữ liệu từ form
+                //  Lấy dữ liệu từ form
                 string maNV = txtMaNhanVien.Text.Trim();
                 string hoTen = txtHoTen.Text.Trim();
                 string email = txtEmail.Text.Trim();
@@ -44,7 +44,7 @@ namespace GUI_SOF205
                     vaiTro = false; // Quản lý
                 }
 
-                // 2️⃣ Kiểm tra dữ liệu nhập vào
+                //  Kiểm tra dữ liệu nhập vào
                 if (string.IsNullOrEmpty(maNV) || string.IsNullOrEmpty(hoTen) || string.IsNullOrEmpty(email) || string.IsNullOrEmpty(matKhau))
                 {
                     MessageBox.Show("Vui lòng nhập đầy đủ thông tin!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -58,7 +58,7 @@ namespace GUI_SOF205
                 }
 
 
-                // 3️⃣ Tạo đối tượng nhân viên
+                // Tạo đối tượng nhân viên
                 NhanVien nv = new NhanVien
                 {
                     MaNhanVien = maNV,
@@ -69,13 +69,13 @@ namespace GUI_SOF205
                     TrangThai = true // Mặc định là active
                 };
 
-                // 4️⃣ Gọi DAL để thêm nhân viên vào database
+                // Gọi DAL để thêm nhân viên vào database
                 NhanVienDLL nhanVienDLL = new NhanVienDLL();
                 nhanVienDLL.insert(nv);
                 MessageBox.Show("Thêm nhân viên thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
 
-                // 5️⃣ Làm mới form sau khi thêm thành công
+                // Làm mới form sau khi thêm thành công
                 ClearForm();
             }
             catch (Exception ex)
@@ -104,7 +104,7 @@ namespace GUI_SOF205
                     vaiTro = true; // Quản lý
                 }
 
-                // 2️⃣ Kiểm tra dữ liệu nhập vào
+                // 2️ Kiểm tra dữ liệu nhập vào
                 if (string.IsNullOrEmpty(maNV) || string.IsNullOrEmpty(hoTen) || string.IsNullOrEmpty(email) || string.IsNullOrEmpty(matKhau))
                 {
                     MessageBox.Show("Vui lòng nhập đầy đủ thông tin!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -117,7 +117,7 @@ namespace GUI_SOF205
                     return;
                 }
 
-                // 3️⃣ Tạo đối tượng nhân viên
+                // 3️ Tạo đối tượng nhân viên
                 NhanVien nv = new NhanVien
                 {
                     MaNhanVien = maNV,
@@ -128,7 +128,7 @@ namespace GUI_SOF205
                     TrangThai = true // Giữ trạng thái mặc định là active
                 };
 
-                // 4️⃣ Gọi DAL để cập nhật nhân viên trong database
+                // 4️ Gọi DAL để cập nhật nhân viên trong database
                 NhanVienDLL nhanVienDLL = new NhanVienDLL();
                 nhanVienDLL.update(nv);
                 MessageBox.Show("Cập nhật nhân viên thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
