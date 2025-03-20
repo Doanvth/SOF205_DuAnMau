@@ -27,7 +27,7 @@ namespace GUI_SOF205
             {
                 MessageBox.Show(this, "Tài khoản không tồn tại");
             }
-            else if (!nhanVien.MaKhau.Equals(password))
+            else if (!nhanVien.MatKhau.Equals(password))
             {
                 MessageBox.Show(this, "Mật khẩu chưa đúng");
             }

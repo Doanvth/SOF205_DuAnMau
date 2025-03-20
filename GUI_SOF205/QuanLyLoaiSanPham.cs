@@ -57,8 +57,8 @@ namespace GUI_SOF205
                     GhiChu = ghiChu,
                 };
 
-                // 4️ Gọi DAL để thêm nhân viên vào database
-                LoaiSanPhamDLL loaiSanPhamDLL = new LoaiSanPhamDLL();
+                // Gọi DAL để thêm nhân viên vào database
+                LoaiSanPhamDAL loaiSanPhamDLL = new LoaiSanPhamDAL();
                 loaiSanPhamDLL.insert(loaiSP);
                 MessageBox.Show("Thêm loại sản phẩm thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 

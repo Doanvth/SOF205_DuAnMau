@@ -124,9 +124,9 @@
             // lblTenSanPham
             // 
             lblTenSanPham.Font = new Font("Segoe UI", 10F);
-            lblTenSanPham.Location = new Point(8, 67);
+            lblTenSanPham.Location = new Point(267, 140);
             lblTenSanPham.Name = "lblTenSanPham";
-            lblTenSanPham.Size = new Size(99, 23);
+            lblTenSanPham.Size = new Size(177, 29);
             lblTenSanPham.TabIndex = 2;
             lblTenSanPham.Text = "Tên sản phẩm:";
             // 
@@ -140,7 +140,7 @@
             // lblDonGia
             // 
             lblDonGia.Font = new Font("Segoe UI", 10F);
-            lblDonGia.Location = new Point(8, 112);
+            lblDonGia.Location = new Point(267, 208);
             lblDonGia.Name = "lblDonGia";
             lblDonGia.Size = new Size(66, 32);
             lblDonGia.TabIndex = 4;
@@ -156,15 +156,15 @@
             // lblLoaiSanPham
             // 
             lblLoaiSanPham.Font = new Font("Segoe UI", 10F);
-            lblLoaiSanPham.Location = new Point(8, 155);
+            lblLoaiSanPham.Location = new Point(267, 287);
             lblLoaiSanPham.Name = "lblLoaiSanPham";
-            lblLoaiSanPham.Size = new Size(111, 25);
+            lblLoaiSanPham.Size = new Size(188, 33);
             lblLoaiSanPham.TabIndex = 6;
             lblLoaiSanPham.Text = "Loại sản phẩm:";
             // 
             // cboLoaiSanPham
             // 
-            cboLoaiSanPham.Location = new Point(125, 152);
+            cboLoaiSanPham.Location = new Point(571, 284);
             cboLoaiSanPham.Name = "cboLoaiSanPham";
             cboLoaiSanPham.Size = new Size(400, 25);
             cboLoaiSanPham.TabIndex = 7;
@@ -192,7 +192,7 @@
             // rbNgungBan
             // 
             rbNgungBan.Font = new Font("Segoe UI", 10F);
-            rbNgungBan.Location = new Point(302, 202);
+            rbNgungBan.Location = new Point(754, 366);
             rbNgungBan.Name = "rbNgungBan";
             rbNgungBan.Size = new Size(163, 33);
             rbNgungBan.TabIndex = 10;
@@ -242,7 +242,7 @@
             // pbHinhAnh
             // 
             pbHinhAnh.BorderStyle = BorderStyle.FixedSingle;
-            pbHinhAnh.Location = new Point(567, 3);
+            pbHinhAnh.Location = new Point(1052, 63);
             pbHinhAnh.Name = "pbHinhAnh";
             pbHinhAnh.Size = new Size(211, 186);
             pbHinhAnh.TabIndex = 15;
@@ -250,7 +250,7 @@
             // 
             // btnChonAnh
             // 
-            btnChonAnh.Location = new Point(608, 216);
+            btnChonAnh.Location = new Point(1092, 270);
             btnChonAnh.Name = "btnChonAnh";
             btnChonAnh.Size = new Size(129, 50);
             btnChonAnh.TabIndex = 16;
