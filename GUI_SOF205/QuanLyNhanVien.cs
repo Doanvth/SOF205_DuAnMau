@@ -70,7 +70,7 @@ namespace GUI_SOF205
                 };
 
                 // Gọi DAL để thêm nhân viên vào database
-                NhanVienDLL nhanVienDLL = new NhanVienDLL();
+                NhanVienDAL nhanVienDLL = new NhanVienDAL();
                 nhanVienDLL.insert(nv);
                 MessageBox.Show("Thêm nhân viên thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
@@ -129,7 +129,7 @@ namespace GUI_SOF205
                 };
 
                 // 4️ Gọi DAL để cập nhật nhân viên trong database
-                NhanVienDLL nhanVienDLL = new NhanVienDLL();
+                NhanVienDAL nhanVienDLL = new NhanVienDAL();
                 nhanVienDLL.update(nv);
                 MessageBox.Show("Cập nhật nhân viên thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
@@ -160,7 +160,7 @@ namespace GUI_SOF205
                 try
                 {
                     // Gọi phương thức xóa
-                    NhanVienDLL nhanVienDLL = new NhanVienDLL();
+                    NhanVienDAL nhanVienDLL = new NhanVienDAL();
                     nhanVienDLL.delete(maNhanVien);
                     ClearForm();
                     // Chuyển về tab "DANH SÁCH"
@@ -189,7 +189,7 @@ namespace GUI_SOF205
         }
         private void LoadDanhSachNhanVien()
         {
-            NhanVienDLL nhanVienDLL = new NhanVienDLL();
+            NhanVienDAL nhanVienDLL = new NhanVienDAL();
             List<NhanVien> danhSach = nhanVienDLL.selectAll();
             dgvNhanVien.DataSource = null; // Xóa dữ liệu cũ
             dgvNhanVien.DataSource = danhSach;

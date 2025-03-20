@@ -107,7 +107,7 @@ namespace GUI_SOF205
         {
             try
             {
-                LoaiSanPhamDLL loaiSanPhamDLL = new LoaiSanPhamDLL();
+                LoaiSanPhamDAL loaiSanPhamDLL = new LoaiSanPhamDAL();
                 List<LoaiSanPham> dsLoai = loaiSanPhamDLL.selectAll(); // Lấy danh sách loại sản phẩm
                 cboLoaiSanPham.DataSource = dsLoai;
                 cboLoaiSanPham.DisplayMember = "TenLoai"; // Hiển thị tên loại

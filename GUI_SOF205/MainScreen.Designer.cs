@@ -46,8 +46,8 @@
             MenuTroGiup = new ToolStripMenuItem();
             MenuGioiThieu = new ToolStripMenuItem();
             statusStrip1 = new StatusStrip();
-            toolStripStatusLabel1 = new ToolStripStatusLabel();
-            toolStripStatusLabel3 = new ToolStripStatusLabel();
+            đổiMậtKhẩuToolStripMenuItem = new ToolStripStatusLabel();
+            đăngXuấtToolStripMenuItem = new ToolStripStatusLabel();
             lblDongHo = new ToolStripStatusLabel();
             toolStrip1 = new ToolStrip();
             btnDangXuat = new ToolStripButton();
@@ -105,11 +105,11 @@
             // 
             // MenuQLNhanVien
             // 
-            quảnLýNhânViênToolStripMenuItem.Image = Properties.Resources.Couple;
-            quảnLýNhânViênToolStripMenuItem.Name = "quảnLýNhânViênToolStripMenuItem";
-            quảnLýNhânViênToolStripMenuItem.Size = new Size(304, 34);
-            quảnLýNhânViênToolStripMenuItem.Text = "Quản lý nhân viên";
-            quảnLýNhânViênToolStripMenuItem.Click += quảnLýNhânViênToolStripMenuItem_Click;
+            //quảnLýNhânViênToolStripMenuItem.Image = Properties.Resources.Couple;
+            //quảnLýNhânViênToolStripMenuItem.Name = "quảnLýNhânViênToolStripMenuItem";
+            //quảnLýNhânViênToolStripMenuItem.Size = new Size(304, 34);
+            //quảnLýNhânViênToolStripMenuItem.Text = "Quản lý nhân viên";
+            //quảnLýNhânViênToolStripMenuItem.Click += quảnLýNhânViênToolStripMenuItem_Click;
             // 
             // MenuQLTheLuuDong
             // 
@@ -208,7 +208,7 @@
             // 
             toolStripStatusLabel3.Name = "toolStripStatusLabel3";
             toolStripStatusLabel3.Size = new Size(913, 25);
-            toolStripStatusLabel3.Spring = true;
+           // toolStripStatusLabel3.Spring = true;
             // 
             // lblDongHo
             // 
@@ -340,7 +340,20 @@
         private ToolStripMenuItem tàiKhoảnToolStripMenuItem;
         private ToolStripMenuItem quảnLýToolStripMenuItem;
         private ToolStripMenuItem thốngKêToolStripMenuItem;
+        private ToolStripMenuItem quảnLýNhânViênToolStripMenuItem;
+        private ToolStripMenuItem quảnLýKháchHàngToolStripMenuItem;
+        private ToolStripMenuItem quảnLýLoạiSảnPhẩmToolStripMenuItem;
+        private ToolStripMenuItem quảnLýSảnPhẩmToolStripMenuItem;
+        private ToolStripMenuItem quảnLýPhiếuBánHàngToolStripMenuItem;
+        private ToolStripMenuItem doanhThuTheoLoạiToolStripMenuItem;
+        private ToolStripMenuItem doanhThuTheoNhânViênToolStripMenuItem;
+        private ToolStripMenuItem trợGiúpToolStripMenuItem;
+        private ToolStripMenuItem giớiThiệuToolStripMenuItem;
+        private ToolStripMenuItem toolStripStatusLabel1;
+        private ToolStripMenuItem toolStripStatusLabel2;
+        private ToolStripMenuItem toolStripStatusLabel3;
         private ToolStripMenuItem hỗTrợToolStripMenuItem;
+        
         private ToolStripMenuItem MenuDoiMatKhau;
         private ToolStripMenuItem MenuDangXuat;
         private ToolStripMenuItem MenuQLNhanVien;
@@ -353,8 +366,8 @@
         private ToolStripMenuItem MenuTroGiup;
         private ToolStripMenuItem MenuGioiThieu;
         private StatusStrip statusStrip1;
-        private ToolStripStatusLabel toolStripStatusLabel1;
-        private ToolStripStatusLabel toolStripStatusLabel3;
+        private ToolStripStatusLabel đổiMậtKhẩuToolStripMenuItem;
+        private ToolStripStatusLabel đăngXuấtToolStripMenuItem;
         private ToolStripStatusLabel lblDongHo;
         private ToolStrip toolStrip1;
         private ToolStripButton btnQLTheLuuDong;
