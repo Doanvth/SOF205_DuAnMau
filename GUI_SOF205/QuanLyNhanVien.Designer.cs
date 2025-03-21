@@ -70,11 +70,6 @@
             // 
             // tabCapNhat
             // 
-            tabCapNhat.Controls.Add(txtEmail);
-            tabCapNhat.Controls.Add(lblEmail);
-            // 
-            // tabCapNhat
-            // 
             tabCapNhat.Controls.Add(lblMaNhanVien);
             tabCapNhat.Controls.Add(txtMaNhanVien);
             tabCapNhat.Controls.Add(lblMatKhau);
@@ -90,29 +85,13 @@
             tabCapNhat.Controls.Add(btnSua);
             tabCapNhat.Controls.Add(btnXoa);
             tabCapNhat.Controls.Add(btnMoi);
-            tabCapNhat.Location = new Point(4, 37);
+            tabCapNhat.Location = new Point(4, 26);
             tabCapNhat.Name = "tabCapNhat";
-            tabCapNhat.Size = new Size(1295, 653);
+            tabCapNhat.Size = new Size(1295, 664);
             tabCapNhat.TabIndex = 0;
             tabCapNhat.Text = "CẬP NHẬT";
             tabCapNhat.UseVisualStyleBackColor = true;
             // 
-            // txtEmail
-            // 
-            txtEmail.Location = new Point(186, 101);
-            txtEmail.Name = "txtEmail";
-            txtEmail.Size = new Size(400, 25);
-            txtEmail.TabIndex = 3;
-            // 
-            // lblEmail
-            // 
-            lblEmail.AutoSize = true;
-            lblEmail.Location = new Point(18, 101);
-            lblEmail.Name = "lblEmail";
-            lblEmail.Size = new Size(41, 19);
-            lblEmail.TabIndex = 1;
-            lblEmail.Text = "Email";
-            //
             // lblMaNhanVien
             // 
             lblMaNhanVien.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
@@ -126,7 +105,7 @@
             // 
             txtMaNhanVien.Location = new Point(599, 54);
             txtMaNhanVien.Name = "txtMaNhanVien";
-            txtMaNhanVien.Size = new Size(400, 34);
+            txtMaNhanVien.Size = new Size(400, 25);
             txtMaNhanVien.TabIndex = 1;
             // 
             // lblMatKhau
@@ -142,7 +121,7 @@
             // 
             txtMatKhau.Location = new Point(599, 217);
             txtMatKhau.Name = "txtMatKhau";
-            txtMatKhau.Size = new Size(400, 34);
+            txtMatKhau.Size = new Size(400, 25);
             txtMatKhau.TabIndex = 3;
             // 
             // lblXacNhan
@@ -158,7 +137,7 @@
             // 
             txtXacNhanMatKhau.Location = new Point(599, 300);
             txtXacNhanMatKhau.Name = "txtXacNhanMatKhau";
-            txtXacNhanMatKhau.Size = new Size(400, 34);
+            txtXacNhanMatKhau.Size = new Size(400, 25);
             txtXacNhanMatKhau.TabIndex = 5;
             // 
             // lblHoTen
@@ -174,7 +153,7 @@
             // 
             txtHoTen.Location = new Point(599, 137);
             txtHoTen.Name = "txtHoTen";
-            txtHoTen.Size = new Size(400, 34);
+            txtHoTen.Size = new Size(400, 25);
             txtHoTen.TabIndex = 7;
             // 
             // lblVaiTro
@@ -215,8 +194,8 @@
             btnThem.TabIndex = 11;
             btnThem.Text = "Thêm";
             btnThem.Click += btnThem_Click;
-           //             
-           // btnSua
+            // 
+            // btnSua
             // 
             btnSua.Enabled = false;
             btnSua.Font = new Font("Segoe UI", 10F);
@@ -226,8 +205,8 @@
             btnSua.TabIndex = 12;
             btnSua.Text = "Sửa";
             btnSua.Click += btnSua_Click;
-           // 
-           // btnXoa
+            // 
+            // btnXoa
             // 
             btnXoa.Enabled = false;
             btnXoa.Font = new Font("Segoe UI", 10F);
@@ -245,15 +224,14 @@
             btnMoi.Size = new Size(129, 50);
             btnMoi.TabIndex = 14;
             btnMoi.Text = "Mới";
-
             btnMoi.Click += btnMoi_Click;
             // 
             // tabDanhSach
             // 
             tabDanhSach.Controls.Add(dgvNhanVien);
-            tabDanhSach.Location = new Point(4, 37);
+            tabDanhSach.Location = new Point(4, 26);
             tabDanhSach.Name = "tabDanhSach";
-            tabDanhSach.Size = new Size(1295, 798);
+            tabDanhSach.Size = new Size(1295, 664);
             tabDanhSach.TabIndex = 1;
             tabDanhSach.Text = "DANH SÁCH";
             tabDanhSach.UseVisualStyleBackColor = true;
@@ -265,7 +243,7 @@
             dgvNhanVien.Location = new Point(0, 0);
             dgvNhanVien.Name = "dgvNhanVien";
             dgvNhanVien.RowHeadersWidth = 62;
-            dgvNhanVien.Size = new Size(1295, 798);
+            dgvNhanVien.Size = new Size(1295, 664);
             dgvNhanVien.TabIndex = 0;
             dgvNhanVien.CellClick += dgvNhanVien_CellClick;
             // 
@@ -282,6 +260,7 @@
             ((System.ComponentModel.ISupportInitialize)dgvNhanVien).EndInit();
             ResumeLayout(false);
         }
+
         private Label lblEmail;
         private TextBox txtEmail;
     }

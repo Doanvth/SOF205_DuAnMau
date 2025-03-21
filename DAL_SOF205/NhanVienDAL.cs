@@ -9,7 +9,7 @@ namespace DAL_SOF205
     {
         public override void insert(NhanVien entity)
         {
-            String sql = "INSERT INTO NhanVien (MaNhanVien, HoTen, Email, MatKhau, VaiTro ,TrangThai) VALUES (@0, @1, @2, @3, @4, @5)";
+            String sql = "INSERT INTO NhanVien (MaNhanVien, HoTen, Email, MatKhau, VaiTro ,TrangThai) VALUES (@1, @2, @3, @4, @5, @6)";
             List<Object> thamSo = new List<Object>();
             thamSo.Add(entity.MaNhanVien);
             thamSo.Add(entity.HoTen);
@@ -22,7 +22,7 @@ namespace DAL_SOF205
 
         public override void update(NhanVien entity)
         {
-            String sql = "UPDATE NhanVien SET HoTen=@0, MatKhau=@1,  Email=@2, VaiTro=@3, TrangThai=@4 WHERE MaNhanVien=@5";
+            String sql = "UPDATE NhanVien SET HoTen=@1, MatKhau=@2,  Email=@3, VaiTro=@4, TrangThai=@5 WHERE MaNhanVien=@6";
             List<Object> thamSo = new List<Object>();
             thamSo.Add(entity.HoTen);      
             thamSo.Add(entity.MatKhau);    
@@ -35,7 +35,7 @@ namespace DAL_SOF205
 
         public override void delete(string id)
         {
-            String sql = "DELETE FROM NhanVien WHERE MaNhanVien=@0";
+            String sql = "DELETE FROM NhanVien WHERE MaNhanVien=@1";
             List<Object> thamSo = new List<Object>();
             thamSo.Add(id);
             DBUtil.Update(sql, thamSo);
@@ -49,7 +49,7 @@ namespace DAL_SOF205
 
         public override NhanVien selectById(string id)
         {
-            String sql = "SELECT * FROM NhanVien WHERE MaNhanVien=@0";
+            String sql = "SELECT * FROM NhanVien WHERE MaNhanVien=@1";
             List<Object> thamSo = new List<Object>();
             thamSo.Add(id);
             List<NhanVien> list = selectBySql(sql, thamSo);

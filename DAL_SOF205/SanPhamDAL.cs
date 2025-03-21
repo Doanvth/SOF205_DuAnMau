@@ -6,11 +6,11 @@ using System.Text;
 
 namespace DAL_SOF205
 {
-    public class SanPhamDLL : SystemDAL<SanPham, String>
+    public class SanPhamDAL : SystemDAL<SanPham, String>
    {
         public override void insert(SanPham entity)
         {
-            String sql = "INSERT INTO SanPham (MaSanPham, TenSanPham, DonGia, MaLoai, HinhAnh, TrangThai) VALUES (@0, @1, @2, @3, @4, @5)";
+            String sql = "INSERT INTO SanPham (MaSanPham, TenSanPham, DonGia, MaLoai, HinhAnh, TrangThai) VALUES (@1, @2, @3, @4, @5, @6)";
             List<Object> thamSo = new List<Object>();
             thamSo.Add(entity.MaSanPham);
             thamSo.Add(entity.TenSanPham);

@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using UTIL_SOF205;
 namespace GUI_SOF205
 {
     public partial class QuanLySanPham : Form
@@ -88,8 +89,8 @@ namespace GUI_SOF205
                 };
 
                 // Gọi DAL để thêm sản phẩm vào database
-                SanPhamDLL sanPhamDLL = new SanPhamDLL();
-                sanPhamDLL.insert(sp);
+                SanPhamDAL sanPhamDAL = new SanPhamDAL();
+                sanPhamDAL.insert(sp);
                 MessageBox.Show("Thêm sản phẩm thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 // Làm mới form sau khi thêm thành công
@@ -158,8 +159,8 @@ namespace GUI_SOF205
 
         private void LoadDanhSachSanPham()
         {
-            SanPhamDLL sanPhamDLL = new SanPhamDLL();
-            List<SanPham> danhSach = sanPhamDLL.selectAll();
+            SanPhamDAL sanPhamDAL = new SanPhamDAL();
+            List<SanPham> danhSach = sanPhamDAL.selectAll();
 
             // Khởi tạo đối tượng ImageUtil
             ImageUtil imageUtil = new ImageUtil();
@@ -255,8 +256,8 @@ namespace GUI_SOF205
                     HinhAnh = savedImageName // Lưu đường dẫn ảnh mới (nếu có)
                 };
                 // Gọi DAL để cập nhật sản phẩm trong database
-                SanPhamDLL sanPhamDLL = new SanPhamDLL();
-                sanPhamDLL.update(sp);
+                SanPhamDAL sanPhamDAL = new SanPhamDAL();
+                sanPhamDAL.update(sp);
                 MessageBox.Show("Cập nhật sản phẩm thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception ex)
@@ -284,8 +285,8 @@ namespace GUI_SOF205
                 try
                 {
                     //  Gọi phương thức xóa sản phẩm
-                    SanPhamDLL sanPhamDLL = new SanPhamDLL();
-                    sanPhamDLL.delete(maSP);
+                    SanPhamDAL sanPhamDAL = new SanPhamDAL();
+                    sanPhamDAL.delete(maSP);
 
                     //  Làm mới form sau khi xóa
                     ClearForm();
