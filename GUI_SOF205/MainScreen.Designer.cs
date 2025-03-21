@@ -70,7 +70,7 @@
             menuStrip1.Items.AddRange(new ToolStripItem[] { tàiKhoảnToolStripMenuItem, quảnLýToolStripMenuItem, itmStatisticByPT, hỗTrợToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(923, 24);
+            menuStrip1.Size = new Size(1324, 24);
             menuStrip1.TabIndex = 0;
             menuStrip1.Text = "menuStrip1";
             // 
@@ -152,14 +152,15 @@
             // 
             itmTKTheoLoaiSP.Image = Properties.Resources.Product_sale_report;
             itmTKTheoLoaiSP.Name = "itmTKTheoLoaiSP";
-            itmTKTheoLoaiSP.Size = new Size(234, 22);
+            itmTKTheoLoaiSP.Size = new Size(242, 30);
             itmTKTheoLoaiSP.Text = "Doanh thu theo loại sản phẩm";
+            itmTKTheoLoaiSP.Click += itmTKTheoLoaiSP_Click;
             // 
             // itmTKTheoNV
             // 
             itmTKTheoNV.Image = Properties.Resources.Distributor_report;
             itmTKTheoNV.Name = "itmTKTheoNV";
-            itmTKTheoNV.Size = new Size(234, 22);
+            itmTKTheoNV.Size = new Size(242, 30);
             itmTKTheoNV.Text = "Doanh thu theo nhân viên";
             // 
             // hỗTrợToolStripMenuItem
@@ -187,9 +188,9 @@
             // 
             statusStrip1.ImageScalingSize = new Size(24, 24);
             statusStrip1.Items.AddRange(new ToolStripItem[] { toolStripStatusLabel1, toolStripStatusLabel3, toolStripStatusLabel2 });
-            statusStrip1.Location = new Point(0, 487);
+            statusStrip1.Location = new Point(0, 762);
             statusStrip1.Name = "statusStrip1";
-            statusStrip1.Size = new Size(923, 29);
+            statusStrip1.Size = new Size(1324, 29);
             statusStrip1.TabIndex = 1;
             statusStrip1.Text = "statusStrip1";
             // 
@@ -203,7 +204,7 @@
             // toolStripStatusLabel3
             // 
             toolStripStatusLabel3.Name = "toolStripStatusLabel3";
-            toolStripStatusLabel3.Size = new Size(640, 24);
+            toolStripStatusLabel3.Size = new Size(1041, 24);
             toolStripStatusLabel3.Spring = true;
             // 
             // toolStripStatusLabel2
@@ -221,7 +222,7 @@
             toolStrip1.Location = new Point(0, 24);
             toolStrip1.Name = "toolStrip1";
             toolStrip1.Padding = new Padding(0, 0, 2, 0);
-            toolStrip1.Size = new Size(923, 39);
+            toolStrip1.Size = new Size(1324, 39);
             toolStrip1.TabIndex = 2;
             toolStrip1.Text = "toolStrip1";
             // 
@@ -297,16 +298,16 @@
             // pnlFormContainer
             // 
             pnlFormContainer.AutoSize = true;
-            pnlFormContainer.Location = new Point(0, 66);
+            pnlFormContainer.Location = new Point(1, 66);
             pnlFormContainer.Name = "pnlFormContainer";
-            pnlFormContainer.Size = new Size(924, 420);
+            pnlFormContainer.Size = new Size(1320, 700);
             pnlFormContainer.TabIndex = 3;
             // 
             // MainScreen
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(923, 516);
+            ClientSize = new Size(1324, 791);
             Controls.Add(pnlFormContainer);
             Controls.Add(toolStrip1);
             Controls.Add(statusStrip1);

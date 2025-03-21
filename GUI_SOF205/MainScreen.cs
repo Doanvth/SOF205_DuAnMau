@@ -54,7 +54,7 @@ namespace GUI_SOF205
             formLogin.ShowDialog();
         }
 
-		private void CheckRole()
+        private void CheckRole()
         {
             if (!AuthUtil.IsLogin())
             {
@@ -64,7 +64,7 @@ namespace GUI_SOF205
             else
             {
                 lblAccount.Text = AuthUtil.user.HoTen;
-                if (!AuthUtil.IsManager()) 
+                if (!AuthUtil.IsManager())
                 {
                     itmQLLoaiSanPham.Enabled = false;
                     itmQLSanPham.Enabled = false;
@@ -85,6 +85,11 @@ namespace GUI_SOF205
                     itmTKTheoNV.Enabled = true;
                 }
             }
+        }
+
+        private void itmTKTheoLoaiSP_Click(object sender, EventArgs e)
+        {
+            ShowFormInPanel(new ThongKeTheoLoaiSP());
         }
     }
 }
