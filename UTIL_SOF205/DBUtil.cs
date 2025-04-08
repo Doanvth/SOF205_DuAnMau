@@ -6,8 +6,7 @@ namespace UTIL_SOF205
 {
     public class DBUtil
     {
-        private static string connString = "server=localhost;database=PolyCafe;uid=sa;pwd=123456;trustServerCertificate=true;";
-
+        private static string connString = "Server=.; Database=PolyCafe; Integrated Security=True; TrustServerCertificate=True;";
         /// <summary>
         /// Xây dựng SqlCommand
         /// </summary>
@@ -43,7 +42,6 @@ namespace UTIL_SOF205
                 cmd.Transaction.Commit();
             } catch (Exception)
             {
-                cmd.Transaction.Rollback();
                 throw;
             }
             
@@ -67,6 +65,25 @@ namespace UTIL_SOF205
             catch (Exception)
             {
                 throw;
+            }
+        }
+
+        public static object ScalarQuery(string sql, List<object> parameters)
+        {
+            using (SqlConnection conn = new SqlConnection(connString))
+            {
+                conn.Open();
+                using (SqlCommand cmd = new SqlCommand(sql, conn))
+                {
+                    // Thêm tham số vào câu lệnh SQL
+                    for (int i = 0; i < parameters.Count; i++)
+                    {
+                        cmd.Parameters.AddWithValue($"@{i + 1}", parameters[i] ?? DBNull.Value);
+                    }
+
+                    object result = cmd.ExecuteScalar(); // Thực hiện truy vấn và lấy giá trị đầu tiên
+                    return result;
+                }
             }
         }
 
@@ -104,5 +121,170 @@ namespace UTIL_SOF205
                 throw;
             }
         }
+
+        public DataTable QueryDataTable()
+        {
+            string query = @"
+            SELECT 
+                pb.MaPhieu, 
+                pb.MaThe, 
+                pb.MaNhanVien, 
+                pb.NgayTao, 
+                pb.TrangThai, 
+                ct.Id AS ChiTietId, 
+                ct.MaSanPham, 
+                ct.SoLuong, 
+                ct.DonGia 
+            FROM PhieuBanHang pb
+            JOIN ChiTietPhieu ct ON pb.MaPhieu = ct.MaPhieu";
+
+            DataTable dataTable = new DataTable();
+
+            using (SqlConnection conn = new SqlConnection(connString))
+            {
+                try
+                {
+                    conn.Open();
+                    SqlCommand cmd = new SqlCommand(query, conn);
+                    SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                    adapter.Fill(dataTable);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Lỗi khi truy vấn dữ liệu: " + ex.Message);
+                }
+            }
+
+            return dataTable;
+        }
+
+        public static DataTable QueryDataTable(string sql, List<object> parameters)
+        {
+            DataTable dataTable = new DataTable();
+
+            using (SqlConnection conn = new SqlConnection(connString))
+            {
+                try
+                {
+                    conn.Open();
+                    using (SqlCommand cmd = new SqlCommand(sql, conn))
+                    {
+                        // Thêm tham số vào SQL nếu có
+                        for (int i = 0; i < parameters.Count; i++)
+                        {
+                            cmd.Parameters.AddWithValue($"@{i + 1}", parameters[i] ?? DBNull.Value);
+                        }
+
+                        SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                        adapter.Fill(dataTable);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Lỗi khi truy vấn dữ liệu: " + ex.Message);
+                }
+            }
+
+            return dataTable;
+        }
+
+        public static DataTable GetPhieuBanHang()
+        {
+            string query = @"
+            SELECT 
+                pb.MaPhieu, 
+                pb.MaThe, 
+                n.TenNhanVien AS NhanVien,  -- Lấy tên nhân viên thay vì mã
+                pb.NgayTao, 
+                pb.TrangThai, 
+                ct.MaSanPham, 
+                sp.TenSanPham AS SanPham,  -- Lấy tên sản phẩm thay vì mã
+                ct.SoLuong, 
+                ct.DonGia 
+            FROM PhieuBanHang pb
+            JOIN NhanVien n ON pb.MaNhanVien = n.MaNhanVien  -- Liên kết bảng Nhân Viên
+            JOIN ChiTietPhieu ct ON pb.MaPhieu = ct.MaPhieu  -- Liên kết bảng Chi Tiết Phiếu
+            JOIN SanPham sp ON ct.MaSanPham = sp.MaSanPham"; 
+
+            DataTable dataTable = new DataTable();
+
+            using (SqlConnection conn = new SqlConnection(connString))
+            {
+                try
+                {
+                    conn.Open();
+                    SqlCommand cmd = new SqlCommand(query, conn);
+                    SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                    adapter.Fill(dataTable);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Lỗi khi truy vấn dữ liệu: " + ex.Message);
+                }
+            }
+
+            return dataTable;
+        }
+
+        /// <summary>
+        /// Hàm thực thi lệnh SQL và trả về một giá trị đơn (executeScalar)
+        /// </summary>
+        public static object executeScalar(string sql, List<object> parameters)
+        {
+            object result = null;
+
+            using (SqlConnection conn = new SqlConnection(connString))
+            {
+                try
+                {
+                    conn.Open();
+                    using (SqlCommand cmd = new SqlCommand(sql, conn))
+                    {
+                        // Thêm tham số vào câu lệnh SQL
+                        for (int i = 0; i < parameters.Count; i++)
+                        {
+                            cmd.Parameters.AddWithValue($"@{i + 1}", parameters[i]);
+                        }
+
+                        // Thực thi và lấy giá trị đơn
+                        result = cmd.ExecuteScalar();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Lỗi executeScalar: " + ex.Message);
+                }
+            }
+
+            return result; // Trả về kết quả (có thể là null)
+        }
+        // 🟢 Hàm thực thi lệnh INSERT, UPDATE, DELETE
+        //public int ExecuteNonQuery(string query, List<object> parameters = null)
+        //{
+        //    using (SqlConnection conn = new SqlConnection(connString))
+        //    {
+        //        try
+        //        {
+        //            conn.Open();
+        //            using (SqlCommand cmd = new SqlCommand(query, conn))
+        //            {
+        //                if (parameters != null)
+        //                {
+        //                    for (int i = 0; i < parameters.Count; i++)
+        //                    {
+        //                        cmd.Parameters.AddWithValue($"@{i + 1}", parameters[i]);
+        //                    }
+        //                }
+
+        //                return cmd.ExecuteNonQuery(); // Trả về số dòng bị ảnh hưởng
+        //            }
+        //        }
+        //        catch (Exception ex)
+        //        {
+        //            Console.WriteLine("Lỗi khi thực thi câu lệnh: " + ex.Message);
+        //            return -1; // Trả về -1 nếu có lỗi xảy ra
+        //        }
+        //    }
+        //}
     }
 }

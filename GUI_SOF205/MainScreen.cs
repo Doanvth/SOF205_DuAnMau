@@ -43,7 +43,7 @@ namespace GUI_SOF205
 
         private void quảnLýPhiếuBánHàngToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ShowFormInPanel(new PhieuBanHang());
+            ShowFormInPanel(new QuanLyPhieuBanHang());
         }
         private void Init()
         {

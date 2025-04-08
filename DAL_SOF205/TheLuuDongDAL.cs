@@ -6,17 +6,54 @@ using System.Text;
 
 namespace DAL_SOF205
 {
-    internal class TheLuuDongDAL : SystemDAL<TheLuuDong, String>
+    public class TheLuuDongDAL : SystemDAL<TheLuuDong, String>
     {
+        public string generateAutoMaThe()
+        {
+            string prefix = "THE"; // Tiền tố của mã thẻ
+            string sql = "SELECT TOP 1 MaThe FROM TheLuuDong ORDER BY MaThe DESC"; // Lấy mã phiếu mới nhất
+
+            try
+            {
+                object result = DBUtil.ScalarQuery(sql, new List<object>()); // Truy vấn lấy giá trị đầu tiên
+
+                if (result != null && result.ToString().StartsWith(prefix))
+                {
+                    string lastMaPhieu = result.ToString();
+
+                    // Tách phần số trong mã phiếu
+                    string numberPart = new string(lastMaPhieu.Skip(3).ToArray()); // Bỏ "PBH", lấy phần số
+
+                    if (int.TryParse(numberPart, out int nextNumber))
+                    {
+                        nextNumber++; // Tăng số
+                        return $"{prefix}{nextNumber:D3}"; // Định dạng 4 chữ số (0001, 0002, ...)
+                    }
+                }
+
+                return $"{prefix}001"; // Nếu chưa có mã nào, bắt đầu từ THE0001
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Lỗi khi tạo mã phiếu tự động: " + ex.Message);
+            }
+        }
+
+
         public override void insert(TheLuuDong entity)
         {
-            String sql = "INSERT INTO TheLuuDong (MaThe, ChuSoHuu, TrangThai) VALUE (@1, @2, @3)";
-            List<Object> thamSo = new List<Object>();
-            thamSo.Add(entity.MaThe);
-            thamSo.Add(entity.ChuSoHuu);
-            thamSo.Add(entity.TrangThai);
+            string sql = "INSERT INTO TheLuuDong (MaThe, ChuSoHuu, TrangThai) VALUES (@1, @2, @3)";
+            entity.TrangThai = false;
+
+            List<Object> thamSo = new List<Object>
+            {
+                entity.MaThe,
+                entity.ChuSoHuu,
+                entity.TrangThai,
+            };
             DBUtil.Update(sql, thamSo);
         }
+
 
         public override void update(TheLuuDong entity)
         {

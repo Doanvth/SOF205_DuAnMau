@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using UTIL_SOF205;
 namespace GUI_SOF205
 {
     public partial class QuanLySanPham : Form
@@ -66,7 +67,7 @@ namespace GUI_SOF205
                     try
                     {
                         ImageUtil imageUtil = new ImageUtil();
-                         savedImageName = imageUtil.save(openFileDialog);
+                        savedImageName = imageUtil.save(openFileDialog);
                     }
                     catch (Exception ex)
                     {
@@ -299,6 +300,11 @@ namespace GUI_SOF205
                     MessageBox.Show("Lỗi khi xóa sản phẩm: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
+        }
+
+        private void llblSanPham_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

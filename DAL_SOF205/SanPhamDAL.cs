@@ -81,5 +81,21 @@ namespace DAL_SOF205
             }
             return list;
         }
+        public decimal getDonGiaByMa(string maSanPham)
+        {
+            string sql = "SELECT DonGia FROM SanPham WHERE MaSanPham = @1";
+            List<object> thamSo = new List<object> { maSanPham };
+
+            try
+            {
+                object result = DBUtil.ScalarQuery(sql, thamSo);
+                return result != null ? Convert.ToDecimal(result) : 0;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Lỗi khi lấy đơn giá sản phẩm: " + ex.Message);
+            }
+        }
+
     }
 }

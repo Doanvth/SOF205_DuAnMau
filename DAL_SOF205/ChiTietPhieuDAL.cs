@@ -1,38 +1,69 @@
 ﻿using DTO_SOF205;
-using UTIL_SOF205;
 using Microsoft.Data.SqlClient;
 using System.Data;
+using System.Text;
+using UTIL_SOF205;
 
 namespace DAL_SOF205
 {
-    public class ChiTietPhieuDAL : SystemDAL<ChiTietPhieu, Int32>
+    public class ChiTietPhieuDAL : SystemDAL<ChiTietPhieu, int>
     {
+        public bool exists(int id)
+        {
+            string sql = "SELECT COUNT(*) FROM ChiTietPhieu WHERE Id = @1";
+            List<object> thamSo = new List<object> { id };
+
+            int count = Convert.ToInt32(DBUtil.ScalarQuery(sql, thamSo));
+            return count > 0;
+        }
+
+
         public override void insert(ChiTietPhieu entity)
         {
-            String sql = "INSERT INTO ChiTietPhieu (MaPhieu, MaSanPham, SoLuong, DonGia) VALUE (@1, @2, @3, @4)";
-            List<Object> thamSo = new List<Object>();
-            thamSo.Add(entity.MaPhieu);
-            thamSo.Add(entity.MaSanPham);
-            thamSo.Add(entity.SoLuong);
-            thamSo.Add(entity.DonGia);
+            String sql = "INSERT INTO ChiTietPhieu (MaPhieu, MaSanPham, SoLuong, DonGia) VALUES (@1, @2, @3, @4)";
+            List<Object> thamSo = new List<Object>
+            {
+                entity.MaPhieu,
+                entity.MaSanPham,
+                entity.SoLuong,
+                entity.DonGia
+            };
             DBUtil.Update(sql, thamSo);
         }
+
+        //public override void update(ChiTietPhieu entity)
+        //{
+        //    String sql = "UPDATE ChiTietPhieu SET MaSanPham=@1, SoLuong=@2, DonGia=@3 WHERE Id=@4";
+        //    List<Object> thamSo = new List<Object>
+        //    {
+        //        entity.MaSanPham,
+        //        entity.SoLuong,
+        //        entity.DonGia,
+        //        entity.Id
+        //    };
+        //    DBUtil.Update(sql, thamSo);
+        //}
 
         public override void update(ChiTietPhieu entity)
         {
-            String sql = "UPDATE ChiTietPhieu SET SoLuong=@1, DonGia=@2 WHERE Id=@3";
-            List<Object> thamSo = new List<Object>();
-            thamSo.Add(entity.SoLuong);
-            thamSo.Add(entity.DonGia);
-            thamSo.Add(entity.Id);
-            DBUtil.Update(sql, thamSo);
+            String sql = "UPDATE ChiTietPhieu SET MaSanPham=@1, SoLuong=@2, DonGia=@3 WHERE Id=@4";
+            List<Object> thamSo = new List<Object>
+            {
+                entity.MaSanPham,
+                entity.SoLuong,
+                entity.DonGia,
+                entity.Id
+            };
+            DBUtil.Update(sql, thamSo); // Không cần return, chỉ cập nhật
         }
 
-        public override void delete(Int32 id)
+        public override void delete(int id)
         {
             String sql = "DELETE FROM ChiTietPhieu WHERE Id=@1";
-            List<Object> thamSo = new List<Object>();
-            thamSo.Add(id);
+            List<Object> thamSo = new List<Object>
+            {
+                id
+            };
             DBUtil.Update(sql, thamSo);
         }
 
@@ -42,11 +73,13 @@ namespace DAL_SOF205
             return selectBySql(sql, new List<Object>());
         }
 
-        public override ChiTietPhieu selectById(Int32 id)
+        public override ChiTietPhieu selectById(int id)
         {
             String sql = "SELECT * FROM ChiTietPhieu WHERE Id=@1";
-            List<Object> thamSo = new List<Object>();
-            thamSo.Add(id);
+            List<Object> thamSo = new List<Object>
+            {
+                id
+            };
             List<ChiTietPhieu> list = selectBySql(sql, thamSo);
             return list.Count > 0 ? list[0] : null;
         }
@@ -56,15 +89,17 @@ namespace DAL_SOF205
             List<ChiTietPhieu> list = new List<ChiTietPhieu>();
             try
             {
-                SqlDataReader reader = DBUtil.Query(sql, new List<Object>());
+                SqlDataReader reader = DBUtil.Query(sql, args);
                 while (reader.Read())
                 {
-                    ChiTietPhieu entity = new ChiTietPhieu();
-                    entity.Id = reader.GetInt32("Id");
-                    entity.MaPhieu = reader.GetString("MaPhieu");
-                    entity.MaSanPham = reader.GetString("MaSanPham");
-                    entity.SoLuong = reader.GetInt32("SoLuong");
-                    entity.DonGia = reader.GetInt32("DonGia");
+                    ChiTietPhieu entity = new ChiTietPhieu
+                    {
+                        Id = reader.GetInt32("Id"),
+                        MaPhieu = reader.GetString("MaPhieu"),
+                        MaSanPham = reader.GetString("MaSanPham"),
+                        SoLuong = reader.GetInt32("SoLuong"),
+                        DonGia = reader.GetDecimal("DonGia")
+                    };
                     list.Add(entity);
                 }
             }
