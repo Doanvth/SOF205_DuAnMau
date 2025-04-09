@@ -70,7 +70,7 @@
             menuStrip1.Items.AddRange(new ToolStripItem[] { tàiKhoảnToolStripMenuItem, quảnLýToolStripMenuItem, itmStatisticByPT, hỗTrợToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(1324, 24);
+            menuStrip1.Size = new Size(923, 24);
             menuStrip1.TabIndex = 0;
             menuStrip1.Text = "menuStrip1";
             // 
@@ -115,14 +115,14 @@
             // 
             itmQLTheLuuDong.Image = Properties.Resources.webpage;
             itmQLTheLuuDong.Name = "itmQLTheLuuDong";
-            itmQLTheLuuDong.Size = new Size(201, 22);
+            itmQLTheLuuDong.Size = new Size(209, 30);
             itmQLTheLuuDong.Text = "Quản lý thẻ lưu động";
             // 
             // itmQLLoaiSanPham
             // 
             itmQLLoaiSanPham.Image = Properties.Resources.Packing1;
             itmQLLoaiSanPham.Name = "itmQLLoaiSanPham";
-            itmQLLoaiSanPham.Size = new Size(201, 22);
+            itmQLLoaiSanPham.Size = new Size(209, 30);
             itmQLLoaiSanPham.Text = "Quản lý loại sản phẩm";
             itmQLLoaiSanPham.Click += quảnLýLoạiSảnPhẩmToolStripMenuItem_Click;
             // 
@@ -130,7 +130,7 @@
             // 
             itmQLSanPham.Image = Properties.Resources.coffee;
             itmQLSanPham.Name = "itmQLSanPham";
-            itmQLSanPham.Size = new Size(201, 22);
+            itmQLSanPham.Size = new Size(209, 30);
             itmQLSanPham.Text = "Quản lý sản phẩm";
             itmQLSanPham.Click += quảnLýSảnPhẩmToolStripMenuItem_Click;
             // 
@@ -138,7 +138,7 @@
             // 
             itmQLPhieuBanHang.Image = Properties.Resources.Order_history;
             itmQLPhieuBanHang.Name = "itmQLPhieuBanHang";
-            itmQLPhieuBanHang.Size = new Size(201, 22);
+            itmQLPhieuBanHang.Size = new Size(209, 30);
             itmQLPhieuBanHang.Text = "Quản lý phiếu bán hàng";
             itmQLPhieuBanHang.Click += quảnLýPhiếuBánHàngToolStripMenuItem_Click;
             // 
@@ -153,7 +153,7 @@
             // 
             itmTKTheoLoaiSP.Image = Properties.Resources.Product_sale_report;
             itmTKTheoLoaiSP.Name = "itmTKTheoLoaiSP";
-            itmTKTheoLoaiSP.Size = new Size(242, 30);
+            itmTKTheoLoaiSP.Size = new Size(234, 22);
             itmTKTheoLoaiSP.Text = "Doanh thu theo loại sản phẩm";
             itmTKTheoLoaiSP.Click += itmTKTheoLoaiSP_Click;
             // 
@@ -161,7 +161,7 @@
             // 
             itmTKTheoNV.Image = Properties.Resources.Distributor_report;
             itmTKTheoNV.Name = "itmTKTheoNV";
-            itmTKTheoNV.Size = new Size(242, 30);
+            itmTKTheoNV.Size = new Size(234, 22);
             itmTKTheoNV.Text = "Doanh thu theo nhân viên";
             itmTKTheoNV.Click += itmTKTheoNV_Click;
             // 
@@ -189,10 +189,10 @@
             // statusStrip1
             // 
             statusStrip1.ImageScalingSize = new Size(24, 24);
-            statusStrip1.Items.AddRange(new ToolStripItem[] { toolStripStatusLabel1, toolStripStatusLabel3, lblDongHo });
-            statusStrip1.Location = new Point(0, 762);
+            statusStrip1.Items.AddRange(new ToolStripItem[] { toolStripStatusLabel1, toolStripStatusLabel3, toolStripStatusLabel2 });
+            statusStrip1.Location = new Point(0, 487);
             statusStrip1.Name = "statusStrip1";
-            statusStrip1.Size = new Size(1324, 29);
+            statusStrip1.Size = new Size(923, 29);
             statusStrip1.TabIndex = 1;
             statusStrip1.Text = "statusStrip1";
             // 
@@ -206,7 +206,7 @@
             // toolStripStatusLabel3
             // 
             toolStripStatusLabel3.Name = "toolStripStatusLabel3";
-            toolStripStatusLabel3.Size = new Size(1041, 24);
+            toolStripStatusLabel3.Size = new Size(640, 24);
             toolStripStatusLabel3.Spring = true;
             // 
             // lblDongHo
@@ -220,11 +220,11 @@
             // toolStrip1
             // 
             toolStrip1.ImageScalingSize = new Size(32, 32);
-            toolStrip1.Items.AddRange(new ToolStripItem[] { btnDangXuat, toolStripSeparator1, btnQLNhanVien, btnQLPhieuBanHang, btnQLSanPham, toolStripSeparator2, btnGioiThieu, lblTaiKhoan });
+            toolStrip1.Items.AddRange(new ToolStripItem[] { btnDangXuat, toolStripSeparator1, btnQLNhanVien, btnQLPhieuBanHang, btnQLSanPham, toolStripSeparator2, btnGioiThieu, lblAccount });
             toolStrip1.Location = new Point(0, 24);
             toolStrip1.Name = "toolStrip1";
             toolStrip1.Padding = new Padding(0, 0, 2, 0);
-            toolStrip1.Size = new Size(1324, 39);
+            toolStrip1.Size = new Size(923, 39);
             toolStrip1.TabIndex = 2;
             toolStrip1.Text = "toolStrip1";
             // 
@@ -303,14 +303,14 @@
             pnlFormContainer.AutoSize = true;
             pnlFormContainer.Location = new Point(1, 66);
             pnlFormContainer.Name = "pnlFormContainer";
-            pnlFormContainer.Size = new Size(1320, 700);
+            pnlFormContainer.Size = new Size(924, 420);
             pnlFormContainer.TabIndex = 3;
             // 
             // MainScreen
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1324, 791);
+            ClientSize = new Size(923, 516);
             Controls.Add(pnlFormContainer);
             Controls.Add(toolStrip1);
             Controls.Add(statusStrip1);

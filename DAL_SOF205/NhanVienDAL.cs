@@ -9,29 +9,45 @@ namespace DAL_SOF205
     {
         public override void insert(NhanVien entity)
         {
-            String sql = "INSERT INTO NhanVien (MaNhanVien, HoTen, MatKhau, QuanLy) VALUE (@1, @2, @3, @4)";
+            String sql = "INSERT INTO NhanVien (MaNhanVien, HoTen, Email, MatKhau, VaiTro ,TrangThai) VALUES (@0, @1, @2, @3, @4, @5)";
             List<Object> thamSo = new List<Object>();
             thamSo.Add(entity.MaNhanVien);
             thamSo.Add(entity.HoTen);
+<<<<<<<< HEAD:DAL_SOF205/NhanVienDLL.cs
             thamSo.Add(entity.MatKhau);
             thamSo.Add(entity.VaiTro);
+========
+            thamSo.Add(entity.Email);
+            thamSo.Add(entity.MatKhau);
+            thamSo.Add(entity.VaiTro);
+            thamSo.Add(entity.TrangThai);
+>>>>>>>> remotes/origin/DoanVTH:DAL_SOF205/NhanVienDAL.cs
             DBUtil.Update(sql, thamSo);
         }
 
         public override void update(NhanVien entity)
         {
-            String sql = "UPDATE NhanVien SET HoTen=@1, MatKhau=@2, QuanLy=@3 WHERE MaNhanVien=@4";
+            String sql = "UPDATE NhanVien SET HoTen=@0, MatKhau=@1,  Email=@2, VaiTro=@3, TrangThai=@4 WHERE MaNhanVien=@5";
             List<Object> thamSo = new List<Object>();
+<<<<<<<< HEAD:DAL_SOF205/NhanVienDLL.cs
             thamSo.Add(entity.HoTen);
             thamSo.Add(entity.MatKhau);
             thamSo.Add(entity.VaiTro);
             thamSo.Add(entity.MaNhanVien);
+========
+            thamSo.Add(entity.HoTen);      
+            thamSo.Add(entity.MatKhau);    
+            thamSo.Add(entity.Email);      
+            thamSo.Add(entity.VaiTro);     
+            thamSo.Add(entity.TrangThai);  
+            thamSo.Add(entity.MaNhanVien); 
+>>>>>>>> remotes/origin/DoanVTH:DAL_SOF205/NhanVienDAL.cs
             DBUtil.Update(sql, thamSo);
         }
 
         public override void delete(string id)
         {
-            String sql = "DELETE FROM NhanVien WHERE MaNV=@1";
+            String sql = "DELETE FROM NhanVien WHERE MaNhanVien=@0";
             List<Object> thamSo = new List<Object>();
             thamSo.Add(id);
             DBUtil.Update(sql, thamSo);
@@ -45,7 +61,7 @@ namespace DAL_SOF205
 
         public override NhanVien selectById(string id)
         {
-            String sql = "SELECT * FROM NhanVien WHERE MaNhanVien=@1";
+            String sql = "SELECT * FROM NhanVien WHERE MaNhanVien=@0";
             List<Object> thamSo = new List<Object>();
             thamSo.Add(id);
             List<NhanVien> list = selectBySql(sql, thamSo);
@@ -63,8 +79,15 @@ namespace DAL_SOF205
                     NhanVien entity = new NhanVien();
                     entity.MaNhanVien = reader.GetString("MaNhanVien");
                     entity.HoTen = reader.GetString("HoTen");
+<<<<<<<< HEAD:DAL_SOF205/NhanVienDLL.cs
                     entity.MatKhau = reader.GetString("MatKhau");
                     entity.VaiTro = reader.GetBoolean("QuanLy");
+========
+                    entity.Email = reader.GetString("Email");
+                    entity.MatKhau = reader.GetString("MatKhau");
+                    entity.VaiTro = reader.GetBoolean("VaiTro");
+                    entity.TrangThai = reader.GetBoolean("TrangThai");
+>>>>>>>> remotes/origin/DoanVTH:DAL_SOF205/NhanVienDAL.cs
                     list.Add(entity);
                 }
             } catch (Exception) {

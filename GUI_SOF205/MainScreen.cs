@@ -91,8 +91,91 @@ namespace GUI_SOF205
 
         private void quảnLýPhiếuBánHàngToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ShowFormInPanel(new PhieuBanHang());
+            ShowFormInPanel(new QuanLyPhieuBanHang());
         }
+        private void Init()
+        {
+            Welcome formWelcome = new Welcome();
+            formWelcome.ShowDialog();
+            Login formLogin = new Login();
+            formLogin.ShowDialog();
+        }
+
+		private void CheckRole()
+        {
+            if (!AuthUtil.IsLogin())
+            {
+                Login formLogin = new Login();
+                formLogin.ShowDialog();
+            }
+            else
+            {
+                lblAccount.Text = AuthUtil.user.HoTen;
+                if (!AuthUtil.IsManager()) 
+                {
+                    itmQLLoaiSanPham.Enabled = false;
+                    itmQLSanPham.Enabled = false;
+                    itmQLNhanVien.Enabled = false;
+                    itmQLTheLuuDong.Enabled = false;
+                    itmQLPhieuBanHang.Enabled = false;
+                    itmTKTheoLoaiSP.Enabled = false;
+                    itmTKTheoNV.Enabled = false;
+                }
+                else
+                {
+                    itmQLLoaiSanPham.Enabled = true;
+                    itmQLSanPham.Enabled = true;
+                    itmQLNhanVien.Enabled = true;
+                    itmQLTheLuuDong.Enabled = true;
+                    itmQLPhieuBanHang.Enabled = true;
+                    itmTKTheoLoaiSP.Enabled = true;
+                    itmTKTheoNV.Enabled = true;
+                }
+            }
+        }
+        private void LoadForm(Form form)
+        {
+            form.TopLevel = false;
+            pnlFormContainer.Controls.Add(form);
+            form.FormBorderStyle = FormBorderStyle.None;
+            form.Dock = DockStyle.Fill;
+            form.Show();
+        }
+
+        private void Logout()
+        {
+            AuthUtil.Logout();
+            this.Hide();
+            Login formLogin = new Login();
+            formLogin.ShowDialog();
+            this.Show();
+            CheckRole();
+        }
+
+        private void btnDangXuat_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Xác nhận đăng xuất tài khoản?",
+                                          "Đăng xuất",
+                                          MessageBoxButtons.YesNo,
+                                          MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                Logout();
+            }
+        }
+
+        private void MenuDangXuat_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Xác nhận đăng xuất tài khoản?",
+                                          "Đăng xuất",
+                                          MessageBoxButtons.YesNo,
+                                          MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                Logout();
+            }
+        }
+        
 
 
         private void itmDangXuat_Click(object sender, EventArgs e)
@@ -126,3 +209,4 @@ namespace GUI_SOF205
         }
     }
 }
+

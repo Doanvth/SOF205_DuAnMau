@@ -6,11 +6,11 @@ using System.Text;
 
 namespace DAL_SOF205
 {
-    internal class SanPhamDAL : SystemDAL<SanPham, String>
-    {
+    public class SanPhamDLL : SystemDAL<SanPham, String>
+   {
         public override void insert(SanPham entity)
         {
-            String sql = "INSERT INTO SanPham (MaSanPham, TenSanPham, DonGia, MaLoai, HinhAnh, TrangThai) VALUE (@1, @2, @3, @4, @5, @6)";
+            String sql = "INSERT INTO SanPham (MaSanPham, TenSanPham, DonGia, MaLoai, HinhAnh, TrangThai) VALUES (@0, @1, @2, @3, @4, @5)";
             List<Object> thamSo = new List<Object>();
             thamSo.Add(entity.MaSanPham);
             thamSo.Add(entity.TenSanPham);
@@ -23,7 +23,7 @@ namespace DAL_SOF205
 
         public override void update(SanPham entity)
         {
-            String sql = "UPDATE SanPham SET TenSanPham=@1, DonGia=@2, MaLoai=@3, HinhAnh=@4, TrangThai=@5 WHERE MaSanPham=@6";
+            String sql = "UPDATE SanPham SET TenSanPham=@0, DonGia=@1, MaLoai=@2, HinhAnh=@3, TrangThai=@4 WHERE MaSanPham=@5";
             List<Object> thamSo = new List<Object>();
             thamSo.Add(entity.TenSanPham);
             thamSo.Add(entity.DonGia);
@@ -36,7 +36,7 @@ namespace DAL_SOF205
 
         public override void delete(string id)
         {
-            String sql = "DELETE FROM SanPham WHERE MaSanPham=@1";
+            String sql = "DELETE FROM SanPham WHERE MaSanPham=@0";
             List<Object> thamSo = new List<Object>();
             thamSo.Add(id);
             DBUtil.Update(sql, thamSo);
@@ -50,7 +50,7 @@ namespace DAL_SOF205
 
         public override SanPham selectById(string id)
         {
-            String sql = "SELECT * FROM SanPham WHERE MaSanPham=@1";
+            String sql = "SELECT * FROM SanPham WHERE MaSanPham=@0";
             List<Object> thamSo = new List<Object>();
             thamSo.Add(id);
             List<SanPham> list = selectBySql(sql, thamSo);
@@ -68,7 +68,7 @@ namespace DAL_SOF205
                     SanPham entity = new SanPham();
                     entity.MaSanPham = reader.GetString("MaSanPham");
                     entity.TenSanPham = reader.GetString("TenSanPham");
-                    entity.DonGia = reader.GetInt32("DonGia");
+                    entity.DonGia = reader.GetDecimal("DonGia");
                     entity.MaLoai = reader.GetString("MaLoai");
                     entity.HinhAnh = reader.GetString("HinhAnh");
                     entity.TrangThai = reader.GetBoolean("TrangThai");
@@ -81,5 +81,21 @@ namespace DAL_SOF205
             }
             return list;
         }
+        public decimal getDonGiaByMa(string maSanPham)
+        {
+            string sql = "SELECT DonGia FROM SanPham WHERE MaSanPham = @1";
+            List<object> thamSo = new List<object> { maSanPham };
+
+            try
+            {
+                object result = DBUtil.ScalarQuery(sql, thamSo);
+                return result != null ? Convert.ToDecimal(result) : 0;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Lỗi khi lấy đơn giá sản phẩm: " + ex.Message);
+            }
+        }
+
     }
 }
