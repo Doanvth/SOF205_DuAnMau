@@ -1,9 +1,9 @@
 ﻿namespace DTO_SOF205
 {
-    public class TKDoanhThuTheoLoaiSP
+    public class TKDoanhThuTheoNhanVien
     {
-        public String? MaSanPham {  get; set; }
-        public String? TenSanPham { get; set; }
+        public String? MaNhanVien {  get; set; }
+        public String? HoTen { get; set; }
         public Decimal TongTien { get; set; }
 
         public Int32 SoLy { get; set; }

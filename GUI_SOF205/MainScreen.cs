@@ -1,4 +1,5 @@
-﻿using UTIL_SOF205;
+﻿using System.Diagnostics;
+using UTIL_SOF205;
 
 namespace GUI_SOF205
 {
@@ -9,41 +10,6 @@ namespace GUI_SOF205
             InitializeComponent();
             Init();
             CheckRole();
-        }
-
-        private void ShowFormInPanel(Form form)
-        {
-            // Xóa form cũ trong panel
-            pnlFormContainer.Controls.Clear();
-
-            // Thiết lập form con
-            form.TopLevel = false;
-            form.FormBorderStyle = FormBorderStyle.None;
-            form.Dock = DockStyle.Fill;
-
-            // Thêm form vào panel
-            pnlFormContainer.Controls.Add(form);
-            form.Show();
-        }
-
-        private void quảnLýNhânViênToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            ShowFormInPanel(new QuanLyNhanVien());
-        }
-
-        private void quảnLýLoạiSảnPhẩmToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            ShowFormInPanel(new QuanLyLoaiSanPham());
-        }
-
-        private void quảnLýSảnPhẩmToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            ShowFormInPanel(new QuanLySanPham());
-        }
-
-        private void quảnLýPhiếuBánHàngToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            ShowFormInPanel(new PhieuBanHang());
         }
 
         private void Init()
@@ -63,7 +29,7 @@ namespace GUI_SOF205
             }
             else
             {
-                lblAccount.Text = AuthUtil.user.HoTen;
+                lblTaiKhoan.Text = AuthUtil.user.HoTen;
                 if (!AuthUtil.IsManager())
                 {
                     itmQLLoaiSanPham.Enabled = false;
@@ -87,9 +53,76 @@ namespace GUI_SOF205
             }
         }
 
+        private void ShowFormInPanel(Form form)
+        {
+            // Xóa form cũ trong panel
+            pnlFormContainer.Controls.Clear();
+
+            // Thiết lập form con
+            form.TopLevel = false;
+            form.FormBorderStyle = FormBorderStyle.None;
+            form.Dock = DockStyle.Fill;
+
+            // Thêm form vào panel
+            pnlFormContainer.Controls.Add(form);
+            form.Show();
+        }
+
+        private void Logout()
+        {
+            //Ẩn Màn hình chính để gọi Màn hình đăng nhập
+            this.Hide();
+            AuthUtil.Logout();
+            Login formLogin = new Login();
+            formLogin.ShowDialog();
+            //Hiển thị lại Màn hình chính sau khi đăng nhập
+            this.Show();
+        }
+
+        private void quảnLýLoạiSảnPhẩmToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ShowFormInPanel(new QuanLyLoaiSanPham());
+        }
+
+        private void quảnLýSảnPhẩmToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ShowFormInPanel(new QuanLySanPham());
+        }
+
+        private void quảnLýPhiếuBánHàngToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ShowFormInPanel(new PhieuBanHang());
+        }
+
+
+        private void itmDangXuat_Click(object sender, EventArgs e)
+        {
+            Logout();
+        }
+
+        private void MainScreen_VisibleChanged(object sender, EventArgs e)
+        {
+            CheckRole();
+        }
+
+        private void btnDangXuat_Click(object sender, EventArgs e)
+        {
+            Logout();
+        }
+
+        private void itmQLNhanVien_Click(object sender, EventArgs e)
+        {
+            ShowFormInPanel(new QuanLyNhanVien());
+        }
+
         private void itmTKTheoLoaiSP_Click(object sender, EventArgs e)
         {
             ShowFormInPanel(new ThongKeTheoLoaiSP());
+        }
+
+        private void itmTKTheoNV_Click(object sender, EventArgs e)
+        {
+            ShowFormInPanel(new ThongKeTheoNhanVien());
         }
     }
 }

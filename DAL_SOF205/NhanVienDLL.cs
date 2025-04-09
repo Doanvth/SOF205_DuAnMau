@@ -13,8 +13,8 @@ namespace DAL_SOF205
             List<Object> thamSo = new List<Object>();
             thamSo.Add(entity.MaNhanVien);
             thamSo.Add(entity.HoTen);
-            thamSo.Add(entity.MaKhau);
-            thamSo.Add(entity.QuanLy);
+            thamSo.Add(entity.MatKhau);
+            thamSo.Add(entity.VaiTro);
             DBUtil.Update(sql, thamSo);
         }
 
@@ -23,8 +23,8 @@ namespace DAL_SOF205
             String sql = "UPDATE NhanVien SET HoTen=@1, MatKhau=@2, QuanLy=@3 WHERE MaNhanVien=@4";
             List<Object> thamSo = new List<Object>();
             thamSo.Add(entity.HoTen);
-            thamSo.Add(entity.MaKhau);
-            thamSo.Add(entity.QuanLy);
+            thamSo.Add(entity.MatKhau);
+            thamSo.Add(entity.VaiTro);
             thamSo.Add(entity.MaNhanVien);
             DBUtil.Update(sql, thamSo);
         }
@@ -63,8 +63,8 @@ namespace DAL_SOF205
                     NhanVien entity = new NhanVien();
                     entity.MaNhanVien = reader.GetString("MaNhanVien");
                     entity.HoTen = reader.GetString("HoTen");
-                    entity.MaKhau = reader.GetString("MatKhau");
-                    entity.QuanLy = reader.GetBoolean("QuanLy");
+                    entity.MatKhau = reader.GetString("MatKhau");
+                    entity.VaiTro = reader.GetBoolean("QuanLy");
                     list.Add(entity);
                 }
             } catch (Exception) {

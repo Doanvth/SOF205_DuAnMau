@@ -27,12 +27,13 @@ namespace GUI_SOF205
             {
                 MessageBox.Show(this, "Tài khoản không tồn tại");
             }
-            else if (!nhanVien.MaKhau.Equals(password))
+            else if (!nhanVien.MatKhau.Equals(password))
             {
                 MessageBox.Show(this, "Mật khẩu chưa đúng");
             }
             else
             {
+                //Lưu tài khoản đã đăng nhập thành công vào AuthUtil
                 AuthUtil.user = nhanVien;
                 this.Dispose();
             }
@@ -40,6 +41,7 @@ namespace GUI_SOF205
 
         private void Login_FormClosing(object sender, FormClosingEventArgs e)
         {
+            //Ngăn người dùng thoát bằng nút X mặc định
             if (e.CloseReason == CloseReason.UserClosing)
             {
                 e.Cancel = true;

@@ -9,10 +9,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="System.Runtime.CompilerServices.Unsafe" Version="6.1.1" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\DAL_SOF205\DAL_SOF205.csproj" />
     <ProjectReference Include="..\DTO_SOF205\DTO_SOF205.csproj" />
     <ProjectReference Include="..\UTIL_SOF205\UTIL_SOF205.csproj" />
@@ -37,6 +33,10 @@
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.Runtime.CompilerServices.Unsafe" Version="4.5.3" />
   </ItemGroup>
 
 </Project>

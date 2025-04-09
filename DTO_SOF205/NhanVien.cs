@@ -4,7 +4,12 @@
     {
         public String? MaNhanVien { get; set; }
         public String? HoTen { get; set; }
-        public String? MaKhau { get; set; }
-        public Boolean QuanLy { get; set; } = true;
+        public String? MatKhau { get; set; }
+        public Boolean VaiTro { get; set; } = true;
+
+        public override string ToString()
+        {
+            return HoTen; // Hiển thị tên trong ComboBox
+        }
     }
 }
