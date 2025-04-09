@@ -70,7 +70,7 @@
             menuStrip1.Items.AddRange(new ToolStripItem[] { tàiKhoảnToolStripMenuItem, quảnLýToolStripMenuItem, itmStatisticByPT, hỗTrợToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(923, 24);
+            menuStrip1.Size = new Size(1324, 24);
             menuStrip1.TabIndex = 0;
             menuStrip1.Text = "menuStrip1";
             // 
@@ -87,6 +87,7 @@
             itmDoiMatKhau.Name = "itmDoiMatKhau";
             itmDoiMatKhau.Size = new Size(145, 22);
             itmDoiMatKhau.Text = "Đổi mật khẩu";
+            itmDoiMatKhau.Click += itmDoiMatKhau_Click;
             // 
             // itmDangXuat
             // 
@@ -107,7 +108,7 @@
             // 
             itmQLNhanVien.Image = Properties.Resources.Couple;
             itmQLNhanVien.Name = "itmQLNhanVien";
-            itmQLNhanVien.Size = new Size(201, 22);
+            itmQLNhanVien.Size = new Size(209, 30);
             itmQLNhanVien.Text = "Quản lý nhân viên";
             itmQLNhanVien.Click += itmQLNhanVien_Click;
             // 
@@ -117,6 +118,7 @@
             itmQLTheLuuDong.Name = "itmQLTheLuuDong";
             itmQLTheLuuDong.Size = new Size(209, 30);
             itmQLTheLuuDong.Text = "Quản lý thẻ lưu động";
+            itmQLTheLuuDong.Click += itmQLTheLuuDong_Click;
             // 
             // itmQLLoaiSanPham
             // 
@@ -178,6 +180,7 @@
             itmTroGiup.Name = "itmTroGiup";
             itmTroGiup.Size = new Size(125, 22);
             itmTroGiup.Text = "Trợ giúp";
+            itmTroGiup.Click += itmTroGiup_Click;
             // 
             // itmGioiThieu
             // 
@@ -185,14 +188,15 @@
             itmGioiThieu.Name = "itmGioiThieu";
             itmGioiThieu.Size = new Size(125, 22);
             itmGioiThieu.Text = "Giới thiệu";
+            itmGioiThieu.Click += itmGioiThieu_Click;
             // 
             // statusStrip1
             // 
             statusStrip1.ImageScalingSize = new Size(24, 24);
-            statusStrip1.Items.AddRange(new ToolStripItem[] { toolStripStatusLabel1, toolStripStatusLabel3, toolStripStatusLabel2 });
-            statusStrip1.Location = new Point(0, 487);
+            statusStrip1.Items.AddRange(new ToolStripItem[] { toolStripStatusLabel1, toolStripStatusLabel3, lblDongHo });
+            statusStrip1.Location = new Point(0, 762);
             statusStrip1.Name = "statusStrip1";
-            statusStrip1.Size = new Size(923, 29);
+            statusStrip1.Size = new Size(1324, 29);
             statusStrip1.TabIndex = 1;
             statusStrip1.Text = "statusStrip1";
             // 
@@ -206,7 +210,7 @@
             // toolStripStatusLabel3
             // 
             toolStripStatusLabel3.Name = "toolStripStatusLabel3";
-            toolStripStatusLabel3.Size = new Size(640, 24);
+            toolStripStatusLabel3.Size = new Size(1041, 24);
             toolStripStatusLabel3.Spring = true;
             // 
             // lblDongHo
@@ -220,11 +224,11 @@
             // toolStrip1
             // 
             toolStrip1.ImageScalingSize = new Size(32, 32);
-            toolStrip1.Items.AddRange(new ToolStripItem[] { btnDangXuat, toolStripSeparator1, btnQLNhanVien, btnQLPhieuBanHang, btnQLSanPham, toolStripSeparator2, btnGioiThieu, lblAccount });
+            toolStrip1.Items.AddRange(new ToolStripItem[] { btnDangXuat, toolStripSeparator1, btnQLNhanVien, btnQLPhieuBanHang, btnQLSanPham, toolStripSeparator2, btnGioiThieu, lblTaiKhoan });
             toolStrip1.Location = new Point(0, 24);
             toolStrip1.Name = "toolStrip1";
             toolStrip1.Padding = new Padding(0, 0, 2, 0);
-            toolStrip1.Size = new Size(923, 39);
+            toolStrip1.Size = new Size(1324, 39);
             toolStrip1.TabIndex = 2;
             toolStrip1.Text = "toolStrip1";
             // 
@@ -247,12 +251,13 @@
             // btnQLNhanVien
             // 
             btnQLNhanVien.DisplayStyle = ToolStripItemDisplayStyle.Image;
-            btnQLNhanVien.Image = Properties.Resources.users;
+            btnQLNhanVien.Image = Properties.Resources.Couple;
             btnQLNhanVien.ImageTransparentColor = Color.Magenta;
             btnQLNhanVien.Margin = new Padding(2, 1, 2, 2);
             btnQLNhanVien.Name = "btnQLNhanVien";
             btnQLNhanVien.Size = new Size(36, 36);
             btnQLNhanVien.Text = "Khách hàng";
+            btnQLNhanVien.Click += btnQLNhanVien_Click;
             // 
             // btnQLPhieuBanHang
             // 
@@ -263,6 +268,7 @@
             btnQLPhieuBanHang.Name = "btnQLPhieuBanHang";
             btnQLPhieuBanHang.Size = new Size(36, 36);
             btnQLPhieuBanHang.Text = "Phiếu bán hàng";
+            btnQLPhieuBanHang.Click += btnQLPhieuBanHang_Click;
             // 
             // btnQLSanPham
             // 
@@ -273,6 +279,7 @@
             btnQLSanPham.Name = "btnQLSanPham";
             btnQLSanPham.Size = new Size(36, 36);
             btnQLSanPham.Text = "Sản phẩm";
+            btnQLSanPham.Click += btnQLSanPham_Click;
             // 
             // toolStripSeparator2
             // 
@@ -288,6 +295,7 @@
             btnGioiThieu.Name = "btnGioiThieu";
             btnGioiThieu.Size = new Size(36, 36);
             btnGioiThieu.Text = "Hỗ trợ";
+            btnGioiThieu.Click += btnGioiThieu_Click;
             // 
             // lblTaiKhoan
             // 
@@ -303,14 +311,14 @@
             pnlFormContainer.AutoSize = true;
             pnlFormContainer.Location = new Point(1, 66);
             pnlFormContainer.Name = "pnlFormContainer";
-            pnlFormContainer.Size = new Size(924, 420);
+            pnlFormContainer.Size = new Size(1320, 700);
             pnlFormContainer.TabIndex = 3;
             // 
             // MainScreen
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(923, 516);
+            ClientSize = new Size(1324, 791);
             Controls.Add(pnlFormContainer);
             Controls.Add(toolStrip1);
             Controls.Add(statusStrip1);

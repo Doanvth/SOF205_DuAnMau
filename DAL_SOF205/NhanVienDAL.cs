@@ -13,15 +13,10 @@ namespace DAL_SOF205
             List<Object> thamSo = new List<Object>();
             thamSo.Add(entity.MaNhanVien);
             thamSo.Add(entity.HoTen);
-<<<<<<<< HEAD:DAL_SOF205/NhanVienDLL.cs
-            thamSo.Add(entity.MatKhau);
-            thamSo.Add(entity.VaiTro);
-========
             thamSo.Add(entity.Email);
             thamSo.Add(entity.MatKhau);
             thamSo.Add(entity.VaiTro);
             thamSo.Add(entity.TrangThai);
->>>>>>>> remotes/origin/DoanVTH:DAL_SOF205/NhanVienDAL.cs
             DBUtil.Update(sql, thamSo);
         }
 
@@ -29,19 +24,12 @@ namespace DAL_SOF205
         {
             String sql = "UPDATE NhanVien SET HoTen=@0, MatKhau=@1,  Email=@2, VaiTro=@3, TrangThai=@4 WHERE MaNhanVien=@5";
             List<Object> thamSo = new List<Object>();
-<<<<<<<< HEAD:DAL_SOF205/NhanVienDLL.cs
-            thamSo.Add(entity.HoTen);
-            thamSo.Add(entity.MatKhau);
-            thamSo.Add(entity.VaiTro);
-            thamSo.Add(entity.MaNhanVien);
-========
             thamSo.Add(entity.HoTen);      
             thamSo.Add(entity.MatKhau);    
             thamSo.Add(entity.Email);      
             thamSo.Add(entity.VaiTro);     
             thamSo.Add(entity.TrangThai);  
             thamSo.Add(entity.MaNhanVien); 
->>>>>>>> remotes/origin/DoanVTH:DAL_SOF205/NhanVienDAL.cs
             DBUtil.Update(sql, thamSo);
         }
 
@@ -79,15 +67,10 @@ namespace DAL_SOF205
                     NhanVien entity = new NhanVien();
                     entity.MaNhanVien = reader.GetString("MaNhanVien");
                     entity.HoTen = reader.GetString("HoTen");
-<<<<<<<< HEAD:DAL_SOF205/NhanVienDLL.cs
-                    entity.MatKhau = reader.GetString("MatKhau");
-                    entity.VaiTro = reader.GetBoolean("QuanLy");
-========
                     entity.Email = reader.GetString("Email");
                     entity.MatKhau = reader.GetString("MatKhau");
                     entity.VaiTro = reader.GetBoolean("VaiTro");
                     entity.TrangThai = reader.GetBoolean("TrangThai");
->>>>>>>> remotes/origin/DoanVTH:DAL_SOF205/NhanVienDAL.cs
                     list.Add(entity);
                 }
             } catch (Exception) {

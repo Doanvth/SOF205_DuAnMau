@@ -106,7 +106,7 @@ namespace GUI_SOF205
         private void LoadChiTietPhieu(string maPhieu)
         {
             List<ChiTietPhieu> chiTietList = 
-                chiTietPhieuDAL.selectBySql("SELECT * FROM ChiTietPhieu WHERE MaPhieu=@1", 
+                chiTietPhieuDAL.selectBySql("SELECT * FROM ChiTietPhieu WHERE MaPhieu=@0", 
                 new List<object> { maPhieu });
             dgvChiTietPhieu.DataSource = chiTietList;
         }

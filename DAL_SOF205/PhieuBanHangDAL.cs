@@ -43,7 +43,7 @@ namespace DAL_SOF205
 
         public bool exists(string maPhieu)
         {
-            string sql = "SELECT COUNT(*) FROM PhieuBanHang WHERE MaPhieu = @1";
+            string sql = "SELECT COUNT(*) FROM PhieuBanHang WHERE MaPhieu = @0";
             List<Object> thamSo = new List<Object> { maPhieu };
 
             try
@@ -62,7 +62,7 @@ namespace DAL_SOF205
         {
             entity.TrangThai = false;
 
-            String sql = "INSERT INTO PhieuBanHang (MaPhieu, MaThe, MaNhanVien, NgayTao, TrangThai) VALUES (@1, @2, @3, @4, @5)";
+            String sql = "INSERT INTO PhieuBanHang (MaPhieu, MaThe, MaNhanVien, NgayTao, TrangThai) VALUES (@0, @1, @2, @3, @4)";
             List<Object> thamSo = new List<Object>
             {
                 entity.MaPhieu,
@@ -81,7 +81,7 @@ namespace DAL_SOF205
             if (hasChiTietPhieu(entity.MaPhieu)) // Gọi từ DAL, không phải từ PhieuBanHang
             {
                 // Chỉ cập nhật MaNhanVien và TrangThai nếu có chi tiết phiếu
-                string sql = "UPDATE PhieuBanHang SET MaNhanVien=@1, TrangThai=@2 WHERE MaPhieu=@3";
+                string sql = "UPDATE PhieuBanHang SET MaNhanVien=@0, TrangThai=@1 WHERE MaPhieu=@2";
                 List<object> thamSo = new List<object> { entity.MaNhanVien, entity.TrangThai, entity.MaPhieu };
 
                 DBUtil.Update(sql, thamSo);
@@ -89,7 +89,7 @@ namespace DAL_SOF205
             else
             {
                 // Nếu chưa có chi tiết phiếu, có thể cập nhật toàn bộ thông tin (trừ MaPhieu)
-                string sql = "UPDATE PhieuBanHang SET MaThe=@1, MaNhanVien=@2, TrangThai=@3 WHERE MaPhieu=@4";
+                string sql = "UPDATE PhieuBanHang SET MaThe=@0, MaNhanVien=@1, TrangThai=@2 WHERE MaPhieu=@3";
                 List<object> thamSo = new List<object> { entity.MaThe, entity.MaNhanVien, entity.TrangThai, entity.MaPhieu };
 
                 DBUtil.Update(sql, thamSo);
@@ -100,7 +100,7 @@ namespace DAL_SOF205
         public override void delete(string id)
         {
             // Kiểm tra xem PBH có chi tiết phiếu không
-            string checkSql = "SELECT COUNT(*) FROM ChiTietPhieu WHERE MaPhieu = @1";
+            string checkSql = "SELECT COUNT(*) FROM ChiTietPhieu WHERE MaPhieu = @0";
             List<Object> checkParams = new List<Object> { id };
             int count = Convert.ToInt32(DBUtil.ScalarQuery(checkSql, checkParams));
 
@@ -110,7 +110,7 @@ namespace DAL_SOF205
             }
 
             // Nếu không có chi tiết phiếu, cho phép xóa
-            string sql = "DELETE FROM PhieuBanHang WHERE MaPhieu=@1";
+            string sql = "DELETE FROM PhieuBanHang WHERE MaPhieu=@0";
             List<Object> thamSo = new List<Object> { id };
             DBUtil.Update(sql, thamSo);
         }
@@ -124,7 +124,7 @@ namespace DAL_SOF205
 
         public override PhieuBanHang selectById(string id)
         {
-            String sql = "SELECT * FROM PhieuBanHang WHERE MaPhieu=@1";
+            String sql = "SELECT * FROM PhieuBanHang WHERE MaPhieu=@0";
             List<Object> thamSo = new List<Object>
             {
                 id
@@ -162,7 +162,7 @@ namespace DAL_SOF205
         // Hàm lấy danh sách phiếu bán hàng theo ngày tạo
         public List<PhieuBanHang> selectByDateRange(DateTime fromDate, DateTime toDate)
         {
-            String sql = "SELECT * FROM PhieuBanHang WHERE NgayTao BETWEEN @1 AND @2";
+            String sql = "SELECT * FROM PhieuBanHang WHERE NgayTao BETWEEN @0 AND @1";
             List<Object> thamSo = new List<Object>
             {
                 fromDate,
@@ -258,7 +258,7 @@ namespace DAL_SOF205
 
         public bool hasChiTietPhieu(string maPhieu)
         {
-            string sql = "SELECT COUNT(*) FROM ChiTietPhieu WHERE MaPhieu = @1";
+            string sql = "SELECT COUNT(*) FROM ChiTietPhieu WHERE MaPhieu = @0";
             List<object> thamSo = new List<object> { maPhieu };
 
             try
@@ -273,7 +273,7 @@ namespace DAL_SOF205
         }
         public bool GetTrangThaiPhieu(string maPhieu)
         {
-            string query = "SELECT TrangThai FROM PhieuBanHang WHERE MaPhieu = @1";
+            string query = "SELECT TrangThai FROM PhieuBanHang WHERE MaPhieu = @0";
             var result = DBUtil.executeScalar(query, new List<object> { maPhieu });
 
             return result != null && Convert.ToBoolean(result);
@@ -287,7 +287,7 @@ namespace DAL_SOF205
                 return false;
             }
 
-            string query = "SELECT COUNT(*) FROM ChiTietPhieu WHERE MaPhieu = @1"; // Kiểm tra ChiTietPhieu thay vì ChiTietSanPham
+            string query = "SELECT COUNT(*) FROM ChiTietPhieu WHERE MaPhieu = @0"; // Kiểm tra ChiTietPhieu thay vì ChiTietSanPham
 
             try
             {
@@ -334,7 +334,7 @@ namespace DAL_SOF205
                 return false;
             }
 
-            string query = "UPDATE PhieuBanHang SET TrangThai = @1 WHERE MaPhieu = @2";
+            string query = "UPDATE PhieuBanHang SET TrangThai = @0 WHERE MaPhieu = @1";
             DBUtil.Update(query, new List<object> { trangThai, maPhieu });
             return true;
         }

@@ -42,7 +42,7 @@ namespace DAL_SOF205
 
         public override void insert(TheLuuDong entity)
         {
-            string sql = "INSERT INTO TheLuuDong (MaThe, ChuSoHuu, TrangThai) VALUES (@1, @2, @3)";
+            string sql = "INSERT INTO TheLuuDong (MaThe, ChuSoHuu, TrangThai) VALUES (@0, @1, @2)";
             entity.TrangThai = false;
 
             List<Object> thamSo = new List<Object>
@@ -57,7 +57,7 @@ namespace DAL_SOF205
 
         public override void update(TheLuuDong entity)
         {
-            String sql = "UPDATE TheLuuDong SET ChuSoHuu=@1, TrangThai=@2 WHERE MaThe=@3";
+            String sql = "UPDATE TheLuuDong SET ChuSoHuu=@0, TrangThai=@1 WHERE MaThe=@2";
             List<Object> thamSo = new List<Object>();
             thamSo.Add(entity.ChuSoHuu);
             thamSo.Add(entity.TrangThai);
@@ -67,7 +67,7 @@ namespace DAL_SOF205
 
         public override void delete(string id)
         {
-            String sql = "DELETE FROM TheLuuDong WHERE MaThe=@1";
+            String sql = "DELETE FROM TheLuuDong WHERE MaThe=@0";
             List<Object> thamSo = new List<Object>();
             thamSo.Add(id);
             DBUtil.Update(sql, thamSo);
@@ -81,7 +81,7 @@ namespace DAL_SOF205
 
         public override TheLuuDong selectById(string id)
         {
-            String sql = "SELECT * FROM TheLuuDong WHERE MaThe=@1";
+            String sql = "SELECT * FROM TheLuuDong WHERE MaThe=@0";
             List<Object> thamSo = new List<Object>();
             thamSo.Add(id);
             List<TheLuuDong> list = selectBySql(sql, thamSo);

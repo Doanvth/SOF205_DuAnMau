@@ -1,8 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Windows.Forms;
-using DAL_SOF205;
+﻿using DAL_SOF205;
 using DTO_SOF205;
+using System.Windows.Forms;
+using UTIL_SOF205;
 
 namespace GUI_SOF205
 {
@@ -19,6 +18,10 @@ namespace GUI_SOF205
         private void QuanLyTheLuuDong_Load(object sender, EventArgs e)
         {
             LoadData();
+            if (!AuthUtil.IsManager())
+            {
+                tabTheLuuDong.TabPages.Remove(tabPage1);
+            }
         }
 
         private void LoadData()

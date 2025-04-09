@@ -44,7 +44,7 @@ namespace DAL_SOF205
 
         public override LoaiSanPham selectById(string id)
         {
-            String sql = "SELECT * FROM LoaiSanPham WHERE MaLoai=@1";
+            String sql = "SELECT * FROM LoaiSanPham WHERE MaLoai=@0";
             List<Object> thamSo = new List<Object>();
             thamSo.Add(id);
             List<LoaiSanPham> list = selectBySql(sql, thamSo);

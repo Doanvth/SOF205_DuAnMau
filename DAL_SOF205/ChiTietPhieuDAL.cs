@@ -10,7 +10,7 @@ namespace DAL_SOF205
     {
         public bool exists(int id)
         {
-            string sql = "SELECT COUNT(*) FROM ChiTietPhieu WHERE Id = @1";
+            string sql = "SELECT COUNT(*) FROM ChiTietPhieu WHERE Id = @0";
             List<object> thamSo = new List<object> { id };
 
             int count = Convert.ToInt32(DBUtil.ScalarQuery(sql, thamSo));
@@ -20,7 +20,7 @@ namespace DAL_SOF205
 
         public override void insert(ChiTietPhieu entity)
         {
-            String sql = "INSERT INTO ChiTietPhieu (MaPhieu, MaSanPham, SoLuong, DonGia) VALUES (@1, @2, @3, @4)";
+            String sql = "INSERT INTO ChiTietPhieu (MaPhieu, MaSanPham, SoLuong, DonGia) VALUES (@0, @1, @2, @3)";
             List<Object> thamSo = new List<Object>
             {
                 entity.MaPhieu,
@@ -46,7 +46,7 @@ namespace DAL_SOF205
 
         public override void update(ChiTietPhieu entity)
         {
-            String sql = "UPDATE ChiTietPhieu SET MaSanPham=@1, SoLuong=@2, DonGia=@3 WHERE Id=@4";
+            String sql = "UPDATE ChiTietPhieu SET MaSanPham=@0, SoLuong=@1, DonGia=@2 WHERE Id=@3";
             List<Object> thamSo = new List<Object>
             {
                 entity.MaSanPham,
@@ -59,7 +59,7 @@ namespace DAL_SOF205
 
         public override void delete(int id)
         {
-            String sql = "DELETE FROM ChiTietPhieu WHERE Id=@1";
+            String sql = "DELETE FROM ChiTietPhieu WHERE Id=@0";
             List<Object> thamSo = new List<Object>
             {
                 id
@@ -75,7 +75,7 @@ namespace DAL_SOF205
 
         public override ChiTietPhieu selectById(int id)
         {
-            String sql = "SELECT * FROM ChiTietPhieu WHERE Id=@1";
+            String sql = "SELECT * FROM ChiTietPhieu WHERE Id=@0";
             List<Object> thamSo = new List<Object>
             {
                 id

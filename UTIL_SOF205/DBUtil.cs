@@ -20,9 +20,9 @@ namespace UTIL_SOF205
             SqlConnection conn = new SqlConnection(connString);
             SqlCommand cmd= new SqlCommand(sql, conn);
             cmd.CommandType = cmdType;
-            for (int i = 1;i <= args.Count; i++)
+            for (int i = 0;i < args.Count; i++)
             {
-                cmd.Parameters.AddWithValue($"@{i}", args[i-1]);
+                cmd.Parameters.AddWithValue($"@{i}", args[i]);
             }
             return cmd;
         }
