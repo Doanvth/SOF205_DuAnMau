@@ -1,4 +1,4 @@
-using DAL_SOF205;
+﻿using DAL_SOF205;
 using DTO_SOF205;
 using System;
 using System.Collections.Generic;
@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using UTIL_SOF205;
 
 namespace GUI_SOF205
 {
@@ -57,9 +58,9 @@ namespace GUI_SOF205
                     GhiChu = ghiChu,
                 };
 
-                // Gọi DAL để thêm nhân viên vào database
-                LoaiSanPhamDAL loaiSanPhamDLL = new LoaiSanPhamDAL();
-                loaiSanPhamDLL.insert(loaiSP);
+                // 4️ Gọi DAL để thêm nhân viên vào database
+                LoaiSanPhamDAL loaiSanPhamDAL = new LoaiSanPhamDAL();
+                loaiSanPhamDAL.insert(loaiSP);
                 MessageBox.Show("Thêm loại sản phẩm thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
 
@@ -80,6 +81,73 @@ namespace GUI_SOF205
         private void btnXoa_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void QuanLyLoaiSanPham_Load(object sender, EventArgs e)
+        {
+            try
+            {
+                LoaiSanPhamDAL loaiSanPhamDAL = new LoaiSanPhamDAL();
+                List<LoaiSanPham> dsLoai = loaiSanPhamDAL.selectAll();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi tải danh sách loại sản phẩm: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void tabControl_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (tabControl.SelectedTab == tabDanhSach)
+            {
+                LoadDanhSachLoaiSanPham();
+            }
+        }
+
+        private void LoadDanhSachLoaiSanPham()
+        {
+            LoaiSanPhamDAL loaiSanPhamDAL = new LoaiSanPhamDAL();
+            List<LoaiSanPham> danhSach = loaiSanPhamDAL.selectAll();
+
+            // Khởi tạo đối tượng ImageUtil
+            ImageUtil imageUtil = new ImageUtil();
+
+            dgvLoaiSanPham.DataSource = null;
+
+            var danhSachLoaiSP = danhSach.Select(lsp => new
+            {
+                lsp.MaLoai,
+                lsp.TenLoai,
+                lsp.GhiChu
+            }).ToList();
+
+            // Xóa dữ liệu cũ và thiết lập DataSource
+            dgvLoaiSanPham.DataSource = danhSachLoaiSP;
+
+
+            // Tự động điều chỉnh hàng theo nội dung
+            dgvLoaiSanPham.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+        }
+
+        private void dgvLoaiSanPham_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            // Kiểm tra nếu click vào header thì không làm gì
+            if (e.RowIndex < 0) return;
+
+            DataGridViewRow row = dgvLoaiSanPham.Rows[e.RowIndex];
+
+            txtMaLoai.Text = row.Cells["MaLoai"].Value.ToString();
+            txtTenLoai.Text = row.Cells["TenLoai"].Value.ToString();
+            txtGhiChu.Text = row.Cells["GhiChu"].Value.ToString();
+
+            // Chuyển sang tab "CẬP NHẬT"
+            tabControl.SelectedTab = tabCapNhat;
+            // Bật nút "Sửa" & "Xóa", tắt "Thêm"
+            btnThem.Enabled = false;
+            btnSua.Enabled = true;
+            btnXoa.Enabled = true;
+            // Tắt chỉnh sửa mã sản phẩm
+            txtMaLoai.Enabled = false;
         }
     }
 }

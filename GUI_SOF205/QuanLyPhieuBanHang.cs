@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Windows.Forms;
-using DTO_SOF205;
+﻿using DTO_SOF205;
 using DAL_SOF205;
 using UTIL_SOF205;
 
@@ -11,7 +8,7 @@ namespace GUI_SOF205
     {
         private PhieuBanHangDAL phieuBanHangDAL = new PhieuBanHangDAL();
         private ChiTietPhieuDAL chiTietPhieuDAL = new ChiTietPhieuDAL();
-        private SanPhamDLL sanPhamDAL = new SanPhamDLL(); // Thêm DAL sản phẩm
+        private SanPhamDAL sanPhamDAL = new SanPhamDAL(); // Thêm DAL sản phẩm
         private NhanVienDAL nhanVienDAL = new NhanVienDAL();
 
         //Load danh sách phiếu bán hàng

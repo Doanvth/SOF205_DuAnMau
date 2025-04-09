@@ -6,7 +6,7 @@ using System.Text;
 
 namespace DAL_SOF205
 {
-    public class SanPhamDLL : SystemDAL<SanPham, String>
+    public class SanPhamDAL : SystemDAL<SanPham, String>
    {
         public override void insert(SanPham entity)
         {

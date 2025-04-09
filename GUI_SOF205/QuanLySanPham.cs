@@ -1,4 +1,4 @@
-using DAL_SOF205;
+﻿using DAL_SOF205;
 using DTO_SOF205;
 using System;
 using System.Collections.Generic;
@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using UTIL_SOF205;
+
 namespace GUI_SOF205
 {
     public partial class QuanLySanPham : Form
@@ -67,7 +68,7 @@ namespace GUI_SOF205
                     try
                     {
                         ImageUtil imageUtil = new ImageUtil();
-                        savedImageName = imageUtil.save(openFileDialog);
+                         savedImageName = imageUtil.save(openFileDialog);
                     }
                     catch (Exception ex)
                     {
@@ -88,8 +89,8 @@ namespace GUI_SOF205
                 };
 
                 // Gọi DAL để thêm sản phẩm vào database
-                SanPhamDLL sanPhamDLL = new SanPhamDLL();
-                sanPhamDLL.insert(sp);
+                SanPhamDAL sanPhamDAL = new SanPhamDAL();
+                sanPhamDAL.insert(sp);
                 MessageBox.Show("Thêm sản phẩm thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 // Làm mới form sau khi thêm thành công
@@ -105,8 +106,8 @@ namespace GUI_SOF205
         {
             try
             {
-                LoaiSanPhamDAL loaiSanPhamDLL = new LoaiSanPhamDAL();
-                List<LoaiSanPham> dsLoai = loaiSanPhamDLL.selectAll(); // Lấy danh sách loại sản phẩm
+                LoaiSanPhamDAL loaiSanPhamDAL = new LoaiSanPhamDAL();
+                List<LoaiSanPham> dsLoai = loaiSanPhamDAL.selectAll(); // Lấy danh sách loại sản phẩm
                 cboLoaiSanPham.DataSource = dsLoai;
                 cboLoaiSanPham.DisplayMember = "TenLoai"; // Hiển thị tên loại
                 cboLoaiSanPham.ValueMember = "MaLoai"; // Giá trị thực là MaLoai
@@ -158,8 +159,8 @@ namespace GUI_SOF205
 
         private void LoadDanhSachSanPham()
         {
-            SanPhamDLL sanPhamDLL = new SanPhamDLL();
-            List<SanPham> danhSach = sanPhamDLL.selectAll();
+            SanPhamDAL sanPhamDAL = new SanPhamDAL();
+            List<SanPham> danhSach = sanPhamDAL.selectAll();
 
             // Khởi tạo đối tượng ImageUtil
             ImageUtil imageUtil = new ImageUtil();
@@ -255,8 +256,8 @@ namespace GUI_SOF205
                     HinhAnh = savedImageName // Lưu đường dẫn ảnh mới (nếu có)
                 };
                 // 5️ Gọi DAL để cập nhật sản phẩm trong database
-                SanPhamDLL sanPhamDLL = new SanPhamDLL();
-                sanPhamDLL.update(sp);
+                SanPhamDAL sanPhamDAL = new SanPhamDAL();
+                sanPhamDAL.update(sp);
                 MessageBox.Show("Cập nhật sản phẩm thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception ex)
@@ -284,8 +285,8 @@ namespace GUI_SOF205
                 try
                 {
                     // 4️ Gọi phương thức xóa sản phẩm
-                    SanPhamDLL sanPhamDLL = new SanPhamDLL();
-                    sanPhamDLL.delete(maSP);
+                    SanPhamDAL sanPhamDAL = new SanPhamDAL();
+                    sanPhamDAL.delete(maSP);
 
                     // 5️ Làm mới form sau khi xóa
                     ClearForm();
@@ -300,11 +301,6 @@ namespace GUI_SOF205
                     MessageBox.Show("Lỗi khi xóa sản phẩm: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
-        }
-
-        private void llblSanPham_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

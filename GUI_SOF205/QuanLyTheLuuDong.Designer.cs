@@ -48,10 +48,10 @@
             tabPage1.Controls.Add(btnSuaThe);
             tabPage1.Controls.Add(btnXoaThe);
             tabPage1.Controls.Add(btnMoiThe);
-            tabPage1.Location = new Point(4, 34);
+            tabPage1.Location = new Point(4, 24);
             tabPage1.Name = "tabPage1";
             tabPage1.Padding = new Padding(3);
-            tabPage1.Size = new Size(1279, 651);
+            tabPage1.Size = new Size(1279, 661);
             tabPage1.TabIndex = 0;
             tabPage1.Text = "CẬP NHẬT";
             tabPage1.UseVisualStyleBackColor = true;
@@ -63,7 +63,7 @@
             lblTheLuuDong.ForeColor = SystemColors.Highlight;
             lblTheLuuDong.Location = new Point(498, 44);
             lblTheLuuDong.Name = "lblTheLuuDong";
-            lblTheLuuDong.Size = new Size(259, 45);
+            lblTheLuuDong.Size = new Size(177, 30);
             lblTheLuuDong.TabIndex = 21;
             lblTheLuuDong.Text = "THẺ LƯU ĐỘNG";
             // 
@@ -80,7 +80,7 @@
             txtMaThe.Location = new Point(577, 127);
             txtMaThe.Name = "txtMaThe";
             txtMaThe.ReadOnly = true;
-            txtMaThe.Size = new Size(286, 31);
+            txtMaThe.Size = new Size(286, 23);
             txtMaThe.TabIndex = 12;
             // 
             // lblChuSoHuu
@@ -95,7 +95,7 @@
             // 
             txtChuSoHuu.Location = new Point(577, 194);
             txtChuSoHuu.Name = "txtChuSoHuu";
-            txtChuSoHuu.Size = new Size(286, 31);
+            txtChuSoHuu.Size = new Size(286, 23);
             txtChuSoHuu.TabIndex = 14;
             // 
             // lblTrangThai
@@ -161,10 +161,10 @@
             // tabPage2
             // 
             tabPage2.Controls.Add(dgvDSTheLuuDong);
-            tabPage2.Location = new Point(4, 34);
+            tabPage2.Location = new Point(4, 24);
             tabPage2.Name = "tabPage2";
             tabPage2.Padding = new Padding(3);
-            tabPage2.Size = new Size(1279, 651);
+            tabPage2.Size = new Size(1279, 661);
             tabPage2.TabIndex = 1;
             tabPage2.Text = "DANH SÁCH";
             tabPage2.UseVisualStyleBackColor = true;
@@ -179,7 +179,6 @@
             dgvDSTheLuuDong.Size = new Size(1269, 639);
             dgvDSTheLuuDong.TabIndex = 0;
             dgvDSTheLuuDong.CellClick += dgvDSTheLuuDong_CellClick;
-            dgvDSTheLuuDong.CellContentClick += dgvDSTheLuuDong_CellContentClick;
             // 
             // QuanLyTheLuuDong
             // 

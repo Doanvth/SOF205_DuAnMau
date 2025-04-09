@@ -129,10 +129,5 @@ namespace GUI_SOF205
             txtChuSoHuu.Clear();
             chkTrangThai.Checked = false;
         }
-
-        private void dgvDSTheLuuDong_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
     }
 }

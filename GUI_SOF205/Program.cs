@@ -12,7 +12,6 @@ namespace GUI_SOF205
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
             Application.Run(new MainScreen());
-            //Application.Run(new ThongKeTheoLoaiSP());
         }
     }
 }
