@@ -75,12 +75,64 @@ namespace GUI_SOF205
 
         private void btnSua_Click(object sender, EventArgs e)
         {
+            try
+            {
+                string maLoai = txtMaLoai.Text.Trim();
+                string tenLoai = txtTenLoai.Text.Trim();
+                string ghiChu = txtGhiChu.Text.Trim();
 
+                if (string.IsNullOrEmpty(maLoai) || string.IsNullOrEmpty(tenLoai))
+                {
+                    MessageBox.Show("Vui lòng nhập đầy đủ thông tin!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                LoaiSanPham lsp = new LoaiSanPham
+                {
+                    MaLoai = maLoai,
+                    TenLoai = tenLoai,
+                    GhiChu = ghiChu,
+                };
+
+                LoaiSanPhamDAL loaiSanPhamDAL = new LoaiSanPhamDAL();
+                loaiSanPhamDAL.update(lsp);
+                MessageBox.Show("Cập nhật loại sản phẩm thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void btnXoa_Click(object sender, EventArgs e)
         {
+            string maLoai = txtMaLoai.Text.Trim();
 
+            if (string.IsNullOrEmpty(maLoai))
+            {
+                MessageBox.Show("Vui lòng chọn loại sản phẩm cần xóa!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn xóa loại sản phẩm này?", "Xác nhận xóa",
+                                                  MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (result == DialogResult.Yes)
+            {
+                try
+                {
+                    LoaiSanPhamDAL loaiSanPhamDAL = new LoaiSanPhamDAL();
+                    loaiSanPhamDAL.delete(maLoai);
+                    ClearForm();
+                    tabControl.SelectedTab = tabDanhSach;
+
+                    MessageBox.Show("Xóa loại sản phẩm thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Lỗi khi xóa loại sản phẩm: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
         }
 
         private void QuanLyLoaiSanPham_Load(object sender, EventArgs e)
